@@ -88,18 +88,12 @@ enum PaymentMethodError : Error {
                     } else if method == PKPaymentNetwork.discover {
                         type = method
                         string = "discover"
-                    } else if method == PKPaymentNetwork.carteBancaire {
-                        type = method
-                        string = "carteBancaire"
                     } else if method == PKPaymentNetwork.chinaUnionPay {
                         type = method
                         string = "chinaUnionPay"
                     } else if method == PKPaymentNetwork.idCredit {
                         type = method
                         string = "idCredit"
-                    } else if method == PKPaymentNetwork.JCB {
-                        type = method
-                        string = "JCB"
                     } else {
                         throw PaymentMethodError.methodNotPresent
                     }
