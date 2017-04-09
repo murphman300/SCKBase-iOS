@@ -119,9 +119,6 @@ enum PaymentMethodError : Error {
                     } else if method == PKPaymentNetwork.chinaUnionPay {
                         type = method
                         string = "chinaUnionPay"
-                    } else if method == PKPaymentNetwork.JCB {
-                        type = method
-                        string = "JCB"
                     } else {
                         throw PaymentMethodError.methodNotPresent
                     }
