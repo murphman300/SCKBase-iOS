@@ -1313,8 +1313,8 @@ extension String {
     
     func base64Decoded() -> String {
         let decodedData = NSData(base64Encoded: self, options:NSData.Base64DecodingOptions.init(rawValue: 0))
-        let decodedString = NSString(data: decodedData as! Data, encoding: String.Encoding.utf8.rawValue)
-        return decodedString as! String
+        let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)
+        return decodedString! as String
     }
     
     func fromBase64() -> String? {
@@ -1360,10 +1360,10 @@ extension String {
         
         let intSecs = Int(interdate!)
         let intermins = intSecs / 60
-        let interhours = intermins / 60
+        _ = intermins / 60
         let intdays = ((interdate! / 60) / 60) / 24
-        let intweeks = intdays / 7
-        let intmonths = intdays / 30
+        _ = intdays / 7
+        _ = intdays / 30
         
         let minute = Calendar.current.component(.minute, from: date!)
         let hour = Calendar.current.component(.hour, from: date!)
@@ -1518,7 +1518,7 @@ extension String {
     func zipped(_ with: String) -> String {
         var zipped = String()
         
-        let rand = UInt32(arc4random_uniform(3))
+        _ = UInt32(arc4random_uniform(3))
         
         var char = characters
         var char2 = randomString(length: char.count).characters
@@ -1626,7 +1626,7 @@ extension String {
     func skipZip(_ with: String) -> String {
         var zipped = String()
         
-        let rand = UInt32(arc4random_uniform(3))
+        _ = UInt32(arc4random_uniform(3))
         
         var char = characters
         var char2 = with.characters
@@ -1678,7 +1678,7 @@ extension String {
         
         var zipped = String()
         
-        let rand = UInt32(arc4random_uniform(2))
+        _ = UInt32(arc4random_uniform(2))
         
         var char = characters
         var char2 = with.characters

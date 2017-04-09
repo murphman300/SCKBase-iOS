@@ -82,7 +82,7 @@ public class DOB {
         let da = Calendar.current.component(.day, from: d)
         let mo = Calendar.current.component(.month, from: d)
         let ye = Calendar.current.component(.year, from: d)
-        let local = Calendar.current.component(.timeZone, from: d)
+        _ = Calendar.current.component(.timeZone, from: d)
         
         day.set(da)
         month.set(mo)

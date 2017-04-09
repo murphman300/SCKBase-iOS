@@ -235,7 +235,7 @@ public class InterfaceView : UIView, UITextFieldDelegate, UIGestureRecognizerDel
         guard canNotifyDeinit else {
             return
         }
-        NotificationCenter.default.post(name: NSNotification.Name.init("\(stringTag)IsRemovedFromSuperViewSoDeInit"), object: ["tag":stringTag!])
+        NotificationCenter.default.post(name: NSNotification.Name.init("\(String(describing: stringTag))IsRemovedFromSuperViewSoDeInit"), object: ["tag":stringTag!])
     }
     
     private func makeStringTag() {
