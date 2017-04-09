@@ -24,20 +24,12 @@ public class ArrowButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         side = .left
-        print("frame")
         if hasArrow {
-            print("frame 2222")
             if side! == .left {
-                
-                print("frame 22444422")
                 leftArrow()
             } else {
-                
-                print("frame 233333222")
                 rightArrow()
             }
-            
-            print("frame 2-0009222")
         }
     }
     
@@ -47,7 +39,6 @@ public class ArrowButton: UIButton {
     }
     
     private func leftArrow() {
-        print("left arrow")
         let path = UIBezierPath()
         path.move(to: CGPoint(x: buttonSizes.mainheight * 0.55, y: buttonSizes.mainheight * 0.25))
         path.addLine(to: CGPoint(x: buttonSizes.mainheight * 0.3, y: buttonSizes.mainheight * 0.5))
@@ -81,7 +72,7 @@ public class ArrowButton: UIButton {
     func turnArrowDown() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = 0
-        animationFull.toValue       = -M_PI * 0.5
+        animationFull.toValue       = -Double.pi * 0.5
         animationFull.duration      = 0.5 // this might be too fast
         animationFull.repeatCount   = 0
         animationFull.fillMode = kCAFillModeForwards
@@ -92,7 +83,7 @@ public class ArrowButton: UIButton {
     
     func turnArrowUp(){
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
-        animationFull.fromValue     = -M_PI * 0.5
+        animationFull.fromValue     = -Double.pi * 0.5
         animationFull.toValue       = 0
         animationFull.duration      = 0.5 // this might be too fast
         animationFull.repeatCount   = 0

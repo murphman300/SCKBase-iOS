@@ -46,26 +46,20 @@ public class LoadingIndicator : UIView, CAAnimationDelegate{
     var rect = CGRect()
     
     override init(frame: CGRect) {
-        print("B")
         super.init(frame: frame)
         rect = frame
         backgroundColor = UIColor.clear
-        
-        
-        print("C")
     }
     
     override public func draw(_ rect: CGRect) {
-        print("A")
         drawRingFittingInsideView()
-        print("D")
     }
     
     internal func drawRingFittingInsideView() -> () {
         halfSize = min(bounds.size.width/2, bounds.size.height/2)
         let desiredWidth = lineWidth
         thecenter = CGPoint(x:halfSize, y:halfSize)
-        let second = CGPoint(x: halfSize * 0.15, y: halfSize)
+        _ = CGPoint(x: halfSize * 0.15, y: halfSize)
         let portionMult = 1 / circlePortion
         portionUnit = portionMult * circlePortion
         halfCPortion = circlePortion / 2
@@ -162,17 +156,14 @@ public class LoadingIndicator : UIView, CAAnimationDelegate{
             DispatchQueue.main.async(execute: {
                 switch self.viewCount {
                 case 1:
-                    print("C")
                     self.outerAddAnim()
                     self.perform(#selector(self.oneAddAnim), with: nil, afterDelay: 0.7 * 1)
                     
                 case 2:
-                    print("D")
                     self.outerAddAnim()
                     self.perform(#selector(self.oneAddAnim), with: nil, afterDelay: 0.7 * 1)
                     self.perform(#selector(self.twoAddAnim), with: nil, afterDelay: 0.7 * 2)
                 case 3:
-                    print("E")
                     self.outerAddAnim()
                     self.perform(#selector(self.oneAddAnim), with: nil, afterDelay: 0.6 * 1)
                     self.perform(#selector(self.twoAddAnim), with: nil, afterDelay: 0.6 * 2)
@@ -184,7 +175,6 @@ public class LoadingIndicator : UIView, CAAnimationDelegate{
                     self.perform(#selector(self.threeAddAnim), with: nil, afterDelay: 0.6 * 3)
                     self.perform(#selector(self.fourAddAnim), with: nil, afterDelay: 0.6 * 4)
                 default:
-                    print("F")
                     self.outerAddAnim()
                     break
                 }

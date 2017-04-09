@@ -78,7 +78,6 @@ public class CheckMarkButton : UIButton, CAAnimationDelegate {
     }
     
     func animateTo() {
-        print("hi")
         backgroundColor = UIColor.clear
         let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
         pathAnimation.duration = 0.4

@@ -153,7 +153,7 @@ public class InterfaceView : UIView, UITextFieldDelegate, UIGestureRecognizerDel
             if let lay = layer as? CAShapeLayer {
                 let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
                 animationFull.fromValue     = 0
-                animationFull.toValue       = -M_PI * 0.5
+                animationFull.toValue       = -Double.pi * 0.5
                 animationFull.duration      = 0.5 // this might be too fast
                 animationFull.repeatCount   = 0
                 animationFull.fillMode = kCAFillModeForwards
@@ -176,7 +176,7 @@ public class InterfaceView : UIView, UITextFieldDelegate, UIGestureRecognizerDel
         for layer in backbutton.layer.sublayers! {
             if let lay = layer as? CAShapeLayer {
                 let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
-                animationFull.fromValue     = -M_PI * 0.5
+                animationFull.fromValue     = -Double.pi * 0.5
                 animationFull.toValue       = 0
                 animationFull.duration      = 0.5 // this might be too fast
                 animationFull.repeatCount   = 0

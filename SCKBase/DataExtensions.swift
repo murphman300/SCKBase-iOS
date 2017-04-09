@@ -104,7 +104,7 @@ extension Data {
         var rest : [String:Any]?
         do {
             let j = try JSONSerialization.jsonObject(with: self, options: .mutableLeaves) as? [String:Any]
-            print(j, "is JJJ")
+            
             guard let json = j else {
                 completion(nil)
                 return
@@ -145,7 +145,6 @@ extension Data {
                 r.resultMessage = message
                 r.resultCode = code
                 guard let re = rest else {
-                    print("no body")
                     completion(r)
                     return
                 }

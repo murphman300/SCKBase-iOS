@@ -197,7 +197,6 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
                 return
             }
             upCent = (sup.frame.height) - (frame.height / 2)
-            print(upCent, "IS UPCENT")
             shadowSetter()
         }
     }

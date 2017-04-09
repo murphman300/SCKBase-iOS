@@ -32,7 +32,7 @@ extension UIView {
         
         let rotateAnim = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnim.fromValue = 0.0
-        rotateAnim.toValue = CGFloat(M_PI )
+        rotateAnim.toValue = CGFloat(Double.pi)
         rotateAnim.duration = dur
         
         if let del = completion {
@@ -897,7 +897,7 @@ extension NSLocale
 extension NSObject {
     
     func codeFor(countryName: String) -> String {
-        var locales : String = ""
+        let locales : String = ""
         for localeCode in NSLocale.isoCountryCodes {
             let countryName = Locale.current.regionCode
             if countryName?.lowercased() == countryName?.lowercased() {
@@ -1455,7 +1455,6 @@ extension String {
         
         let count = self.characters.count - 1
         var new = self.chopSuffix(count - 4)
-        print(new)
         guard new.characters.count == 5 else {
             print("Fatal Error: checking validWaid returned a string different then 5")
             return false
@@ -1488,7 +1487,6 @@ extension String {
         
         let count = self.characters.count - 1
         var new = self.chopSuffix(count - 4)
-        print(new)
         guard new.characters.count == 5 else {
             print("Fatal Error: checking validPrid for /prid_/ returned a string different then 5")
             return false
