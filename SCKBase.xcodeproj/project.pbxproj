@@ -425,6 +425,7 @@
 				B5B748681E99FFB300A5308E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -22,7 +22,7 @@ extension NSMutableData {
     }
 }
 
-extension Data {
+/*extension Data {
     
     public var bytes: Array<UInt8> {
         return Array(self)
@@ -55,7 +55,7 @@ public extension CSArrayType where Iterator.Element == UInt8 {
             return $0 + s
         }
     }
-}
+}*/
 
 extension Data {
     
