@@ -10,9 +10,16 @@ import UIKit
 import PassKit
 
 
-public struct ApplePay  {
+enum PaymentMethodError : Error {
+    case notAvailable
+    case methodNotPresent
+    case minimumOSNotMet
+}
+
+
+@available(iOS 10, *) public struct ApplePay  {
     
-    private static let nets : [PKPaymentNetwork] = [PKPaymentNetwork.amex, PKPaymentNetwork.discover,PKPaymentNetwork.masterCard,PKPaymentNetwork.visa, PKPaymentNetwork.carteBancaire, PKPaymentNetwork.interac, PKPaymentNetwork.privateLabel]
+    private static let nets : [PKPaymentNetwork] = [PKPaymentNetwork.amex, PKPaymentNetwork.discover,PKPaymentNetwork.masterCard,PKPaymentNetwork.visa, PKPaymentNetwork.interac, PKPaymentNetwork.privateLabel]
     
     var currentMethods : [PaymentMethod]
     var unavailableMethods : [PKPaymentNetwork]
@@ -22,8 +29,7 @@ public struct ApplePay  {
             return checkApplePayCapabilities()
         }
     }
-    
-    private mutating func checkApplePayCapabilities() -> [PaymentMethod] {
+    @available(iOS 10.3, *) private mutating func checkEnhancedApplePayCapabilities() -> [PaymentMethod] {
         currentMethods.removeAll()
         for method in ApplePay.nets {
             do {
@@ -42,14 +48,34 @@ public struct ApplePay  {
         return currentMethods
     }
     
-    public struct PaymentMethod {
+    @available(iOS 10, *) private mutating func checkApplePayCapabilities() -> [PaymentMethod] {
+        currentMethods.removeAll()
+        for method in ApplePay.nets {
+            do {
+                let t = try PaymentMethod(method: method)
+                currentMethods.append(t)
+            } catch let err as PaymentMethodError {
+                if err == .notAvailable {
+                    unavailableMethods.append(method)
+                } else {
+                    
+                }
+            } catch {
+                
+            }
+        }
+        return currentMethods
+    }
+    
+    @available(iOS 10, *) public struct PaymentMethod {
         
         var type : PKPaymentNetwork
         var string : String
         
+        
         init(method: PKPaymentNetwork) throws {
-            if #available(iOS 10, *) {
-                if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: [method]) {
+            if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: [method]) {
+                if #available(iOS 10.3, *) {
                     if method == PKPaymentNetwork.amex {
                         type = method
                         string = "amex"
@@ -78,19 +104,33 @@ public struct ApplePay  {
                         throw PaymentMethodError.methodNotPresent
                     }
                 } else {
-                    throw PaymentMethodError.notAvailable
+                    if method == PKPaymentNetwork.amex {
+                        type = method
+                        string = "amex"
+                    } else if method == PKPaymentNetwork.visa {
+                        type = method
+                        string = "visa"
+                    } else if method == PKPaymentNetwork.masterCard {
+                        type = method
+                        string = "masterCard"
+                    } else if method == PKPaymentNetwork.discover {
+                        type = method
+                        string = "discover"
+                    } else if method == PKPaymentNetwork.chinaUnionPay {
+                        type = method
+                        string = "chinaUnionPay"
+                    } else if method == PKPaymentNetwork.JCB {
+                        type = method
+                        string = "JCB"
+                    } else {
+                        throw PaymentMethodError.methodNotPresent
+                    }
                 }
             } else {
-                throw PaymentMethodError.minimumOSNotMet
+                throw PaymentMethodError.notAvailable
             }
-            return
         }
     }
     
-    enum PaymentMethodError : Error {
-        case notAvailable
-        case methodNotPresent
-        case minimumOSNotMet
-    }
     
 }

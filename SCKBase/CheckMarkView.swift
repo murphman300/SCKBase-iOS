@@ -29,11 +29,11 @@ public class CheckMarkView: UIView, CAAnimationDelegate {
     
     //var animateTime :
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    convenience init(frame: CGRect, strokeWidth: CGFloat?) {
+    convenience public init(frame: CGRect, strokeWidth: CGFloat?) {
         self.init(frame: frame)
         width = frame.width * 0.05
         if strokeWidth != nil {
@@ -65,13 +65,13 @@ public class CheckMarkView: UIView, CAAnimationDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func with(_ color: UIColor) {
+    public func with(_ color: UIColor) {
         checkColor = color
         pathLayer.strokeColor = checkColor.cgColor
         self.layer.borderColor = checkColor.cgColor
     }
     
-    func animate(_ completion: @escaping (Bool) -> Void) {
+    public func animate(_ completion: @escaping (Bool) -> Void) {
         
         let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
         pathAnimation.duration = time
@@ -99,7 +99,7 @@ public class CheckMarkView: UIView, CAAnimationDelegate {
         
     }
     
-    func reverse(_ completion: @escaping (Bool) -> Void) {
+    public func reverse(_ completion: @escaping (Bool) -> Void) {
         
         let reverseAnimation = CABasicAnimation(keyPath: "strokeEnd")
         reverseAnimation.duration = time

@@ -37,11 +37,11 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
     private var sliderIsOpen : Bool = false
     private var doesSlide : Bool = false
     
-    var closedWidthRatio : CGFloat = 1
+    public var closedWidthRatio : CGFloat = 1
     
-    var sliderOptions = [SliderViewSettingsOptions]()
+    public var sliderOptions = [SliderViewSettingsOptions]()
     
-    var hasSlideEnabled : Bool {
+    public var hasSlideEnabled : Bool {
         get {
             return doesSlide
         } set {
@@ -49,7 +49,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var isOpen: Bool {
+    public var isOpen: Bool {
         get {
             return sliderIsOpen
         } set {
@@ -57,7 +57,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var sliderViewHasShadow : Bool {
+    public var sliderViewHasShadow : Bool {
         get {
             return shadow
         } set {
@@ -65,7 +65,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var colorOfRoundShadow : UIColor {
+    public var colorOfRoundShadow : UIColor {
         get {
             return customShadowColor
         } set {
@@ -73,7 +73,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var sliderViewCornerRadius : CGFloat {
+    public var sliderViewCornerRadius : CGFloat {
         get {
             guard let rad = radius else {
                 return 0
@@ -84,7 +84,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var sliderAnimationSpeed: TimeInterval {
+    public var sliderAnimationSpeed: TimeInterval {
         get {
             return animationSpeed
         } set {
@@ -92,7 +92,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var resizesWidthOnSlide: Bool {
+    public var resizesWidthOnSlide: Bool {
         get {
             return resizesWSlide
         } set {
@@ -109,7 +109,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var slider : UIView = {
+    public var slider : UIView = {
         var v = UIView()
         return v
     }()
@@ -121,7 +121,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
     private var superdiffH : CGFloat?
     private var dot : Bool = false
     
-    var closedTab : CGFloat {
+    public var closedTab : CGFloat {
         get {
             guard let ta = tab else {
                 return 40
@@ -141,7 +141,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var upTab : CGFloat {
+    public var upTab : CGFloat {
         get {
             return upCent
         } set {
@@ -153,16 +153,16 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var stop : Bool = true
+    public var stop : Bool = true
     
     var pan = UIPanGestureRecognizer()
     
-    var top : UIView = {
+    public var top : UIView = {
         var v = UIView()
         return v
     }()
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         guard let t = tab else {
             super.init(frame: frame)
             //set()
@@ -174,7 +174,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(isOpenChecker), name: NSNotification.Name.init("NotifyFeedThatMainIntHasAppeared"), object: nil)
     }
     
-    func set() {
+    public func set() {
         addSubview(slider)
         slider.addSubview(top)
         slider.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
@@ -429,7 +429,7 @@ extension SliderView {
 }
 
 
-enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
+public enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
     
     case doesSlide
     case doesMoveSuperView
