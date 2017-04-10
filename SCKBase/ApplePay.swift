@@ -8,7 +8,7 @@
 
 import UIKit
 import PassKit
-
+/*
 
 enum PaymentMethodError : Error {
     case notAvailable
@@ -19,7 +19,7 @@ enum PaymentMethodError : Error {
 
 @available(iOS 10, *) public struct ApplePay  {
     
-    private static let nets : [PKPaymentNetwork] = [PKPaymentNetwork.amex, PKPaymentNetwork.discover,PKPaymentNetwork.masterCard,PKPaymentNetwork.visa, PKPaymentNetwork.interac, PKPaymentNetwork.privateLabel]
+    private static let nets : [PKPaymentNetwork] = [PKPaymentNetwork.amex, PKPaymentNetwork.discover,PKPaymentNetwork.masterCard, PKPaymentNetwork.visa, PKPaymentNetwork.interac, PKPaymentNetwork.privateLabel]
     
     var currentMethods : [PaymentMethod]
     var unavailableMethods : [PKPaymentNetwork]
@@ -124,4 +124,4 @@ enum PaymentMethodError : Error {
     }
     
     
-}
+}*/
