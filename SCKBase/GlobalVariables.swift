@@ -477,7 +477,7 @@ public struct loginSizes {
     }
 }
 
-public struct account {
+public struct accountStruct {
     struct controller {
         static let subviewPadding : CGFloat = screen.height * 0.025
         static let subviewPaddingSide : CGFloat = screen.height * 0.05
@@ -489,6 +489,8 @@ public struct account {
     }
     struct color {
         static let selector_background : UIColor = colors.lineColor
+        static let lighter_controller_main_backGround : UIColor = UIColor.rgb(red: 228, green: 234, blue: 244)
+        static let slider_controller_main_backGround : UIColor = UIColor.rgb(red: 250, green: 250, blue: 250)
         static let controller_main_backGround : UIColor = UIColor.rgb(red: 218, green: 224, blue: 234)
     }
 }

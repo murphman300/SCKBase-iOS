@@ -28,7 +28,6 @@
 		B5B7488C1E9A01B400A5308E /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7488B1E9A01B400A5308E /* LoadingIndicator.swift */; };
 		B5B7488E1E9A020400A5308E /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7488D1E9A020400A5308E /* SliderView.swift */; };
 		B5B748901E9A021700A5308E /* GeoVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7488F1E9A021700A5308E /* GeoVar.swift */; };
-		B5B748941E9A024D00A5308E /* ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748931E9A024D00A5308E /* ApplePay.swift */; };
 		B5B748981E9A066600A5308E /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748971E9A066600A5308E /* GlobalVariables.swift */; };
 		B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748991E9A07E800A5308E /* ContrastBackground.swift */; };
 		B5B7489C1E9A086800A5308E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489B1E9A086800A5308E /* Environment.swift */; };
@@ -64,7 +63,6 @@
 		B5B7488B1E9A01B400A5308E /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		B5B7488D1E9A020400A5308E /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		B5B7488F1E9A021700A5308E /* GeoVar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoVar.swift; sourceTree = "<group>"; };
-		B5B748931E9A024D00A5308E /* ApplePay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePay.swift; sourceTree = "<group>"; };
 		B5B748971E9A066600A5308E /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		B5B748991E9A07E800A5308E /* ContrastBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContrastBackground.swift; sourceTree = "<group>"; };
 		B5B7489B1E9A086800A5308E /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				B5B748811E9A00E200A5308E /* ArrowButton.swift */,
 				B5B748A31E9A0AB100A5308E /* TaxHandler.swift */,
 				B5B748991E9A07E800A5308E /* ContrastBackground.swift */,
-				B5B748931E9A024D00A5308E /* ApplePay.swift */,
 				B5B748A51E9A0AB600A5308E /* FinancialVars.swift */,
 				B5B748831E9A00E700A5308E /* CheckMarkView.swift */,
 				B5B7488D1E9A020400A5308E /* SliderView.swift */,
@@ -231,7 +228,6 @@
 				B5B748861E9A00EC00A5308E /* CheckMarkButton.swift in Sources */,
 				B5B748841E9A00E700A5308E /* CheckMarkView.swift in Sources */,
 				B5B7488A1E9A015700A5308E /* LocationAddress.swift in Sources */,
-				B5B748941E9A024D00A5308E /* ApplePay.swift in Sources */,
 				B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */,
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */,
