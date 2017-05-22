@@ -8,6 +8,6 @@
 
 import Foundation
 
-open class NimbleNetwork : DefaultRequest {
+open class NimbleNetwork : DefaultNetwork {
     
 }
