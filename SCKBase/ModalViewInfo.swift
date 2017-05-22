@@ -15,12 +15,12 @@ public enum ModalViewInfoInitError : Error {
 }
 
 public class CheckoutModalInfo {
-    var storeName : String
-    var by : String?
-    var amount : Int
-    var recieved = Date()
-    var txid : String
-    var locid : String
+    open var storeName : String
+    open var by : String?
+    open var amount : Int
+    open var recieved = Date()
+    open var txid : String
+    open var locid : String
     
     public init(from: [String:Any]) throws {
         print(from)
