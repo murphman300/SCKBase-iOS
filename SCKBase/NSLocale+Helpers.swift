@@ -10,12 +10,12 @@ import UIKit
 
 extension NSLocale
 {
-    public class func localeForCountry(countryName : String) -> String?
+    open class func localeForCountry(countryName : String) -> String?
     {
         return NSLocale.isoCountryCodes.filter{self.countryNameFromLocaleCode(localeCode: $0) == countryName}.first! as String
     }
     
-    public class func countryNameFromLocaleCode(localeCode : String) -> String
+    open class func countryNameFromLocaleCode(localeCode : String) -> String
     {
         return NSLocale(localeIdentifier: "en_UK").displayName(forKey: NSLocale.Key.countryCode, value: localeCode) ?? ""
     }

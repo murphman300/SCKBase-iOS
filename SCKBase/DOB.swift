@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DOB {
+open class DOB {
     var day = Day()
     var month = Month()
     var year = Year()
@@ -111,14 +111,14 @@ enum TimeZoneFormat {
     case utc, local, short
 }
 
-public class MultiDate: MultiVar {
+open class MultiDate: MultiVar {
     override public func set(_ i: Any) {
         super.set(i)
         
     }
 }
 
-public class Day: MultiDate {
+open class Day: MultiDate {
     
     var literal : String {
         get {
@@ -161,7 +161,7 @@ public class Day: MultiDate {
     }
 }
 
-public class Month: MultiDate {
+open class Month: MultiDate {
     
     private var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
@@ -181,7 +181,7 @@ public class Month: MultiDate {
 }
 
 
-public class Year: MultiDate {
+open class Year: MultiDate {
 
 }
 

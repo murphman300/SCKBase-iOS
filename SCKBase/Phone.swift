@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class Phone {
+open class Phone {
     var number = MainDigits()
     var regional = RegionalCode()
     private var isSet : Bool = false
@@ -102,7 +102,7 @@ public class Phone {
     }
     
     
-    public class MainDigits {
+    open class MainDigits {
         private var pre = MultiVar()
         var prefixes : Int {
             get {
@@ -135,7 +135,7 @@ public class Phone {
             
         }
     }
-    public class RegionalCode {
+    open class RegionalCode {
         private var co  = MultiVar()
         private var reg = String()
         

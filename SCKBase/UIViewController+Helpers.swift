@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-public class Interactor: UIPercentDrivenInteractiveTransition {
+open class Interactor: UIPercentDrivenInteractiveTransition {
     var hasStarted = false
     var shouldFinish = false
 }
