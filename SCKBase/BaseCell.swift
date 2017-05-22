@@ -9,12 +9,13 @@
 import UIKit
 
 open class BaseCell: UICollectionViewCell {
-    override public init(frame: CGRect) {
+    
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
     
-    public func setupViews(){
+    open func setupViews(){
         
     }
     
