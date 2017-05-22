@@ -8,6 +8,6 @@
 
 import Foundation
 
-open class SpotitNetwork: DefaultRequest {
-    public static let operation = SpotitNetwork()
+open class SpotitNetwork: DefaultNetwork {
+    
 }
