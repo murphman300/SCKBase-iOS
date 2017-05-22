@@ -305,7 +305,7 @@ open class SliderView : UIView, UIGestureRecognizerDelegate {
         delegate?.slideView(sliderView: self, didAnimate: to, within: within)
     }
     
-    override public func didMoveToSuperview() {
+    override open func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         /*set()
@@ -328,7 +328,7 @@ open class SliderView : UIView, UIGestureRecognizerDelegate {
          }*/
     }
     
-    override public func removeFromSuperview() {
+    override open func removeFromSuperview() {
         super.removeFromSuperview()
         dot = false
     }
