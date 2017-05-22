@@ -6,11 +6,10 @@
 //  Copyright © 2017 Jean-Louis Murphy. All rights reserved.
 //
 
-
 import UIKit
 
 
-public class SliderView : UIView, UIGestureRecognizerDelegate {
+class SliderView : UIView, UIGestureRecognizerDelegate {
     
     weak var delegate : SliderViewDelegate?
     
@@ -37,11 +36,11 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
     private var sliderIsOpen : Bool = false
     private var doesSlide : Bool = false
     
-    public var closedWidthRatio : CGFloat = 1
+    var closedWidthRatio : CGFloat = 1
     
-    public var sliderOptions = [SliderViewSettingsOptions]()
+    var sliderOptions = [SliderViewSettingsOptions]()
     
-    public var hasSlideEnabled : Bool {
+    var hasSlideEnabled : Bool {
         get {
             return doesSlide
         } set {
@@ -49,7 +48,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var isOpen: Bool {
+    var isOpen: Bool {
         get {
             return sliderIsOpen
         } set {
@@ -57,7 +56,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var sliderViewHasShadow : Bool {
+    var sliderViewHasShadow : Bool {
         get {
             return shadow
         } set {
@@ -65,7 +64,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var colorOfRoundShadow : UIColor {
+    var colorOfRoundShadow : UIColor {
         get {
             return customShadowColor
         } set {
@@ -73,7 +72,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var sliderViewCornerRadius : CGFloat {
+    var sliderViewCornerRadius : CGFloat {
         get {
             guard let rad = radius else {
                 return 0
@@ -84,7 +83,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var sliderAnimationSpeed: TimeInterval {
+    var sliderAnimationSpeed: TimeInterval {
         get {
             return animationSpeed
         } set {
@@ -92,7 +91,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var resizesWidthOnSlide: Bool {
+    var resizesWidthOnSlide: Bool {
         get {
             return resizesWSlide
         } set {
@@ -109,7 +108,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var slider : UIView = {
+    var slider : UIView = {
         var v = UIView()
         return v
     }()
@@ -121,7 +120,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
     private var superdiffH : CGFloat?
     private var dot : Bool = false
     
-    public var closedTab : CGFloat {
+    var closedTab : CGFloat {
         get {
             guard let ta = tab else {
                 return 40
@@ -141,7 +140,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var upTab : CGFloat {
+    var upTab : CGFloat {
         get {
             return upCent
         } set {
@@ -153,16 +152,16 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    public var stop : Bool = true
+    var stop : Bool = true
     
     var pan = UIPanGestureRecognizer()
     
-    public var top : UIView = {
+    var top : UIView = {
         var v = UIView()
         return v
     }()
     
-    override public init(frame: CGRect) {
+    override init(frame: CGRect) {
         guard let t = tab else {
             super.init(frame: frame)
             //set()
@@ -174,13 +173,12 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(isOpenChecker), name: NSNotification.Name.init("NotifyFeedThatMainIntHasAppeared"), object: nil)
     }
     
-    public func set() {
+    func set() {
         addSubview(slider)
         slider.addSubview(top)
         slider.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
-        top.frame = CGRect(x: 0, y: 0, width: slider.frame.width, height: sliderviews.pads.openedWithTab)
-        top.backgroundColor = UIColor.white
-        //top.roundCorners([.topRight, .topLeft], 10)
+        top.frame = CGRect(x: 0, y: 0, width: slider.frame.width, height: buttonSizes.mainheight)
+        top.backgroundColor = colors.loginTfBack
         setsSliderView(options: sliderOptions)
         pan.addTarget(self, action: #selector(panning(sender:)))
         top.addGestureRecognizer(pan)
@@ -197,11 +195,12 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
                 return
             }
             upCent = (sup.frame.height) - (frame.height / 2)
+            print(upCent, "IS UPCENT")
             shadowSetter()
         }
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -306,12 +305,30 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         delegate?.slideView(sliderView: self, didAnimate: to, within: within)
     }
     
-    override public func didMoveToSuperview() {
+    override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
+        /*set()
+         if dot {
+         guard let t = tab else {
+         return
+         }
+         closedTab = t
+         dot = false
+         guard uppedTab != nil else {
+         return
+         }
+         guard let sup = superview else {
+         return
+         }
+         upCent = (sup.frame.height) - (frame.height / 2)
+         shadowSetter()
+         addSubview(slider)
+         
+         }*/
     }
     
-    override public func removeFromSuperview() {
+    override func removeFromSuperview() {
         super.removeFromSuperview()
         dot = false
     }
@@ -334,7 +351,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    public func setWidthsFromRatio(_ sup : UIView) {
+    func setWidthsFromRatio(_ sup : UIView) {
         
         let factor = closedWidthRatio / 1
         closedW = sup.frame.width
@@ -343,17 +360,17 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    public func slideUp() {
+    func slideUp() {
         
         delegateMethodParser(upCent, closedCent - upCent, true)
         
     }
     
-    public func slideDown() {
+    func slideDown() {
         delegateMethodParser(closedCent, closedCent - upCent, true)
     }
     
-    public func isOpenChecker() {
+    func isOpenChecker() {
         
         guard sliderIsOpen else {
             slideUp()
@@ -362,7 +379,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         slideDown()
     }
     
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
@@ -384,14 +401,12 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
                 self.shadow = true
             }
         }
+        
     }
-}
-
-extension SliderView {
     
 }
 
-@objc public protocol SliderViewDelegate : class {
+@objc protocol SliderViewDelegate : class {
     
     func sliderView(sliderView: SliderView, didSlideToPlace: CGFloat, within: CGFloat)
     
@@ -401,9 +416,12 @@ extension SliderView {
     
     func slideView(sliderView: SliderView, didAnimate superviewTo: CGFloat, within: CGFloat)
     
+    
+    
 }
 
-public enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
+
+enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
     
     case doesSlide
     case doesMoveSuperView
@@ -420,7 +438,7 @@ enum radii : CGFloat {
     case twenty = 20
 }
 
-public struct HasCornerRadius {
+struct HasCornerRadius {
     private var value : radii
     
     var ofValue : radii {

@@ -16,7 +16,7 @@ public class MultiVar  {
     
     private var alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXYZ!@#$%^&*()_+}{|:'/<>?()[]"
     
-    var nulls : Bool {
+    open var nulls : Bool {
         get {
             return true
         } set {
@@ -24,7 +24,7 @@ public class MultiVar  {
         }
     }
     
-    var nulli : Bool {
+    open var nulli : Bool {
         get {
             return true
         } set {
@@ -33,7 +33,7 @@ public class MultiVar  {
         }
     }
     
-    var string : String {
+    open var string : String {
         get {
             if s != nil {
                 return s!
@@ -43,7 +43,7 @@ public class MultiVar  {
         }
     }
     
-    var integer : Int {
+    open var integer : Int {
         get {
             if int != nil {
                 return int!
@@ -53,7 +53,7 @@ public class MultiVar  {
         }
     }
     
-    var cgFloat : CGFloat {
+    open var cgFloat : CGFloat {
         get {
             if c != nil {
                 return c!
@@ -63,13 +63,13 @@ public class MultiVar  {
         }
     }
     
-    func stringValue(_ byFactor: Int) -> String? {
+    public func stringValue(_ byFactor: Int) -> String? {
         let new = integer * byFactor
         let res = String(describing: new)
         return res
     }
     
-    func set(_ i: Any) {
+    public func set(_ i: Any) {
         if Mirror(reflecting: i).subjectType == Mirror(reflecting: Int()).subjectType {
             if let it = i as? Int {
                 int = it

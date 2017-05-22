@@ -13,7 +13,7 @@ enum NSMutableRequestInitializationError : Error {
 }
 
 open class DefaultRequest : NSMutableURLRequest {
-    
+
     convenience public init(url: String, method: httpMet, authToken: String, empToken: String?, payload: [String:Any]?) throws {
         var ur : URL?
         if let u = URL(string: url) {
