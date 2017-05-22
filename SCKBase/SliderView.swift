@@ -173,7 +173,7 @@ open class SliderView : UIView, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(isOpenChecker), name: NSNotification.Name.init("NotifyFeedThatMainIntHasAppeared"), object: nil)
     }
     
-    public func set() {
+    open func set() {
         addSubview(slider)
         slider.addSubview(top)
         slider.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
