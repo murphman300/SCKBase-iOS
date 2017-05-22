@@ -64,11 +64,12 @@ public class GeoVar {
         }
     }
     
-    public class StatePair {
+    open class StatePair {
         var chortCode = String()
         var state = String()
+        
     }
-    public class CountryPair {
+    open class CountryPair {
         var chortCode = String()
         var country = String()
     }

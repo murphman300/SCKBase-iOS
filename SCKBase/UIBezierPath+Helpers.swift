@@ -1,5 +1,5 @@
 //
-//  UIBezierPathExtensions.swift
+//  UIBezierPath+Helpers.swift
 //  Checkout
 //
 //  Created by Jean-Louis Murphy on 2017-04-07.
