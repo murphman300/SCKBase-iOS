@@ -39,7 +39,7 @@ open class PinCircles: UIView {
         super.init(frame: frame)
     }
     
-    public func set() {
+    open func set() {
         circles = [one, two, three, four]
         let width = frame.width * 0.8
         let area = width / CGFloat(circles.count)
