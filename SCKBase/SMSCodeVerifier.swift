@@ -9,7 +9,7 @@
 
 import UIKit
 
-@objc protocol CodeVerifierDelegate : class {
+@objc public protocol CodeVerifierDelegate : class {
     
     func code(verifier: SMSCodeVerifier, confirmation: Bool)
     func code(verifier: SMSCodeVerifier, didCancel: Bool)
@@ -17,9 +17,9 @@ import UIKit
     
 }
 
-class SMSCodeVerifier : UIView, UITextFieldDelegate {
+open class SMSCodeVerifier : UIView, UITextFieldDelegate {
     
-    weak var delegate : CodeVerifierDelegate?
+    public weak var delegate : CodeVerifierDelegate?
     
     private var token : String?
     
@@ -90,12 +90,12 @@ class SMSCodeVerifier : UIView, UITextFieldDelegate {
         return but
     }()
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
     }
     
-    func set(topPad : CGFloat) {
+    public func set(topPad : CGFloat) {
         if let window = UIApplication.shared.keyWindow {
             window.addSubview(self)
         }
@@ -145,7 +145,7 @@ class SMSCodeVerifier : UIView, UITextFieldDelegate {
         self.card.layer.masksToBounds = true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard textField != number else {
             guard let t = textField.text else {
                 return true
@@ -169,11 +169,11 @@ class SMSCodeVerifier : UIView, UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return false
     }
     
-    func bringUp(token: String, _ completion: @escaping (Bool) -> Void) {
+    public func bringUp(token: String, _ completion: @escaping (Bool) -> Void) {
         self.token = token
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             self.alpha = 1
@@ -219,7 +219,7 @@ class SMSCodeVerifier : UIView, UITextFieldDelegate {
         }
     }
     
-    func send() {
+    public func send() {
         guard let tok = token else {
             return
         }
@@ -269,7 +269,7 @@ class SMSCodeVerifier : UIView, UITextFieldDelegate {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

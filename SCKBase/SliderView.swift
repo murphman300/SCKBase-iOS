@@ -9,13 +9,13 @@
 import UIKit
 
 
-class SliderView : UIView, UIGestureRecognizerDelegate {
+public class SliderView : UIView, UIGestureRecognizerDelegate {
     
-    weak var delegate : SliderViewDelegate?
+    open weak var delegate : SliderViewDelegate?
     
     private var moveSuperView : Bool = false
     
-    var doesMoveSuperView: Bool {
+    open var doesMoveSuperView: Bool {
         get {
             return moveSuperView
         } set {
@@ -36,11 +36,11 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
     private var sliderIsOpen : Bool = false
     private var doesSlide : Bool = false
     
-    var closedWidthRatio : CGFloat = 1
+    open var closedWidthRatio : CGFloat = 1
     
-    var sliderOptions = [SliderViewSettingsOptions]()
+    open var sliderOptions = [SliderViewSettingsOptions]()
     
-    var hasSlideEnabled : Bool {
+    open var hasSlideEnabled : Bool {
         get {
             return doesSlide
         } set {
@@ -48,7 +48,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var isOpen: Bool {
+    open var isOpen: Bool {
         get {
             return sliderIsOpen
         } set {
@@ -56,7 +56,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var sliderViewHasShadow : Bool {
+    open var sliderViewHasShadow : Bool {
         get {
             return shadow
         } set {
@@ -64,7 +64,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var colorOfRoundShadow : UIColor {
+    open var colorOfRoundShadow : UIColor {
         get {
             return customShadowColor
         } set {
@@ -72,7 +72,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var sliderViewCornerRadius : CGFloat {
+    open var sliderViewCornerRadius : CGFloat {
         get {
             guard let rad = radius else {
                 return 0
@@ -83,7 +83,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var sliderAnimationSpeed: TimeInterval {
+    open var sliderAnimationSpeed: TimeInterval {
         get {
             return animationSpeed
         } set {
@@ -91,7 +91,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var resizesWidthOnSlide: Bool {
+    open var resizesWidthOnSlide: Bool {
         get {
             return resizesWSlide
         } set {
@@ -108,19 +108,19 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var slider : UIView = {
+    open var slider : UIView = {
         var v = UIView()
         return v
     }()
     
-    var closedCent = CGFloat()
-    var upCent = CGFloat()
+    open var closedCent = CGFloat()
+    open var upCent = CGFloat()
     private var tab : CGFloat?
     private var uppedTab : CGFloat?
     private var superdiffH : CGFloat?
     private var dot : Bool = false
     
-    var closedTab : CGFloat {
+    open var closedTab : CGFloat {
         get {
             guard let ta = tab else {
                 return 40
@@ -140,7 +140,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var upTab : CGFloat {
+    open var upTab : CGFloat {
         get {
             return upCent
         } set {
@@ -152,16 +152,16 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var stop : Bool = true
+    open var stop : Bool = true
     
-    var pan = UIPanGestureRecognizer()
+    open var pan = UIPanGestureRecognizer()
     
-    var top : UIView = {
+    open var top : UIView = {
         var v = UIView()
         return v
     }()
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         guard let t = tab else {
             super.init(frame: frame)
             //set()
@@ -173,7 +173,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(isOpenChecker), name: NSNotification.Name.init("NotifyFeedThatMainIntHasAppeared"), object: nil)
     }
     
-    func set() {
+    public func set() {
         addSubview(slider)
         slider.addSubview(top)
         slider.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
@@ -200,7 +200,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -305,7 +305,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         delegate?.slideView(sliderView: self, didAnimate: to, within: within)
     }
     
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         /*set()
@@ -328,7 +328,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
          }*/
     }
     
-    override func removeFromSuperview() {
+    override public func removeFromSuperview() {
         super.removeFromSuperview()
         dot = false
     }
@@ -351,7 +351,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    func setWidthsFromRatio(_ sup : UIView) {
+    public func setWidthsFromRatio(_ sup : UIView) {
         
         let factor = closedWidthRatio / 1
         closedW = sup.frame.width
@@ -360,17 +360,17 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    func slideUp() {
+    public func slideUp() {
         
         delegateMethodParser(upCent, closedCent - upCent, true)
         
     }
     
-    func slideDown() {
+    public func slideDown() {
         delegateMethodParser(closedCent, closedCent - upCent, true)
     }
     
-    func isOpenChecker() {
+    public func isOpenChecker() {
         
         guard sliderIsOpen else {
             slideUp()
@@ -379,7 +379,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
         slideDown()
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
@@ -406,7 +406,7 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
     
 }
 
-@objc protocol SliderViewDelegate : class {
+@objc public protocol SliderViewDelegate : class {
     
     func sliderView(sliderView: SliderView, didSlideToPlace: CGFloat, within: CGFloat)
     
@@ -416,12 +416,10 @@ class SliderView : UIView, UIGestureRecognizerDelegate {
     
     func slideView(sliderView: SliderView, didAnimate superviewTo: CGFloat, within: CGFloat)
     
-    
-    
 }
 
 
-enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
+public enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
     
     case doesSlide
     case doesMoveSuperView
@@ -431,17 +429,17 @@ enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
     
 }
 
-enum radii : CGFloat {
+public enum radii : CGFloat {
     case five = 5
     case ten = 10
     case fifteen = 15
     case twenty = 20
 }
 
-struct HasCornerRadius {
+public struct HasCornerRadius {
     private var value : radii
     
-    var ofValue : radii {
+    public var ofValue : radii {
         get {
             return value
         } set {

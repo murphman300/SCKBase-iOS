@@ -9,7 +9,7 @@
 import UIKit
 
 
-class DismissAnimator : NSObject {
+open class DismissAnimator : NSObject {
 }
 
 extension DismissAnimator : UIViewControllerAnimatedTransitioning {
