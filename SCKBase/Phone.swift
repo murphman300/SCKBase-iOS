@@ -13,7 +13,7 @@ open class Phone {
     open var regional = RegionalCode()
     private var isSet : Bool = false
     
-    open init() {
+    public init() {
         
     }
     
