@@ -9,11 +9,11 @@
 import UIKit
 
 open class DOB: NSObject {
-    var day = Day()
-    var month = Month()
-    var year = Year()
-    var timeZone = String()
-    
+    open var day = Day()
+    open var month = Month()
+    open var year = Year()
+    open var timeZone = String()
+    open var dateFromInt = Int()
     private var dat: Date?
     
     public override init() {
