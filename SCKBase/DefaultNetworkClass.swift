@@ -16,9 +16,13 @@ public enum NetworkOperationParsingError: Error {
     case noCode, noMessage, noPayload
 }
 
-open class DefaultNetwork {
+open class DefaultNetwork: NSObject {
     
     static public let operation = DefaultNetwork()
+    
+    override public init() {
+        super.init()
+    }
     
     public func perform(request: NSMutableURLRequest,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any],_ other: Any?,_ array: [AnyObject]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
         URLSession.shared.dataTask(with: request as URLRequest) { (d, resp, err) in
