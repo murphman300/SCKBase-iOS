@@ -51,7 +51,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         backgroundColor = UIColor.clear
     }
     
-    override public func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         drawRingFittingInsideView()
     }
     

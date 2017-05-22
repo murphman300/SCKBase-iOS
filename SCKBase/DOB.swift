@@ -112,7 +112,7 @@ enum TimeZoneFormat {
 }
 
 open class MultiDate: MultiVar {
-    override public func set(_ i: Any) {
+    override open func set(_ i: Any) {
         super.set(i)
         
     }
@@ -156,7 +156,7 @@ open class Day: MultiDate {
         }
     }
     
-    override public func set(_ i: Any) {
+    override open func set(_ i: Any) {
         super.set(i)
     }
 }
@@ -171,7 +171,7 @@ open class Month: MultiDate {
         }
     }
     
-    override public func set(_ i: Any) {
+    override open func set(_ i: Any) {
         super.set(i)
         if nulls {
             
