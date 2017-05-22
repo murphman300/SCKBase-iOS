@@ -10,6 +10,9 @@ import UIKit
 
 
 open class DismissAnimator : NSObject {
+    override public init() {
+        
+    }
 }
 
 extension DismissAnimator : UIViewControllerAnimatedTransitioning {

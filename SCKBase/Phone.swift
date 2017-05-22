@@ -13,7 +13,7 @@ open class Phone {
     open var regional = RegionalCode()
     private var isSet : Bool = false
     
-    public init() {
+    open init() {
         
     }
     
@@ -35,13 +35,13 @@ open class Phone {
         }
     }
     
-    public func set(_ code: String,_ pref: String,_ suf: String) {
+    open func set(_ code: String,_ pref: String,_ suf: String) {
         number.set(pref, suf)
         regional.set(code)
         isSet = true
     }
     
-    public func set(_ code: Int,_ pref: Int,_ suf: Int) {
+    open func set(_ code: Int,_ pref: Int,_ suf: Int) {
         number.set(pref, suf)
         regional.set(code)
         isSet = true
