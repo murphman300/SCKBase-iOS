@@ -360,13 +360,13 @@ open class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    public func slideUp() {
+    open func slideUp() {
         
         delegateMethodParser(upCent, closedCent - upCent, true)
         
     }
     
-    public func slideDown() {
+    open func slideDown() {
         delegateMethodParser(closedCent, closedCent - upCent, true)
     }
     
