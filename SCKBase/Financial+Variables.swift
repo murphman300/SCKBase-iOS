@@ -9,15 +9,15 @@
 import Foundation
 
 
-struct CanadianTaxRates {
+public struct CanadianTaxRates {
     
-    struct quebec {
-        static let tps : Double = 0.05
-        static let tvq : Double = 0.09975
+    public struct quebec {
+        public static let tps : Double = 0.05
+        public static let tvq : Double = 0.09975
     }
     
-    struct ontario {
-        static let hst : Double = 0.13
+    public struct ontario {
+        public static let hst : Double = 0.13
     }
     
 }

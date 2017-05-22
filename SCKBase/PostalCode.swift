@@ -71,4 +71,10 @@ open class PostalCode {
         }
     }
     
+    
+    public init(){
+        
+    }
+    
+    
 }

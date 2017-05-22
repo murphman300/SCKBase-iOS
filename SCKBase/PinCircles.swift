@@ -9,8 +9,8 @@
 import UIKit
 
 open class PinCircles: UIView {
-    var number = 4
-    var selected : UIColor?
+    open var number = 4
+    open var selected : UIColor?
     private var one : UIView = {
         var v = UIView()
         v.tag = 1
@@ -35,11 +35,11 @@ open class PinCircles: UIView {
         return v
     }()
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    func set() {
+    public func set() {
         circles = [one, two, three, four]
         let width = frame.width * 0.8
         let area = width / CGFloat(circles.count)
@@ -56,7 +56,7 @@ open class PinCircles: UIView {
         }
     }
     
-    func updateCircles(_ int: Int) {
+    public func updateCircles(_ int: Int) {
         guard int <= 4 else {
             return
         }
@@ -96,7 +96,7 @@ open class PinCircles: UIView {
             break
         }
     }
-    var circles = [UIView]()
+    open var circles = [UIView]()
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

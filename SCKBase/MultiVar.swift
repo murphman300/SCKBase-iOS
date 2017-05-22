@@ -9,12 +9,16 @@
 import UIKit
 
 
-open class MultiVar  {
+open class MultiVar: NSObject  {
     private var s: String?
     private var int: Int?
     private var c: CGFloat?
     
     private var alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXYZ!@#$%^&*()_+}{|:'/<>?()[]"
+    
+    public override init() {
+        super.init()
+    }
     
     open var nulls : Bool {
         get {

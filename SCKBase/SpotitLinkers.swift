@@ -37,6 +37,10 @@ open class Connections {
     
     open var api = Api()
     
+    public init() {
+        
+    }
+    
     private struct servers {
         
         static let localDev : String = "http://192.168.2.208:3000"
@@ -118,6 +122,11 @@ open class Connections {
     
     open class Api {
         open var version = String()
+        
+        public init() {
+            
+        }
+        
         func configure() {
             versionGet { (v) in
                 guard let vers = v else {

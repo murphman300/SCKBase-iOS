@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class DOB {
+open class DOB: NSObject {
     var day = Day()
     var month = Month()
     var year = Year()
@@ -16,31 +16,35 @@ open class DOB {
     
     private var dat: Date?
     
-    var utc : String {
+    public override init() {
+        super.init()
+    }
+    
+    open var utc : String {
         get {
             return stringIn(.utc)
         }
     }
     
-    var local : String {
+    open var local : String {
         get {
             return stringIn(.local)
         }
     }
     
-    var short : String {
+    open var short : String {
         get {
             return stringIn(.short)
         }
     }
     
-    var literal : String {
+    open var literal : String {
         get {
             return "\(day.literal) of \(month.monthString) \(year.integer)"
         }
     }
     
-    var date : Date? {
+    open var date : Date? {
         get {
             guard dat != nil else {
                 return nil
@@ -71,7 +75,7 @@ open class DOB {
         return str
     }
     
-    func start() {
+    public func start() {
         datatoDate()
     }
     
@@ -87,17 +91,13 @@ open class DOB {
         day.set(da)
         month.set(mo)
         year.set(ye)
-        
-        
-        
-        
     }
     
     private func datatoDate() {
         dat = NSDate(dateString: "\(year.integer)-\(month.integer)-\(day.integer)") as Date
     }
     
-    var canBeObject: Bool {
+    open var canBeObject: Bool {
         get {
             guard dat != nil else {
                 return false
@@ -107,12 +107,12 @@ open class DOB {
     }
 }
 
-enum TimeZoneFormat {
+public enum TimeZoneFormat {
     case utc, local, short
 }
 
 open class MultiDate: MultiVar {
-    override open func set(_ i: Any) {
+    override public func set(_ i: Any) {
         super.set(i)
         
     }
@@ -120,7 +120,7 @@ open class MultiDate: MultiVar {
 
 open class Day: MultiDate {
     
-    var literal : String {
+    open var literal : String {
         get {
             var suff = String()
             guard integer != 1 else {
@@ -165,7 +165,7 @@ open class Month: MultiDate {
     
     private var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
-    var monthString : String {
+    open var monthString : String {
         get {
             return months[integer - 1]
         }

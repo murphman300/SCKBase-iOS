@@ -12,40 +12,40 @@ import CoreGraphics
 
 open class LoadingIndicator : UIView, CAAnimationDelegate{
     
-    var fillColor : UIColor = UIColor.clear
-    var stroke : UIColor = UIColor.clear
-    var lineWidth : CGFloat = 1
-    var viewCount : Int = 0
-    var halfSize = CGFloat()
-    var thecenter = CGPoint()
-    var factor : CGFloat = 0.2
-    var begin = Timer()
+    open var fillColor : UIColor = UIColor.clear
+    open var stroke : UIColor = UIColor.clear
+    open var lineWidth : CGFloat = 1
+    open var viewCount : Int = 0
+    open var halfSize = CGFloat()
+    open var thecenter = CGPoint()
+    open var factor : CGFloat = 0.2
+    open var begin = Timer()
     
     //Circle Dimension Values
-    var circlePortion = CGFloat()
-    var portionUnit = CGFloat()
-    var halfCPortion = CGFloat()
+    open var circlePortion = CGFloat()
+    open var portionUnit = CGFloat()
+    open var halfCPortion = CGFloat()
     
     //Ripple Vars
-    var hasRipple : Bool = false
+    open var hasRipple : Bool = false
     
-    var rippleColor: UIColor = UIColor.black
-    var rippleThickness: Float = 0.5
-    var rippleTimer: Float = 1
-    var rippleEndScale: Float = 5
-    var rippleTrailColor: UIColor = UIColor.clear
-    var rippleFillColor = UIColor()
-    var animationDuration: TimeInterval = 2.5
-    var timer = Timer()
-    var originalSize: CGRect?
+    open var rippleColor: UIColor = UIColor.black
+    open var rippleThickness: Float = 0.5
+    open var rippleTimer: Float = 1
+    open var rippleEndScale: Float = 5
+    open var rippleTrailColor: UIColor = UIColor.clear
+    open var rippleFillColor = UIColor()
+    open var animationDuration: TimeInterval = 2.5
+    open var timer = Timer()
+    open var originalSize: CGRect?
     
-    var view1 = UIView()
-    var view2 = UIView()
-    var view3 = UIView()
-    var view4 = UIView()
-    var rect = CGRect()
+    open var view1 = UIView()
+    open var view2 = UIView()
+    open var view3 = UIView()
+    open var view4 = UIView()
+    open var rect = CGRect()
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         rect = frame
         backgroundColor = UIColor.clear
@@ -103,7 +103,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         self.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.1))
     }
     
-    func rotateAnimation(check : Bool) -> Bool {
+    public func rotateAnimation(check : Bool) -> Bool {
         
         guard check else {
             switch viewCount {
@@ -149,7 +149,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         return !check
     }
     
-    func chainDelayedRotateAnimation(check : Bool) -> Bool {
+    public func chainDelayedRotateAnimation(check : Bool) -> Bool {
         print("A")
         guard check else {
             print("B")
@@ -199,7 +199,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         return !check
     }
     
-    func removeAll(_ completion: @escaping (Bool) -> Void) {
+    public func removeAll(_ completion: @escaping (Bool) -> Void) {
         self.layer.removeAllAnimations()
         self.view1.layer.removeAllAnimations()
         self.view2.layer.removeAllAnimations()
@@ -217,7 +217,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         layer.add(animationFull, forKey: "rotation")
     }
     
-    func makeOne() {
+    public func makeOne() {
         let count : CGFloat = 1
         view1.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         view1.backgroundColor = UIColor.clear
@@ -233,7 +233,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view1)
     }
     
-    func oneAddAnim() {
+    public func oneAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = 0
         animationFull.toValue       = 2*Double.pi
@@ -243,7 +243,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         view1.layer.add(animationFull, forKey: "rotation")
     }
     
-    func makeTwo() {
+    public func makeTwo() {
         let count : CGFloat = 2
         view2.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         view2.backgroundColor = UIColor.clear
@@ -259,7 +259,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view2)
     }
     
-    func twoAddAnim() {
+    public func twoAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue = 2*Double.pi
         animationFull.toValue = 0
@@ -269,7 +269,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         view2.layer.add(animationFull, forKey: "rotation")
     }
     
-    func makeThree() {
+    public func makeThree() {
         let count : CGFloat = 3
         view3.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         view3.backgroundColor = UIColor.clear
@@ -285,7 +285,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view3)
     }
     
-    func threeAddAnim() {
+    public func threeAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = 2*Double.pi
         animationFull.toValue       = 0
@@ -295,7 +295,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         view3.layer.add(animationFull, forKey: "rotation")
     }
     
-    func makeFour() {
+    public func makeFour() {
         let count : CGFloat = 4
         view4.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         view4.backgroundColor = UIColor.clear
@@ -311,7 +311,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view4)
     }
     
-    func fourAddAnim() {
+    public func fourAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue = 0
         animationFull.toValue = 2 * Double.pi
@@ -326,11 +326,11 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         
     }
     
-    func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
+    public func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
         return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
     }
     
-    func initRipple() {
+    public func initRipple() {
         
         self.originalSize = rect
         self.rippleFillColor = stroke
@@ -344,7 +344,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         
     }
     
-    func continuousRipples() {
+    public func continuousRipples() {
         let pathFrame: CGRect = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
         let path = UIBezierPath(roundedRect: pathFrame, cornerRadius: self.frame.size.height)
         let shapePosition = self.convert(self.center, from: nil)
@@ -375,7 +375,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         
     }
     
-    func drawWithFrame(frame: CGRect) {
+    public func drawWithFrame(frame: CGRect) {
         self.timer = Timer.scheduledTimer(timeInterval: Double(self.rippleTimer), target: self, selector: #selector(continuousRipples), userInfo: nil, repeats: true)
     }
 }

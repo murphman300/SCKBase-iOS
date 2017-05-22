@@ -19,6 +19,10 @@ open class State {
     
     open var str = String()
     
+    public init(){
+        
+    }
+    
     public func set(_ name: String) {
         geo.province = name
     }

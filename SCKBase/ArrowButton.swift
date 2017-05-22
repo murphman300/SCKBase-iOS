@@ -21,7 +21,7 @@ open class ArrowButton: UIButton {
     var arrowLayer = CAShapeLayer()
     
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         side = .left
         if hasArrow {
@@ -33,7 +33,7 @@ open class ArrowButton: UIButton {
         }
     }
     
-    func hasArrowRight() {
+    public func hasArrowRight() {
         hasArrow = true
         side = .right
     }
@@ -69,7 +69,7 @@ open class ArrowButton: UIButton {
         layer.addSublayer(arrowLayer)
     }
     
-    func turnArrowDown() {
+    public func turnArrowDown() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = 0
         animationFull.toValue       = -Double.pi * 0.5
@@ -81,7 +81,7 @@ open class ArrowButton: UIButton {
         
     }
     
-    func turnArrowUp(){
+    public func turnArrowUp(){
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = -Double.pi * 0.5
         animationFull.toValue       = 0
