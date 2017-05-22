@@ -8,9 +8,9 @@
 
 import Foundation
 
-let ENVIRONMENT_VAR : String = "test"
+public var ENVIRONMENT_VAR : String = "test"
 
-var ENVIRONMENT_VERSION_STATE : String {
+public var ENVIRONMENT_VERSION_STATE : String {
     get {
         var comps = Connections.node.api.version.components(separatedBy: ".")
         guard let state = Int("\(comps[1])") else {
@@ -29,13 +29,13 @@ var ENVIRONMENT_VERSION_STATE : String {
     }
 }
 
-class Connections {
+open class Connections {
     
-    static let node = Connections()
+    open static let node = Connections()
     
-    static var api_version = String()
+    open static var api_version = String()
     
-    var api = Api()
+    open var api = Api()
     
     private struct servers {
         
@@ -57,7 +57,7 @@ class Connections {
     }
     
     
-    var root : String {
+    open var root : String {
         get {
             
             guard ENVIRONMENT_VAR != "development" else {
@@ -77,7 +77,7 @@ class Connections {
         }
     }
     
-    var paymentRoot: String {
+    open var paymentRoot: String {
         get {
             guard ENVIRONMENT_VAR != "development" else {
                 return paymentNode.localDev + "/central/payment"
@@ -96,7 +96,7 @@ class Connections {
     }
     
     
-    static var root_version : String {
+    open static var root_version : String {
         get {
             
             guard ENVIRONMENT_VAR != "test" else {
@@ -116,8 +116,8 @@ class Connections {
         }
     }
     
-    class Api {
-        var version = String()
+    open class Api {
+        open var version = String()
         func configure() {
             versionGet { (v) in
                 guard let vers = v else {

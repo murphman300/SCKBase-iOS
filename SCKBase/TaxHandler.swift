@@ -9,9 +9,9 @@
 import UIKit
 
 
-class TaxHandler: NSObject {
+open class TaxHandler: NSObject {
     
-    func forQuebec(_ amountInCAD: String) -> [String: String] {
+    public func forQuebec(_ amountInCAD: String) -> [String: String] {
         
         let value = CGFloat(Double(amountInCAD)! * 100)
         
@@ -23,7 +23,7 @@ class TaxHandler: NSObject {
         return ["subtotal": "\(realsub)", "tps": "\(tps)", "tvq": "\(tvq)"]
     }
     
-    func forOntario(_ amountInCAD: String) -> [String: String] {
+    public func forOntario(_ amountInCAD: String) -> [String: String] {
         
         let value = CGFloat(Double(amountInCAD)! * 100)
         
