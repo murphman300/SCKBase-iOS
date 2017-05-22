@@ -50,7 +50,7 @@ open class ADate: DOB {
 
 
 extension NSDate {
-    func dateString(str: String) {
+    public func dateString(str: String) {
         
         
         guard str.characters.count == 10 else {
@@ -70,7 +70,7 @@ extension NSDate {
             timeIntervalSince(d)
         }
     }
-    convenience init(dateString: String) {
+    convenience public init(dateString: String) {
         self.init()
         guard !dateString.contains("Z") else {
             let dateFormatter = DateFormatter()
