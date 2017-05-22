@@ -10,7 +10,7 @@ import UIKit
 
 extension CGPath {
     
-    func forEach( body: @convention(block) (CGPathElement) -> Void) {
+    public func forEach( body: @convention(block) (CGPathElement) -> Void) {
         typealias Body = @convention(block) (CGPathElement) -> Void
         let callback: @convention(c) (UnsafeMutableRawPointer, UnsafePointer<CGPathElement>) -> Void = { (info, element) in
             let body = unsafeBitCast(info, to: Body.self)
@@ -20,8 +20,7 @@ extension CGPath {
         self.apply(info: unsafeBody, function: unsafeBitCast(callback, to: CGPathApplierFunction.self))
     }
     
-    
-    func getPathElementsPoints() -> [CGPoint] {
+    public func getPathElementsPoints() -> [CGPoint] {
         var arrayPoints : [CGPoint]! = [CGPoint]()
         self.forEach { element in
             switch (element.type) {
@@ -42,7 +41,7 @@ extension CGPath {
         return arrayPoints
     }
     
-    func getPathElementsPointsAndTypes() -> ([CGPoint],[CGPathElementType]) {
+    public func getPathElementsPointsAndTypes() -> ([CGPoint],[CGPathElementType]) {
         var arrayPoints : [CGPoint]! = [CGPoint]()
         var arrayTypes : [CGPathElementType]! = [CGPathElementType]()
         self.forEach { element in

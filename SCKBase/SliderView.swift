@@ -309,24 +309,6 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         
-        /*set()
-         if dot {
-         guard let t = tab else {
-         return
-         }
-         closedTab = t
-         dot = false
-         guard uppedTab != nil else {
-         return
-         }
-         guard let sup = superview else {
-         return
-         }
-         upCent = (sup.frame.height) - (frame.height / 2)
-         shadowSetter()
-         addSubview(slider)
-         
-         }*/
     }
     
     override public func removeFromSuperview() {
@@ -352,7 +334,7 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    func setWidthsFromRatio(_ sup : UIView) {
+    public func setWidthsFromRatio(_ sup : UIView) {
         
         let factor = closedWidthRatio / 1
         closedW = sup.frame.width
@@ -361,17 +343,17 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
         
     }
     
-    func slideUp() {
+    public func slideUp() {
         
         delegateMethodParser(upCent, closedCent - upCent, true)
         
     }
     
-    func slideDown() {
+    public func slideDown() {
         delegateMethodParser(closedCent, closedCent - upCent, true)
     }
     
-    func isOpenChecker() {
+    public func isOpenChecker() {
         
         guard sliderIsOpen else {
             slideUp()
@@ -402,19 +384,14 @@ public class SliderView : UIView, UIGestureRecognizerDelegate {
                 self.shadow = true
             }
         }
-        
     }
-    
 }
 
 extension SliderView {
     
-    
-    
 }
 
-
-@objc protocol SliderViewDelegate : class {
+@objc public protocol SliderViewDelegate : class {
     
     func sliderView(sliderView: SliderView, didSlideToPlace: CGFloat, within: CGFloat)
     
@@ -424,10 +401,7 @@ extension SliderView {
     
     func slideView(sliderView: SliderView, didAnimate superviewTo: CGFloat, within: CGFloat)
     
-    
-    
 }
-
 
 public enum SliderViewSettingsOptions : CGFloat, RawRepresentable {
     

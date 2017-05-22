@@ -11,7 +11,7 @@ import UIKit
 
 extension UIView {
     
-    func gradientBorder(_ withColors : [UIColor],_ inDirection: ContrastSides,_ withRadius: CGFloat?) {
+    public func gradientBorder(_ withColors : [UIColor],_ inDirection: ContrastSides,_ withRadius: CGFloat?) {
         var radius = CGFloat()
         if let rad = withRadius {
             radius = rad
@@ -111,7 +111,7 @@ extension UIView {
         layer.addSublayer(gradient)
     }
     
-    func gradientBorder(_ withColors : [UIColor],_ inDirection: ContrastSides,_ withGradientLayout: [CGFloat], _ withRadius: CGFloat?) {
+    public func gradientBorder(_ withColors : [UIColor],_ inDirection: ContrastSides,_ withGradientLayout: [CGFloat], _ withRadius: CGFloat?) {
         var radius = CGFloat()
         if let rad = withRadius {
             radius = rad

@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.author             = { "murphman300" => "jeanlouismurphy@gmail.com" }
   #s.platform     = :ios
   s.platform     = :ios, "10.0"
-  s.ios.deployment_target = "10.3"
+  s.ios.deployment_target = "10.0"
   s.source       = { :git => "https://github.com/murphman300/SCKBase-iOS.git", :tag => "#{s.version}" }
   s.source_files  = "SCKBase", "SCKBase/**/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"

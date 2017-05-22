@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B535D8461ECF70FA00E52710 /* NimbleNetwork+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8451ECF70FA00E52710 /* NimbleNetwork+Helpers.swift */; };
+		B535D8481ECF722300E52710 /* SpotitNetwork+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8471ECF722300E52710 /* SpotitNetwork+Helpers.swift */; };
+		B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */; };
+		B535D84C1ECF76A500E52710 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84B1ECF76A500E52710 /* LocalImageView.swift */; };
+		B535D84E1ECF76BF00E52710 /* LocalImageView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84D1ECF76BF00E52710 /* LocalImageView+Helpers.swift */; };
+		B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */; };
+		B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8511ECF781700E52710 /* NimbleNetwork.swift */; };
+		B535D8541ECF781E00E52710 /* SpotitNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8531ECF781E00E52710 /* SpotitNetwork.swift */; };
+		B535D8561ECF78B700E52710 /* SelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8551ECF78B700E52710 /* SelectorButton.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748691E99FFF300A5308E /* MultiVar.swift */; };
 		B5B7486C1E9A000200A5308E /* DOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7486B1E9A000200A5308E /* DOB.swift */; };
@@ -18,7 +27,6 @@
 		B5B748781E9A008400A5308E /* RoundedColorBorderGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748771E9A008400A5308E /* RoundedColorBorderGradient.swift */; };
 		B5B7487A1E9A008B00A5308E /* UIImage+Decompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748791E9A008B00A5308E /* UIImage+Decompression.swift */; };
 		B5B7487C1E9A009A00A5308E /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7487B1E9A009900A5308E /* UIBezierPathExtensions.swift */; };
-		B5B7487E1E9A00C400A5308E /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7487D1E9A00C400A5308E /* InterfaceView.swift */; };
 		B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7487F1E9A00CE00A5308E /* BaseCell.swift */; };
 		B5B748821E9A00E200A5308E /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748811E9A00E200A5308E /* ArrowButton.swift */; };
 		B5B748841E9A00E700A5308E /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748831E9A00E700A5308E /* CheckMarkView.swift */; };
@@ -30,16 +38,22 @@
 		B5B748901E9A021700A5308E /* GeoVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7488F1E9A021700A5308E /* GeoVar.swift */; };
 		B5B748981E9A066600A5308E /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748971E9A066600A5308E /* GlobalVariables.swift */; };
 		B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748991E9A07E800A5308E /* ContrastBackground.swift */; };
-		B5B7489C1E9A086800A5308E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489B1E9A086800A5308E /* Environment.swift */; };
-		B5B7489E1E9A08C700A5308E /* ProfileOvalDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489D1E9A08C700A5308E /* ProfileOvalDivider.swift */; };
 		B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */; };
-		B5B748A21E9A094500A5308E /* NetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A11E9A094500A5308E /* NetworkExtensions.swift */; };
 		B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A31E9A0AB100A5308E /* TaxHandler.swift */; };
 		B5B748A61E9A0AB600A5308E /* FinancialVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A51E9A0AB600A5308E /* FinancialVars.swift */; };
 		B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B535D8451ECF70FA00E52710 /* NimbleNetwork+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NimbleNetwork+Helpers.swift"; sourceTree = "<group>"; };
+		B535D8471ECF722300E52710 /* SpotitNetwork+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpotitNetwork+Helpers.swift"; sourceTree = "<group>"; };
+		B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkClass.swift; sourceTree = "<group>"; };
+		B535D84B1ECF76A500E52710 /* LocalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalImageView.swift; sourceTree = "<group>"; };
+		B535D84D1ECF76BF00E52710 /* LocalImageView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalImageView+Helpers.swift"; sourceTree = "<group>"; };
+		B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRequest.swift; sourceTree = "<group>"; };
+		B535D8511ECF781700E52710 /* NimbleNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleNetwork.swift; sourceTree = "<group>"; };
+		B535D8531ECF781E00E52710 /* SpotitNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitNetwork.swift; sourceTree = "<group>"; };
+		B535D8551ECF78B700E52710 /* SelectorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorButton.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B748611E99FFB300A5308E /* SCKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKBase.h; sourceTree = "<group>"; };
 		B5B748621E99FFB300A5308E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +67,6 @@
 		B5B748771E9A008400A5308E /* RoundedColorBorderGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedColorBorderGradient.swift; sourceTree = "<group>"; };
 		B5B748791E9A008B00A5308E /* UIImage+Decompression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Decompression.swift"; sourceTree = "<group>"; };
 		B5B7487B1E9A009900A5308E /* UIBezierPathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensions.swift; sourceTree = "<group>"; };
-		B5B7487D1E9A00C400A5308E /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceView.swift; sourceTree = "<group>"; };
 		B5B7487F1E9A00CE00A5308E /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		B5B748811E9A00E200A5308E /* ArrowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
 		B5B748831E9A00E700A5308E /* CheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
@@ -65,10 +78,7 @@
 		B5B7488F1E9A021700A5308E /* GeoVar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoVar.swift; sourceTree = "<group>"; };
 		B5B748971E9A066600A5308E /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		B5B748991E9A07E800A5308E /* ContrastBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContrastBackground.swift; sourceTree = "<group>"; };
-		B5B7489B1E9A086800A5308E /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		B5B7489D1E9A08C700A5308E /* ProfileOvalDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileOvalDivider.swift; sourceTree = "<group>"; };
 		B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
-		B5B748A11E9A094500A5308E /* NetworkExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkExtensions.swift; sourceTree = "<group>"; };
 		B5B748A31E9A0AB100A5308E /* TaxHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxHandler.swift; sourceTree = "<group>"; };
 		B5B748A51E9A0AB600A5308E /* FinancialVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialVars.swift; sourceTree = "<group>"; };
 		B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyles.swift; sourceTree = "<group>"; };
@@ -85,6 +95,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B535D8421ECF702300E52710 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7488B1E9A01B400A5308E /* LoadingIndicator.swift */,
+				B5B748731E9A006400A5308E /* PinCircles.swift */,
+				B5B748811E9A00E200A5308E /* ArrowButton.swift */,
+				B5B748991E9A07E800A5308E /* ContrastBackground.swift */,
+				B5B748831E9A00E700A5308E /* CheckMarkView.swift */,
+				B5B7488D1E9A020400A5308E /* SliderView.swift */,
+				B535D84B1ECF76A500E52710 /* LocalImageView.swift */,
+				B535D84D1ECF76BF00E52710 /* LocalImageView+Helpers.swift */,
+				B5B7487F1E9A00CE00A5308E /* BaseCell.swift */,
+				B5B748851E9A00EC00A5308E /* CheckMarkButton.swift */,
+				B5B7486F1E9A002D00A5308E /* LocalData.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B535D8431ECF703200E52710 /* Specifics */ = {
+			isa = PBXGroup;
+			children = (
+				B5B748691E99FFF300A5308E /* MultiVar.swift */,
+				B5B7486D1E9A001A00A5308E /* DateClasses.swift */,
+				B5B7486B1E9A000200A5308E /* DOB.swift */,
+				B5B748711E9A003600A5308E /* Phone.swift */,
+				B5B748A31E9A0AB100A5308E /* TaxHandler.swift */,
+				B5B748A51E9A0AB600A5308E /* FinancialVars.swift */,
+				B5B7488F1E9A021700A5308E /* GeoVar.swift */,
+				B5B748971E9A066600A5308E /* GlobalVariables.swift */,
+				B5B748891E9A015700A5308E /* LocationAddress.swift */,
+			);
+			name = Specifics;
+			sourceTree = "<group>";
+		};
+		B535D8441ECF704100E52710 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */,
+			);
+			name = Animators;
+			sourceTree = "<group>";
+		};
 		B5B748541E99FFB300A5308E = {
 			isa = PBXGroup;
 			children = (
@@ -104,35 +156,22 @@
 		B5B748601E99FFB300A5308E /* SCKBase */ = {
 			isa = PBXGroup;
 			children = (
-				B5B748691E99FFF300A5308E /* MultiVar.swift */,
-				B5B7486D1E9A001A00A5308E /* DateClasses.swift */,
-				B5B7486B1E9A000200A5308E /* DOB.swift */,
-				B5B748711E9A003600A5308E /* Phone.swift */,
-				B5B7488B1E9A01B400A5308E /* LoadingIndicator.swift */,
-				B5B748731E9A006400A5308E /* PinCircles.swift */,
-				B5B7489B1E9A086800A5308E /* Environment.swift */,
-				B5B7489D1E9A08C700A5308E /* ProfileOvalDivider.swift */,
+				B535D8431ECF703200E52710 /* Specifics */,
+				B535D8421ECF702300E52710 /* Views */,
 				B5B748751E9A007B00A5308E /* Extensions.swift */,
 				B5B748791E9A008B00A5308E /* UIImage+Decompression.swift */,
 				B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */,
-				B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */,
-				B5B748A11E9A094500A5308E /* NetworkExtensions.swift */,
+				B535D8441ECF704100E52710 /* Animators */,
+				B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */,
+				B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */,
+				B535D8451ECF70FA00E52710 /* NimbleNetwork+Helpers.swift */,
+				B535D8511ECF781700E52710 /* NimbleNetwork.swift */,
+				B535D8531ECF781E00E52710 /* SpotitNetwork.swift */,
+				B535D8471ECF722300E52710 /* SpotitNetwork+Helpers.swift */,
+				B535D8551ECF78B700E52710 /* SelectorButton.swift */,
 				B5B7487B1E9A009900A5308E /* UIBezierPathExtensions.swift */,
 				B5B748771E9A008400A5308E /* RoundedColorBorderGradient.swift */,
-				B5B748811E9A00E200A5308E /* ArrowButton.swift */,
-				B5B748A31E9A0AB100A5308E /* TaxHandler.swift */,
-				B5B748991E9A07E800A5308E /* ContrastBackground.swift */,
-				B5B748A51E9A0AB600A5308E /* FinancialVars.swift */,
-				B5B748831E9A00E700A5308E /* CheckMarkView.swift */,
-				B5B7488D1E9A020400A5308E /* SliderView.swift */,
-				B5B7487F1E9A00CE00A5308E /* BaseCell.swift */,
-				B5B7488F1E9A021700A5308E /* GeoVar.swift */,
-				B5B748971E9A066600A5308E /* GlobalVariables.swift */,
 				B5B748871E9A014400A5308E /* MerchantLocation.swift */,
-				B5B748891E9A015700A5308E /* LocationAddress.swift */,
-				B5B748851E9A00EC00A5308E /* CheckMarkButton.swift */,
-				B5B7487D1E9A00C400A5308E /* InterfaceView.swift */,
-				B5B7486F1E9A002D00A5308E /* LocalData.swift */,
 				B5B748611E99FFB300A5308E /* SCKBase.h */,
 				B5B748621E99FFB300A5308E /* Info.plist */,
 			);
@@ -224,28 +263,33 @@
 				B5B7487C1E9A009A00A5308E /* UIBezierPathExtensions.swift in Sources */,
 				B5B748741E9A006400A5308E /* PinCircles.swift in Sources */,
 				B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */,
-				B5B7489E1E9A08C700A5308E /* ProfileOvalDivider.swift in Sources */,
+				B535D8541ECF781E00E52710 /* SpotitNetwork.swift in Sources */,
+				B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */,
 				B5B748861E9A00EC00A5308E /* CheckMarkButton.swift in Sources */,
 				B5B748841E9A00E700A5308E /* CheckMarkView.swift in Sources */,
+				B535D84E1ECF76BF00E52710 /* LocalImageView+Helpers.swift in Sources */,
 				B5B7488A1E9A015700A5308E /* LocationAddress.swift in Sources */,
 				B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */,
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
+				B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */,
+				B535D8461ECF70FA00E52710 /* NimbleNetwork+Helpers.swift in Sources */,
 				B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */,
 				B5B7486C1E9A000200A5308E /* DOB.swift in Sources */,
 				B5B7487A1E9A008B00A5308E /* UIImage+Decompression.swift in Sources */,
+				B535D8561ECF78B700E52710 /* SelectorButton.swift in Sources */,
 				B5B748A61E9A0AB600A5308E /* FinancialVars.swift in Sources */,
 				B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */,
 				B5B748901E9A021700A5308E /* GeoVar.swift in Sources */,
+				B535D8481ECF722300E52710 /* SpotitNetwork+Helpers.swift in Sources */,
 				B5B7486E1E9A001A00A5308E /* DateClasses.swift in Sources */,
 				B5B748821E9A00E200A5308E /* ArrowButton.swift in Sources */,
-				B5B7487E1E9A00C400A5308E /* InterfaceView.swift in Sources */,
 				B5B748881E9A014400A5308E /* MerchantLocation.swift in Sources */,
 				B5B748981E9A066600A5308E /* GlobalVariables.swift in Sources */,
-				B5B748A21E9A094500A5308E /* NetworkExtensions.swift in Sources */,
-				B5B7489C1E9A086800A5308E /* Environment.swift in Sources */,
 				B5B748701E9A002D00A5308E /* LocalData.swift in Sources */,
 				B5B748781E9A008400A5308E /* RoundedColorBorderGradient.swift in Sources */,
+				B535D84C1ECF76A500E52710 /* LocalImageView.swift in Sources */,
 				B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */,
+				B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */,
 				B5B748761E9A007B00A5308E /* Extensions.swift in Sources */,
 				B5B7488E1E9A020400A5308E /* SliderView.swift in Sources */,
 			);
@@ -346,6 +390,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
