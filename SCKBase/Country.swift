@@ -12,7 +12,7 @@ enum Countries: String {
     
     case can = "Canada"
     
-    init() {
+    public init() {
         self = Countries(rawValue: "Canada")!
     }
     

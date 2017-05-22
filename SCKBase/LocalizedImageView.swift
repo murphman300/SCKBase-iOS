@@ -36,7 +36,7 @@ open class LocalizedImageView: UIImageView {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
-    func handleTap() {
+    public func handleTap() {
         tapCallback?()
     }
     

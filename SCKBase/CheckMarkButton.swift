@@ -11,20 +11,20 @@ import UIKit
 open class CheckMarkButton : UIButton, CAAnimationDelegate {
     
     
-    var width : CGFloat = 8
+    open var width : CGFloat = 8
     
-    var pathLayer = CAShapeLayer()
-    var checkColor : UIColor = colors.greenColor
+    open var pathLayer = CAShapeLayer()
+    open var checkColor : UIColor = colors.greenColor
     private var checked : Bool = false
     
-    var isChecked : Bool {
+    open var isChecked : Bool {
         get {
             return checked
         }
     }
     private var checkMarkKVOberver = String()
     
-    var setCheckObserver : String {
+    open var setCheckObserver : String {
         get {
             return ""
         } set {
@@ -32,18 +32,18 @@ open class CheckMarkButton : UIButton, CAAnimationDelegate {
         }
     }
     
-    var ckeckValue : String {
+    open var ckeckValue : String {
         get {
             return "CheckMarkButtonChecked\(checkMarkKVOberver)"
         }
     }
-    var uncheckValue : String {
+    open var uncheckValue : String {
         get {
             return "CheckMarkButtonUnChecked\(checkMarkKVOberver)"
         }
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         layer.cornerRadius = 10
@@ -71,13 +71,13 @@ open class CheckMarkButton : UIButton, CAAnimationDelegate {
     }
     
     
-    func with(_ color: UIColor) {
+    public func with(_ color: UIColor) {
         checkColor = color
         pathLayer.strokeColor = color.cgColor
         self.layer.borderColor = color.cgColor
     }
     
-    func animateTo() {
+    public func animateTo() {
         backgroundColor = UIColor.clear
         let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
         pathAnimation.duration = 0.4
@@ -96,7 +96,7 @@ open class CheckMarkButton : UIButton, CAAnimationDelegate {
         
     }
     
-    func unAnimate() {
+    public func unAnimate() {
         let reverseAnimation = CABasicAnimation(keyPath: "strokeEnd")
         reverseAnimation.duration = 0.4
         reverseAnimation.fromValue = NSNumber(floatLiteral: 1)

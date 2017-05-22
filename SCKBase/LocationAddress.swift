@@ -19,7 +19,7 @@ public struct LocationAddress {
     
     
     
-    init(country: String, municipality: String, number: String,  postalCode: String,  state: String,  street: String) {
+    public init(country: String, municipality: String, number: String,  postalCode: String,  state: String,  street: String) {
         
         self.country = country
         self.municipality = municipality

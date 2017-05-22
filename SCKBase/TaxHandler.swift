@@ -11,6 +11,10 @@ import UIKit
 
 open class TaxHandler: NSObject {
     
+    public override init() {
+        
+    }
+    
     public func forQuebec(_ amountInCAD: String) -> [String: String] {
         
         let value = CGFloat(Double(amountInCAD)! * 100)

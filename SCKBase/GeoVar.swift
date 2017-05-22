@@ -12,6 +12,11 @@ import UIKit
 open class GeoVar {
     private var data : StatePair?
     private var cdata : CountryPair?
+    
+    public init() {
+        
+    }
+    
     var province : String? {
         get {
             guard let d = data else {

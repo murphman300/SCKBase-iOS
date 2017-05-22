@@ -14,6 +14,10 @@ open class Phone {
     var regional = RegionalCode()
     private var isSet : Bool = false
     
+    public init() {
+        
+    }
+    
     var display : String {
         get {
             return "\(regional.display)-\(number.prefixes)-\(number.suffixes)"
@@ -104,6 +108,11 @@ open class Phone {
     
     open class MainDigits {
         private var pre = MultiVar()
+        
+        public init() {
+            
+        }
+        
         var prefixes : Int {
             get {
                 return pre.integer

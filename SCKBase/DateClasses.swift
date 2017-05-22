@@ -18,15 +18,7 @@ open class ADate: DOB {
         self.start()
     }
     
-    convenience init(day: Int, month: Int, year: Int) {
-        self.init()
-        self.day.set(day)
-        self.month.set(month)
-        self.year.set(year)
-        self.start()
-    }
-    
-    func setFrom(string: String) {
+    public func setFrom(string: String) {
         
         let dat = string.components(separatedBy: "T")
         let da = dat[0]

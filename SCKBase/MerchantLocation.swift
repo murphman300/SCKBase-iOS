@@ -16,7 +16,7 @@ open class MerchantLocation: NSObject {
     var value : String?
     var attributes : [String]?
     
-    override init() {
+    public override init() {
         super.init()
     }
     

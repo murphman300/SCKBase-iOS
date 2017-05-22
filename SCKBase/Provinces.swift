@@ -58,6 +58,11 @@ public enum Provinces: String {
 
 open class Country {
     private var geo = GeoVar()
+    
+    public init(){
+        
+    }
+    
     func set(_ name: String) {
         geo.country = name
     }

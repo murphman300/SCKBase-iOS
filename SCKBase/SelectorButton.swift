@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SelectorButton: UIButton {
+public class SelectorButton: UIButton {
     
     
 

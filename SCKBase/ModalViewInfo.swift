@@ -8,13 +8,13 @@
 
 import UIKit
 
-enum ModalViewInfoInitError : Error {
+public enum ModalViewInfoInitError : Error {
     
     case missing(String)
     
 }
 
-class CheckoutModalInfo {
+public class CheckoutModalInfo {
     var storeName : String
     var by : String?
     var amount : Int
@@ -22,7 +22,7 @@ class CheckoutModalInfo {
     var txid : String
     var locid : String
     
-    init(from: [String:Any]) throws {
+    public init(from: [String:Any]) throws {
         print(from)
         if let name = from["locname"] as? String {
             storeName = name
