@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class MultiVar  {
+open class MultiVar  {
     private var s: String?
     private var int: Int?
     private var c: CGFloat?

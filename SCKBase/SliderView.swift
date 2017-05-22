@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class SliderView : UIView, UIGestureRecognizerDelegate {
+open class SliderView : UIView, UIGestureRecognizerDelegate {
     
     open weak var delegate : SliderViewDelegate?
     

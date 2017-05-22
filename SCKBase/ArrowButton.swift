@@ -10,7 +10,7 @@ import UIKit
 
 
 
-public class ArrowButton: UIButton {
+open class ArrowButton: UIButton {
     
     fileprivate enum buttonSide {
         case left, right

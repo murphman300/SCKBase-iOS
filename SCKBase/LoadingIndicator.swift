@@ -10,7 +10,7 @@
 import UIKit
 import CoreGraphics
 
-public class LoadingIndicator : UIView, CAAnimationDelegate{
+open class LoadingIndicator : UIView, CAAnimationDelegate{
     
     var fillColor : UIColor = UIColor.clear
     var stroke : UIColor = UIColor.clear

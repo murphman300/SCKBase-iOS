@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PinCircles: UIView {
+open class PinCircles: UIView {
     var number = 4
     var selected : UIColor?
     private var one : UIView = {

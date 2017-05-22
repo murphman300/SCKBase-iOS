@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class MerchantLocation: NSObject {
+open class MerchantLocation: NSObject {
     var name: String?
     var locid: String?
     var picurl : String?

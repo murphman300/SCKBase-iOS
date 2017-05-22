@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 import AudioToolbox
 
-public class CheckMarkView: UIView, CAAnimationDelegate {
+open class CheckMarkView: UIView, CAAnimationDelegate {
     
     var width : CGFloat = 8
     

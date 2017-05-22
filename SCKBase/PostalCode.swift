@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PostalCode {
+open class PostalCode {
 
     private var suff : String?
     private var pref : String?

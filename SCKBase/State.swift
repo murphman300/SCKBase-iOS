@@ -14,7 +14,7 @@ public enum States {
     
 }
 
-public class State {
+open class State {
     private var geo = GeoVar()
     
     open var str = String()

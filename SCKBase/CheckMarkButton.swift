@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CheckMarkButton : UIButton, CAAnimationDelegate {
+open class CheckMarkButton : UIButton, CAAnimationDelegate {
     
     
     var width : CGFloat = 8

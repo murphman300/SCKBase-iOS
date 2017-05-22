@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ADate: DOB {
+open class ADate: DOB {
     
     required convenience public init(day: String, month: String, year: String) {
         self.init()

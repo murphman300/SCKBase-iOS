@@ -635,7 +635,7 @@ extension String {
         return res
     }
     
-    public class ZippedPair {
+    open class ZippedPair {
         
         var main = String()
         var other = String()

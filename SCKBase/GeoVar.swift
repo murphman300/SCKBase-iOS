@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class GeoVar {
+open class GeoVar {
     private var data : StatePair?
     private var cdata : CountryPair?
     var province : String? {

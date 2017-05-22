@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LocalData {
+open class LocalData {
     open var isAssigned : Bool = false
     open var street = String()
     open var number = String()
