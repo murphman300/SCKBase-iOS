@@ -127,7 +127,7 @@ open class Connections {
             
         }
         
-        func configure() {
+        public func configure() {
             versionGet { (v) in
                 guard let vers = v else {
                     return

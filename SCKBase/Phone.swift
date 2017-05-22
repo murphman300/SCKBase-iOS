@@ -8,47 +8,46 @@
 
 import UIKit
 
-
 open class Phone {
-    var number = MainDigits()
-    var regional = RegionalCode()
+    open var number = MainDigits()
+    open var regional = RegionalCode()
     private var isSet : Bool = false
     
-    public init() {
+    open init() {
         
     }
     
-    var display : String {
+    open var display : String {
         get {
             return "\(regional.display)-\(number.prefixes)-\(number.suffixes)"
         }
     }
     
-    var compact : String {
+    open var compact : String {
         get {
             return "\(regional.compact)\(number.prefixes)\(number.suffixes)"
         }
     }
     
-    var stpCompact : String {
+    open var stpCompact : String {
         get {
             return "\(regional.area)\(number.prefixes)\(number.suffixes)"
         }
     }
     
-    func set(_ code: String,_ pref: String,_ suf: String) {
+    open func set(_ code: String,_ pref: String,_ suf: String) {
         number.set(pref, suf)
         regional.set(code)
         isSet = true
     }
     
-    func set(_ code: Int,_ pref: Int,_ suf: Int) {
+    open func set(_ code: Int,_ pref: Int,_ suf: Int) {
         number.set(pref, suf)
         regional.set(code)
         isSet = true
     }
     
-    var suffix: Int {
+    open var suffix: Int {
         get {
             return number.suffixes
         } set {
@@ -56,7 +55,7 @@ open class Phone {
         }
     }
     
-    var prefix: Int {
+    open var prefix: Int {
         get {
             return number.prefixes
         } set {
@@ -64,15 +63,13 @@ open class Phone {
         }
     }
     
-    
-    
-    var code: Int {
+    open var code: Int {
         get {
             return regional.code
         }
     }
     
-    var canBeObject: Bool {
+    open var canBeObject: Bool {
         get {
             guard isSet else {
                 return false
@@ -81,7 +78,7 @@ open class Phone {
         }
     }
     
-    var dict : [String:String] {
+    open var dict : [String:String] {
         get {
             guard canBeObject else {
                 return [:]
@@ -90,7 +87,7 @@ open class Phone {
         }
     }
     
-    var dataObject : Data? {
+    open var dataObject : Data? {
         get {
             let obj = dict
             do {
@@ -113,7 +110,7 @@ open class Phone {
             
         }
         
-        var prefixes : Int {
+        open var prefixes : Int {
             get {
                 return pre.integer
             } set {
@@ -122,7 +119,7 @@ open class Phone {
         }
         private var suf  = MultiVar()
         
-        var suffixes : Int {
+        open var suffixes : Int {
             get {
                 return suf.integer
             } set {
@@ -130,12 +127,12 @@ open class Phone {
             }
         }
         
-        func set(_ pref: Int, _ sufx: Int) {
+        public func set(_ pref: Int, _ sufx: Int) {
             pre.set(pref)
             suf.set(sufx)
         }
         
-        func set(_ pref: String, _ sufx: String) {
+        public func set(_ pref: String, _ sufx: String) {
             pre.set(pref)
             suf.set(sufx)
         }
@@ -148,14 +145,14 @@ open class Phone {
         private var co  = MultiVar()
         private var reg = String()
         
-        func set(_ code: Int) {
+        public func set(_ code: Int) {
             co.set(code)
             if canada.contains(code) {
                 reg = "+1"
             }
         }
         
-        func set(_ code: String) {
+        public func set(_ code: String) {
             co.set(code)
             if stCanada.contains(code) {
                 guard reg.isEmpty else {
@@ -165,13 +162,13 @@ open class Phone {
             }
         }
         
-        var code : Int {
+        open var code : Int {
             get {
                 return co.integer
             }
         }
         
-        var display : String {
+        open var display : String {
             get {
                 var st = String()
                 guard reg.isEmpty else {
@@ -183,7 +180,7 @@ open class Phone {
             }
         }
         
-        var compact : String {
+        open var compact : String {
             get {
                 var st = String()
                 guard reg.isEmpty else {
@@ -194,7 +191,7 @@ open class Phone {
             }
         }
         
-        var area : String {
+        open var area : String {
             get {
                 var st = String()
                 guard reg.isEmpty else {
@@ -210,5 +207,6 @@ open class Phone {
     }
     
     deinit {
+        
     }
 }

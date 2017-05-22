@@ -9,5 +9,5 @@
 import Foundation
 
 open class SpotitNetwork: DefaultRequest {
-    static let operation = SpotitNetwork()
+    public static let operation = SpotitNetwork()
 }
