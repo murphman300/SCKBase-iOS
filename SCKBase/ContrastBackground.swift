@@ -9,13 +9,13 @@
 import UIKit
 
 
-class ContrastBackground {
+open class ContrastBackground {
     var fadeFrom = UIColor()
     var toColor = UIColor()
     var fadeAt = [CGFloat]()
     var side : ContrastSide?
     
-    convenience init(_ startFrom: ContrastSide,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat]) {
+    public convenience init(_ startFrom: ContrastSide,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat]) {
         self.init()
         self.fadeFrom = fadeFrom
         self.toColor = toColor

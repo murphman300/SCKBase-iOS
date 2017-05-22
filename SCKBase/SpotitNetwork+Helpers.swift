@@ -1,16 +1,18 @@
 //
-//  NetworkExtensions.swift
+//  SpotitNetwork+Helpers.swift
 //  SCKBase
 //
-//  Created by Jean-Louis Murphy on 2017-04-09.
+//  Created by Jean-Louis Murphy on 2017-05-19.
 //  Copyright © 2017 Jean-Louis Murphy. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-extension NSMutableURLRequest {
+
+
+extension SpotitNetwork {
     
-    func formAsFB(_ method: httpMet,_ authToken: String, payload: Data?) {
+    public func formAsFB(_ method: httpMet,_ authToken: String, payload: Data?) {
         switch method {
         case .get:
             httpMethod = "GET"
@@ -28,7 +30,7 @@ extension NSMutableURLRequest {
         }
     }
     
-    func formAs(_ method: httpMet,_ authToken: String, payload: Data?) {
+    public func formAs(_ method: httpMet,_ authToken: String, payload: Data?) {
         switch method {
         case .get:
             httpMethod = "GET"
@@ -45,7 +47,7 @@ extension NSMutableURLRequest {
         }
     }
     
-    func formLogin(_ payload: Data?) {
+    public func formLogin(_ payload: Data?) {
         httpMethod = "POST"
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         if payload != nil {
@@ -53,7 +55,7 @@ extension NSMutableURLRequest {
         }
     }
     
-    func formWithAKey(_ method: httpMet,_ authToken: String, payload: Data?) {
+    public func formWithAKey(_ method: httpMet,_ authToken: String, payload: Data?) {
         switch method {
         case .get:
             httpMethod = "GET"
@@ -73,7 +75,7 @@ extension NSMutableURLRequest {
         
     }
     
-    func form(_ method: httpMet,_ payload: Data?) {
+    public func form(_ method: httpMet,_ payload: Data?) {
         switch method {
         case .get:
             httpMethod = "GET"
@@ -88,7 +90,7 @@ extension NSMutableURLRequest {
         }
     }
     
-    func formDocUploadWithAKey(_ authToken: String, payload: Data?) {
+    public func formDocUploadWithAKey(_ authToken: String, payload: Data?) {
         httpMethod = "PUT"
         guard let dat = payload else {
             return
@@ -106,7 +108,7 @@ extension NSMutableURLRequest {
         }
     }
     
-    func formBlank(_ method: httpMet, payload: Data?) {
+    public func formBlank(_ method: httpMet, payload: Data?) {
         switch method {
         case .get:
             httpMethod = "GET"
@@ -125,13 +127,13 @@ extension NSMutableURLRequest {
         
     }
     
-    func deleteTransportMethod(_ token: String) {
+    public func deleteTransportMethod(_ token: String) {
         
         httpMethod = ""
         
     }
     
-    func transportMethod(_ method: httpMet,_ authToken: String, _ payload: Data?,_ upid: String,_ uuid: String) {
+    public func transportMethod(_ method: httpMet,_ authToken: String, _ payload: Data?,_ upid: String,_ uuid: String) {
         switch method {
         case .get:
             httpMethod = "GET"
@@ -154,7 +156,7 @@ extension NSMutableURLRequest {
         }
     }
     
-    func picUpload(_ token: String, fileName: String, payload: Data,_ completion: @escaping(_ result: Bool) -> Void) {
+    public func picUpload(_ token: String, fileName: String, payload: Data,_ completion: @escaping(_ result: Bool) -> Void) {
         
         httpMethod = "POST"
         let boundary = "Boundary - \(UUID().uuidString)"
@@ -178,7 +180,7 @@ extension NSMutableURLRequest {
         
     }
     
-    func forJPEGImageUploadCreateBodyWith(parameters: [String: String]?, fileName: String, filePathKey: String?, imageDataKey: NSData, boundary: String,_ completion: @escaping(NSData?) -> Void){
+    public func forJPEGImageUploadCreateBodyWith(parameters: [String: String]?, fileName: String, filePathKey: String?, imageDataKey: NSData, boundary: String,_ completion: @escaping(NSData?) -> Void){
         let body = NSMutableData()
         var key = String()
         

@@ -22,168 +22,32 @@ public struct control {
     
 }
 
-public struct SpotitPaths {
-    
-    private static let local : String = Connections.node.root
-    public struct users {
-        private static let root : String = local + "/users"
-        public struct login {
-            static let facebook : String = root + "/facebooklogin"
-        }
-        public struct create {
-            static let facebookFinal : String = root + "/facebookfinal"
-        }
-        public struct cell {
-            private static let croot : String = root + "/cell"
-            static let confirm : String = croot + "/confirm"
-            static let auth : String = croot + "/auth"
-        }
-        public struct wallet {
-            private static let croot : String = root + "/wallet"
-            static let get : String = croot + "/get"
-            public struct methods {
-                private static let cmroot : String = local + "/wallet"
-                private static let mroot : String = cmroot + "/methods"
-                static let update : String = mroot + "/update"
-            }
-        }
-        static let get : String = root
-    }
-    public struct merchants {
-        private static let root : String = local + "/merchant"
-        public struct create {
-            private static let croot : String = root + "/create"
-            static let initial : String = croot + "/initial"
-            static let initialUpdate : String = croot + "/initialupdate"
-            public struct owner {
-                private static let oroot : String = croot + "/owner"
-                static let link : String = oroot + "/link"
-                static let contact : String = oroot + "/contact"
-                static let linkAuth : String = oroot + "/linkauth"
-                static let address : String = oroot + "/address"
-            }
-            static let connect : String = croot + "/connect"
-            static let kyc : String = croot + "/upload/kyc"
-            static let uploadToken : String = croot + "/wallet/sendtoken"
-            static let tosFinal : String = croot + "/tos/final"
-        }
-        
-        public struct check {
-            private static let croot : String = root + "/check"
-            static let transfers : String = croot + "/transfers"
-            
-            
-        }
-        public struct profile {
-            private static let croot : String = root + "/profile"
-            static let value : String = croot
-            
-        }
-        public struct authenticate {
-            private static let croot : String = root + "/authenticate"
-            static let value : String = croot
-            
-        }
-        public struct locations {
-            private static let croot : String = root + "/locations"
-            static let add : String = croot + "/add"
-            
-            
-        }
-    }
-    public struct location {
-        private static let lroot : String = local + "/locations"
-        public struct payment {
-            private static let croot : String = lroot + "/payment"
-            static let request : String = croot + "/resquest"
-        }
-        public struct process {
-            private static let croot : String = lroot + "/process"
-            static let request : String = croot + "/payment"
-        }
-        public struct info {
-            private static let croot : String = lroot + "/info"
-            static let address : String = croot + "/address"
-            static let profile : String = croot + "/profile"
-        }
-        public struct team {
-            private static let croot : String = lroot + "/employees"
-            static let managers : String = croot + "/managers"
-            static let admins : String = croot + "/admins"
-            static let all : String = croot + ""
-        }
-        public struct devices {
-            private static let croot : String = lroot + "/devices"
-            static let add : String = croot + "/add"
-            static let reasign : String = croot + "/reasign"
-        }
-    }
-}
-
-public struct omnigatePaths {
-    
-    static let version : String = "v1"
-    static let root : String = "https://dev.omnigate.com/"
-    static let OAuthURL : String = "https://dev.omnigate.com/auth/authorize?response_type=token&client_id=25434567&redirect_uri=spotit.app:/oauth2redirect"
-    static let upProfile : String = "https://dev.omnigate.com/api/v1/profile/update"
-    static let profile : String = "https://dev.omnigate.com/api/v1/profile"
-    
-    static let createProfile : String = "https://dev.omnigate.com/api/v1/profile"
-    
-    static let getTransports : String = "https://dev.omnigate.com/api/v1/notifications/transports"
-    static let getTxList : String = "https://dev.omnigate.com/api/v1/payment/transactionlist"
-    static let wallet : String = "https://dev.omnigate.com/api/v1/wallet"
-    static let createPaymentRequest : String = "https://dev.omnigate.com/api/v1/payment/request"
-    static let acceptPaymentRequest : String = "https://dev.omnigate.com/api/v1/payment/accept"
-    
-    static let login : String = "https://dev.omnigate.com/api/v1/user/login"
-    
-    public struct createMerch {
-        
-        static let toStripe : String = "https://dev.omnigate.com/api/v1/payment/managedaccount"
-        static let banklink : String = "https://dev.omnigate.com/api/v1/payment/banklink"
-    }
-    public struct apiKey {
-        
-        static let create : String = "https://dev.omnigate.com/api/v1/profile/apikey"
-    }
-    public struct kyc {
-        
-        static let upload : String = "https://dev.omnigate.com/api/v1/kyc/uploaddocument"
-        static let getkyc : String = "https://dev.omnigate.com/api/v1/profile/kyc/upload"
-        static let createTier : String = "https://dev.omnigate.com/api/v1/kyc/tierchangerequest"
-        
-    }
-}
-
-enum httpMet {
+public enum httpMet {
     
     case post, get, delete
     
 }
 
-enum node {
+public enum node {
     
     case profile
     
 }
 
-enum omniWallet {
+public enum omniWallet {
     
     case all, id, balances
     
 }
 
-enum actions {
+public enum actions {
     case update
-    
-    
 }
 
 public struct payment {
     
     static let types : Array<String> = ["amex", "mastercard", "visa", "interac", "debit"]
-    enum type {
+    public enum type {
         case visa, mastercard, amex, debit, interac
     }
 }
@@ -623,29 +487,29 @@ public struct obsKeys {
     static let checkIndicatorEngage : String = "EngageTheCheckingIndicator"
 }
 
-enum ComponentOfDate {
+public enum ComponentOfDate {
     case day, month, year
 }
 
 
-enum CurveDirection {
+public enum CurveDirection {
     case left, right
 }
 
-enum viewSides {
+public enum viewSides {
     case left, right, top, bottom
     
 }
 
-enum contrastSides {
+public enum contrastSides {
     case left, right, top, bottom, topRight, topLeft, bottomLeft, bottomRight
 }
 
-enum ContrastSides {
+public enum ContrastSides {
     case left, right, top, bottom, topRight, topLeft, bottomLeft, bottomRight
 }
 
-enum ContrastSide: String {
+public enum ContrastSide: String {
     case left = "left"
     case right = "right"
     case bottom = "bottom"
@@ -689,57 +553,57 @@ enum ContrastSide: String {
     }
 }
 
-enum tokenTypes {
+public enum tokenTypes {
     
     case fb, omni, spotit, device
 }
 
-enum userInfos {
+public enum userInfos {
     
     case firstName, lastName, sex, age, email, pin, uuid, sub, upid, iss, waid
     
 }
 
-enum Encryptable {
+public enum Encryptable {
     
     case firstName, lastName, sex, age, email, pin, uuid, sub, upid, iss, waid, fb, spotit, device
     
 }
 
-enum LoginInfos {
+public enum LoginInfos {
     
     case firstLogin, lastLogin, tokenBirth
     
 }
 
-enum LoginStatus {
+public enum LoginStatus {
     
     case isLoggedIn, notLoggedIn
     
 }
 
-enum loginType {
+public enum loginType {
     
     case uiweb, wkweb, safarivc
 }
 
-enum SafariRoots {
+public enum SafariRoots {
     case viewController, customTabBar, viewControllerSignUp, viewControllerError, download, tabBarNotification
 }
 
-enum syncronize {
+public enum syncronize {
     case sync, no
 }
 
-enum timeLabelType {
+public enum timeLabelType {
     case precise, relative
 }
 
-enum methodTypes {
+public enum methodTypes {
     case legacy, bitcoin, operatingSystem, ripple, giftCards
 }
 
-enum ViewCorner {
+public enum ViewCorner {
     
     case topRight, topLeft, bottomRight, bottomLeft
 }

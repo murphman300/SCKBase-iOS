@@ -214,7 +214,6 @@ enum Provinces: String {
     case nwt = "Northwest Territories"
     case yuk = "Yukon"
     
-    
     init() {
         self = Provinces(rawValue: "Quebec")!
     }

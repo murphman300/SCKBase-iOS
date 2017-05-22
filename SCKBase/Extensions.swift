@@ -9,8 +9,6 @@
 import UIKit
 import CoreLocation
 
-
-
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
@@ -26,23 +24,18 @@ extension UIColor {
 
 extension UIView {
     
-    func rotate(_ dur: CFTimeInterval,_ completion: CAAnimationDelegate?) {
-        
-        
-        
+    public func rotate(_ dur: CFTimeInterval,_ completion: CAAnimationDelegate?) {
         let rotateAnim = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnim.fromValue = 0.0
         rotateAnim.toValue = CGFloat(Double.pi)
         rotateAnim.duration = dur
-        
         if let del = completion {
             rotateAnim.delegate = del
         }
-        
         self.layer.add(rotateAnim, forKey: nil)
     }
     
-    func addConstraintsWithFormat(format: String, views: UIView...) {
+    public func addConstraintsWithFormat(format: String, views: UIView...) {
         var viewsDictionary = [String: UIView]()
         for (index, view) in views.enumerated() {
             let key = "v\(index)"
@@ -54,7 +47,7 @@ extension UIView {
     }
     
     
-    func roundCorners(_ corner: UIRectCorner,_ radii: CGFloat) {
+    public func roundCorners(_ corner: UIRectCorner,_ radii: CGFloat) {
         let maskLayer = CAShapeLayer()
         maskLayer.frame = self.layer.bounds
         maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: radii, height: radii)).cgPath
@@ -63,13 +56,13 @@ extension UIView {
         layer.masksToBounds = true
     }
     
-    func ovalView(_ mult: CGFloat) {
+    public func ovalView(_ mult: CGFloat) {
         
         layer.cornerRadius = mult * (self.frame.height * 2)
         layer.masksToBounds = true
     }
     
-    func clearViu() {
+    public func clearViu() {
         
         if let window = UIApplication.shared.keyWindow {
             frame = CGRect(x: 0, y: 0, width: (window.frame.width), height: (window.frame.height))
@@ -80,7 +73,7 @@ extension UIView {
         
     }
     
-    func sideCircleView(_ value: CGFloat?) {
+    public func sideCircleView(_ value: CGFloat?) {
         
         if let radius = value {
             
@@ -94,7 +87,7 @@ extension UIView {
         
     }
     
-    func sideCircleViewWithConstraints(_ height: CGFloat?) {
+    public func sideCircleViewWithConstraints(_ height: CGFloat?) {
         
         if let radius = height {
             
@@ -108,7 +101,7 @@ extension UIView {
         
     }
     
-    func backgroundWith(_ contrasts: [ContrastBackground]) {
+    public func backgroundWith(_ contrasts: [ContrastBackground]) {
         var ind : Int = 0
         for contrast in contrasts {
             contrastBackGround((contrast.side?.toContrast())!, contrast.fadeFrom, contrast.toColor, contrast.fadeAt, ind)
@@ -116,7 +109,7 @@ extension UIView {
         }
     }
     
-    func contrastBackGround(_ startFrom: contrastSides,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat],_ atIndex: Int) {
+    public func contrastBackGround(_ startFrom: contrastSides,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat],_ atIndex: Int) {
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -186,7 +179,7 @@ extension UIView {
         
     }
     
-    func contrastBackGround(_ startFrom: contrastSides,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat]) {
+    public func contrastBackGround(_ startFrom: contrastSides,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat]) {
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -256,7 +249,7 @@ extension UIView {
         
     }
     
-    func contrastBackGroundForViewWithConstraints(_ startFrom: ContrastSides,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat],_ h: CGFloat,_ w: CGFloat) {
+    public func contrastBackGroundForViewWithConstraints(_ startFrom: ContrastSides,_ fadeFrom: UIColor,_ toColor: UIColor,_ fadeAt: [CGFloat],_ h: CGFloat,_ w: CGFloat) {
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -326,7 +319,7 @@ extension UIView {
         
     }
     
-    func addShadow(_ side: viewSides) {
+    public func addShadow(_ side: viewSides) {
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -387,7 +380,7 @@ extension UIView {
         
     }
     
-    func addSolidBorder(_ side: viewSides, _ color: UIColor){
+    public func addSolidBorder(_ side: viewSides, _ color: UIColor){
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -428,7 +421,7 @@ extension UIView {
         
     }
     
-    func addSolidBorderForViewWithConstraints(_ side: viewSides, _ color: UIColor,_ desiredHeight: CGFloat,_ desiredWidth: CGFloat?){
+    public func addSolidBorderForViewWithConstraints(_ side: viewSides, _ color: UIColor,_ desiredHeight: CGFloat,_ desiredWidth: CGFloat?){
         var x = CGFloat()
         var y = CGFloat()
         var contWidth = CGFloat()
@@ -515,7 +508,7 @@ extension UIView {
         
     }
     
-    func addSolidNavBorder(_ side: viewSides, _ color: UIColor){
+    public func addSolidNavBorder(_ side: viewSides, _ color: UIColor){
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -556,7 +549,7 @@ extension UIView {
         
     }
     
-    func addSolidCellBorder(_ side: viewSides, _ color: UIColor,_ percentOfWidth: CGFloat){
+    public func addSolidCellBorder(_ side: viewSides, _ color: UIColor,_ percentOfWidth: CGFloat){
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -586,7 +579,7 @@ extension UIView {
         layer.addSublayer(botBorder)
     }
     
-    func addCircleShadowToShadowContainer(_ size: CGFloat) {
+    public func addCircleShadowToShadowContainer(_ size: CGFloat) {
         
         let shadowBorder = CAGradientLayer()
         shadowBorder.frame = CGRect(x: 0, y: 0, width: size, height: size)
@@ -603,7 +596,7 @@ extension UIView {
     
     
     
-    func disapear() {
+    public func disapear() {
         
         self.alpha = 0
         
@@ -615,7 +608,7 @@ extension UIView {
 
 extension CALayer {
     
-    func addSolidBorder(_ side: viewSides, _ color: UIColor){
+    public func addSolidBorder(_ side: viewSides, _ color: UIColor){
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -656,7 +649,7 @@ extension CALayer {
         
     }
     
-    func addShadow(_ side: viewSides) {
+    public func addShadow(_ side: viewSides) {
         var x = CGFloat()
         var y = CGFloat()
         var width = CGFloat()
@@ -730,7 +723,7 @@ extension UITextField {
 
 extension UIButton{
     
-    func setBackgroundColor(color: UIColor, forState: UIControlState) {
+    public func setBackgroundColor(color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
         UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
         UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
@@ -740,7 +733,7 @@ extension UIButton{
         self.setBackgroundImage(colorImage, for: forState)
     }
     
-    func roundedButton(w: CGFloat, h: CGFloat){
+    public func roundedButton(w: CGFloat, h: CGFloat){
         let maskPAth1 = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: w, height: h))
         let maskLayer1 = CAShapeLayer()
         maskLayer1.frame = self.bounds
@@ -749,7 +742,7 @@ extension UIButton{
         
     }
     
-    func set(_ title: String, back: UIColor, titleSel: UIColor, titleNorm: UIColor, to: UIView?) {
+    public func set(_ title: String, back: UIColor, titleSel: UIColor, titleNorm: UIColor, to: UIView?) {
         
         backgroundColor = back
         setTitle(title, for: .normal)
@@ -761,13 +754,13 @@ extension UIButton{
         }
     }
     
-    func makeMainButton(_ string: String) {
+    public func makeMainButton(_ string: String) {
         self.layer.cornerRadius = 0.5 * bounds.size.width
         self.backgroundColor = colors.mainButtonColor
         self.setTitle(string, for: .normal)
     }
     
-    func addCircleShadow() {
+    public func addCircleShadow() {
         
         let shadowBorder = CAGradientLayer()
         shadowBorder.frame = CGRect(x: 0, y: 0, width: mainbuttonconf.size, height: mainbuttonconf.size)
@@ -782,7 +775,7 @@ extension UIButton{
         
     }
     
-    func changeColorTo(_ color: UIColor,_ forState: UIControlState) {
+    public func changeColorTo(_ color: UIColor,_ forState: UIControlState) {
         
         if let imageToChange = backgroundImage(for: forState)?.withRenderingMode(.alwaysTemplate) {
             setImage(imageToChange, for: forState)
@@ -790,19 +783,19 @@ extension UIButton{
         }
     }
     
-    func makeEditProfileAs(_ fromSide: contrastSides) {
+    public func makeEditProfileAs(_ fromSide: contrastSides) {
         self.sideCircleView(nil)
         contrastBackGround(fromSide, colors.lightBlueMainColor, colors.purplishColor, [0.0, 0.7])
     }
     
-    func makeEditProfileWithConstraints(_ fromSide: ContrastSides,_ h: CGFloat,_ w: CGFloat,_ fadeAt: [CGFloat]) {
+    public func makeEditProfileWithConstraints(_ fromSide: ContrastSides,_ h: CGFloat,_ w: CGFloat,_ fadeAt: [CGFloat]) {
         self.sideCircleViewWithConstraints(h)
         contrastBackGroundForViewWithConstraints(fromSide, colors.lightBlueMainColor, colors.purplishColor, fadeAt, h, w)
     }
     
     
     
-    func makeHeaderButton() {
+    public func makeHeaderButton() {
         
     }
 }
@@ -812,7 +805,7 @@ extension UIButton{
 extension Date {
     
     
-    func dateFrom(string: String) -> Date? {
+    public func dateFrom(string: String) -> Date? {
         
         guard string.characters.count == 10 else {
             return nil
@@ -834,7 +827,7 @@ extension Date {
         return d
     }
     
-    func dateFrom(utcString: String) -> Date? {
+    public func dateFrom(utcString: String) -> Date? {
         
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -846,7 +839,7 @@ extension Date {
         return d
     }
     
-    func hasPast() -> Bool {
+    public func hasPast() -> Bool {
         
         //true if within time frame, false if beyond time frame
         let todaysDate = NSDate()
@@ -896,7 +889,7 @@ extension NSLocale
 
 extension NSObject {
     
-    func codeFor(countryName: String) -> String {
+    public func codeFor(countryName: String) -> String {
         let locales : String = ""
         for localeCode in NSLocale.isoCountryCodes {
             let countryName = Locale.current.regionCode
@@ -907,7 +900,7 @@ extension NSObject {
         return locales
     }
     
-    func flag(country:String) -> String {
+    public func flag(country:String) -> String {
         let base : UInt32 = 127397
         var s = ""
         for v in country.unicodeScalars {
@@ -916,7 +909,7 @@ extension NSObject {
         return String(s)
     }
     
-    func floatValueW(cgfloat: CGFloat) -> CGFloat{
+    public func floatValueW(cgfloat: CGFloat) -> CGFloat{
         var result = CGFloat()
         if let window = UIApplication.shared.keyWindow {
             
@@ -926,7 +919,7 @@ extension NSObject {
         return result
     }
     
-    func floatValueH(cgfloat: CGFloat) -> CGFloat{
+    public func floatValueH(cgfloat: CGFloat) -> CGFloat{
         var result = CGFloat()
         if let window = UIApplication.shared.keyWindow {
             
@@ -934,74 +927,6 @@ extension NSObject {
             
         }
         return result
-    }
-    
-    func makeOvalLine(_ onView: UIView,_ viewTop: UIView,_ viewBottom: UIView,_ colorForView: Bool,_ arcHeight: CGFloat,_ stroke: CGFloat?,_ strokeColor: UIColor?) -> profileOvalDivider {
-        
-        
-        var multiplier : CGFloat = arcHeight
-        
-        if !(multiplier <= viewTop.frame.height) {
-            multiplier = viewTop.frame.height
-        }
-        
-        let other : CGFloat = 1 + (multiplier / onView.frame.width)
-        
-        let xvalue = 0 - (multiplier / 2)
-        let arcview = profileOvalDivider(frame: CGRect(x: xvalue, y: viewTop.center.y + (viewTop.frame.height / 2) - arcHeight, width: onView.frame.width * other, height: arcHeight * 2))
-        arcview.backgroundColor = UIColor.clear
-        
-        
-        if let line = stroke {
-            arcview.shapeLayer.strokeColor = strokeColor?.cgColor
-            arcview.shapeLayer.lineWidth = line
-        } else {
-            arcview.shapeLayer.borderWidth = 0
-        }
-        if onView == viewBottom {
-            
-            switch colorForView {
-            case true:
-                arcview.shapeLayer.fillColor = viewTop.backgroundColor?.cgColor
-                
-                onView.addSubview(arcview)
-                onView.addSubview(viewTop)
-            case false:
-                arcview.shapeLayer.fillColor = viewBottom.backgroundColor?.cgColor
-                onView.addSubview(viewTop)
-                onView.addSubview(arcview)
-                
-            }
-        } else if onView == viewTop {
-            switch colorForView {
-            case true:
-                arcview.shapeLayer.fillColor = viewTop.backgroundColor?.cgColor
-                
-                onView.addSubview(viewBottom)
-                onView.addSubview(arcview)
-            case false:
-                arcview.shapeLayer.fillColor = viewBottom.backgroundColor?.cgColor
-                onView.addSubview(arcview)
-                onView.addSubview(viewBottom)
-            }
-            
-        } else {
-            switch colorForView {
-            case true:
-                arcview.shapeLayer.fillColor = viewTop.backgroundColor?.cgColor
-                onView.addSubview(viewBottom)
-                onView.addSubview(arcview)
-                onView.addSubview(viewTop)
-            case false:
-                arcview.shapeLayer.fillColor = viewBottom.backgroundColor?.cgColor
-                onView.addSubview(viewTop)
-                onView.addSubview(arcview)
-                onView.addSubview(viewBottom)
-                
-            }
-            
-        }
-        return arcview
     }
 }
 
@@ -1011,14 +936,14 @@ extension UIResponder {
 }
 
 extension NSAttributedString {
-    func heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
+    public func heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
         
         return boundingBox.height
     }
     
-    func widthWithConstrainedHeight(height: CGFloat) -> CGFloat {
+    public func widthWithConstrainedHeight(height: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
         
@@ -1043,14 +968,14 @@ extension UISearchBar {
 
 extension String {
     
-    func toDate() -> Date? {
+    public func toDate() -> Date? {
         
         let date = NSDate(dateString: self)
         return date as Date
         
     }
     
-    func dateIsValid() -> Bool {
+    public func dateIsValid() -> Bool {
         let date = toDate()
         guard date != nil else {
             return false
@@ -1058,7 +983,7 @@ extension String {
         return date!.hasPast()
     }
     
-    func hasDigits() -> Bool {
+    public func hasDigits() -> Bool {
         let k = keyboard.digits
         var v = false
         for letter in self.characters {
@@ -1070,7 +995,7 @@ extension String {
         return v
     }
     
-    func hasSymbol() -> Bool {
+    public func hasSymbol() -> Bool {
         let k = keyboard.symbols
         var v = false
         for letter in self.characters {
@@ -1082,7 +1007,7 @@ extension String {
         return v
     }
     
-    func isSymbol() -> Bool {
+    public func isSymbol() -> Bool {
         let k = keyboard.symbols
         let a = keyboard.all
         var v = false
@@ -1111,7 +1036,7 @@ extension String {
         return v
     }
     
-    func hasDigits(_ comp: @escaping (Bool) -> Void) {
+    public func hasDigits(_ comp: @escaping (Bool) -> Void) {
         let k = keyboard.digits
         var v = false
         for letter in self.characters {
@@ -1123,7 +1048,7 @@ extension String {
         comp(v)
     }
     
-    func hasLowerCase() -> Bool {
+    public func hasLowerCase() -> Bool {
         let k = keyboard.lowercase
         var v = false
         for letter in self.characters {
@@ -1135,7 +1060,7 @@ extension String {
         return v
     }
     
-    func hasUpperCase() -> Bool {
+    public func hasUpperCase() -> Bool {
         let k = keyboard.uppercase
         var v = false
         for letter in self.characters {
@@ -1146,7 +1071,7 @@ extension String {
         }
         return v
     }
-    func hasSpecialChar() -> Bool {
+    public func hasSpecialChar() -> Bool {
         let k = keyboard.symbols
         var v = false
         for letter in self.characters {
@@ -1158,7 +1083,7 @@ extension String {
         return v
     }
     
-    func hasSpecialChar(_ comp: @escaping (Bool) -> Void) {
+    public func hasSpecialChar(_ comp: @escaping (Bool) -> Void) {
         let k = keyboard.symbols
         var v = false
         for letter in self.characters {
@@ -1170,7 +1095,7 @@ extension String {
         comp(v)
     }
     
-    func isOnlyUpperAndLowerCase() -> Bool {
+    public func isOnlyUpperAndLowerCase() -> Bool {
         let k = keyboard.uppercase
         let o = keyboard.lowercase
         var yes = true
@@ -1191,7 +1116,7 @@ extension String {
         return yes
     }
     
-    func isOnlyUpperAndLowerCase(_ comp: @escaping (Bool) -> Void){
+    public func isOnlyUpperAndLowerCase(_ comp: @escaping (Bool) -> Void){
         let k = keyboard.uppercase
         let o = keyboard.lowercase
         var yes = true
@@ -1211,7 +1136,7 @@ extension String {
         comp(yes)
     }
     
-    func isPostalCode(_ comp: @escaping (Bool) -> Void){
+    public func isPostalCode(_ comp: @escaping (Bool) -> Void){
         let k = keyboard.uppercase
         let o = keyboard.digits
         var yes = true
@@ -1232,7 +1157,7 @@ extension String {
         comp(yes)
     }
     
-    func isPostalCode() -> Bool {
+    public func isPostalCode() -> Bool {
         let k = keyboard.uppercase
         let o = keyboard.digits
         var yes = true
@@ -1253,7 +1178,7 @@ extension String {
         return yes
     }
     
-    func isOnlyDigits() -> Bool{
+    public func isOnlyDigits() -> Bool{
         let k = keyboard.digits
         var yes = true
         for letter in self.characters {
@@ -1265,7 +1190,7 @@ extension String {
         return yes
     }
     
-    func isOnlyDigits(_ comp: @escaping (Bool) -> Void){
+    public func isOnlyDigits(_ comp: @escaping (Bool) -> Void){
         let k = keyboard.digits
         var yes = true
         for letter in self.characters {
@@ -1278,14 +1203,14 @@ extension String {
     }
     
     
-    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+    public func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.height
     }
 
-    func toDecimalNumber() -> NSDecimalNumber {
+    public func toDecimalNumber() -> NSDecimalNumber {
         
         let formatter = NumberFormatter()
         formatter.generatesDecimalNumbers = true
@@ -1293,7 +1218,7 @@ extension String {
         
     }
     
-    func keepString(asOf: Character) -> String {
+    public func keepString(asOf: Character) -> String {
         
         let c = self.characters
         var final = String()
@@ -1305,19 +1230,19 @@ extension String {
         return final
     }
     
-    func base64Encoded() -> String {
+    public func base64Encoded() -> String {
         let plainData = data(using: String.Encoding.utf8)
         let base64String = plainData?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
         return base64String!
     }
     
-    func base64Decoded() -> String {
+    public func base64Decoded() -> String {
         let decodedData = NSData(base64Encoded: self, options:NSData.Base64DecodingOptions.init(rawValue: 0))
         let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)
         return decodedString! as String
     }
     
-    func fromBase64() -> String? {
+    public func fromBase64() -> String? {
         guard let data = Data(base64Encoded: self) else {
             return nil
         }
@@ -1325,18 +1250,18 @@ extension String {
         return String(data: data, encoding: .utf8)
     }
     
-    func toBase64() -> String {
+    public func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
     }
     
-    func addingPercentEncodingForURLQueryValue() -> String? {
+    public func addingPercentEncodingForURLQueryValue() -> String? {
         let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
         
         return self.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
     }
     
     
-    func dateFromString() -> Date {
+    public func dateFromString() -> Date {
         var timeStamp = String()
         
         let dateFormatter = DateFormatter()
@@ -1346,7 +1271,7 @@ extension String {
         return dateFormatter.date(from: self)!// create date from string
     }
     
-    func toLocalTimeLabelForCell() -> String {
+    public func toLocalTimeLabelForCell() -> String {
         
         var timeStamp = String()
         
@@ -1444,14 +1369,14 @@ extension String {
         return timeStamp
     }
     
-    func chopSuffix(_ byPositiveCount: Int) -> String {
+    public func chopSuffix(_ byPositiveCount: Int) -> String {
         return self.substring(to: self.characters.index(self.endIndex, offsetBy: -byPositiveCount))
     }
-    func chopPrefix(_ count: Int) -> String {
+    public func chopPrefix(_ count: Int) -> String {
         return self.substring(to: self.characters.index(self.startIndex, offsetBy: count))
     }
     
-    func checkIfValidWaid() -> Bool {
+    public func checkIfValidWaid() -> Bool {
         
         let count = self.characters.count - 1
         var new = self.chopSuffix(count - 4)
@@ -1483,7 +1408,7 @@ extension String {
         return true
     }
     
-    func checkIfValidPrid() -> Bool {
+    public func checkIfValidPrid() -> Bool {
         
         let count = self.characters.count - 1
         var new = self.chopSuffix(count - 4)
@@ -1515,7 +1440,7 @@ extension String {
         return true
     }
     
-    func zipped(_ with: String) -> String {
+    public func zipped(_ with: String) -> String {
         var zipped = String()
         
         _ = UInt32(arc4random_uniform(3))
@@ -1540,7 +1465,7 @@ extension String {
         return zipped
     }
     
-    func zipped() -> String {
+    public func zipped() -> String {
         var zipped = String()
         var char = characters
         var char2 = randomString(length: char.count).characters
@@ -1559,7 +1484,7 @@ extension String {
         return zipped
     }
     
-    func unzipped() -> String {
+    public func unzipped() -> String {
         var stri = self
         var result = String()
         var char2 = String()
@@ -1580,7 +1505,7 @@ extension String {
     }
     
     
-    func zip(_ with: String) -> String {
+    public func zip(_ with: String) -> String {
         var zipped = String()
         
         var char = characters
@@ -1602,7 +1527,7 @@ extension String {
         return zipped
     }
     
-    func apiZip(_ with: String) -> String {
+    public func apiZip(_ with: String) -> String {
         var zipped = String()
         
         var char = characters
@@ -1623,7 +1548,7 @@ extension String {
         return zipped
     }
     
-    func skipZip(_ with: String) -> String {
+    public func skipZip(_ with: String) -> String {
         var zipped = String()
         
         _ = UInt32(arc4random_uniform(3))
@@ -1649,7 +1574,7 @@ extension String {
         return zipped
     }
     
-    func unZippedPair() -> ZippedPair {
+    public func unZippedPair() -> ZippedPair {
         var stri = self
         let res = ZippedPair()
         
@@ -1674,7 +1599,7 @@ extension String {
         var other = String()
     }
     
-    func skipZipAlt(_ with: String) -> String {
+    public func skipZipAlt(_ with: String) -> String {
         
         var zipped = String()
         
@@ -1701,7 +1626,7 @@ extension String {
         return zipped
     }
     
-    func randomString(length: Int) -> String {
+    public func randomString(length: Int) -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%^&*()><?.,.~"
         let len = UInt32(letters.length)
         var randomString = ""
@@ -1713,26 +1638,26 @@ extension String {
         return randomString
     }
     
-    func eightBitRandom() -> String {
+    public func eightBitRandom() -> String {
         return randomString(length: 8)
     }
-    func sixteenBitRandom() -> String {
+    public func sixteenBitRandom() -> String {
         return randomString(length: 16)
     }
-    func twentyFourBitRandom() -> String {
+    public func twentyFourBitRandom() -> String {
         return randomString(length: 24)
     }
-    func thirtyTwoBitRandom() -> String {
+    public func thirtyTwoBitRandom() -> String {
         return randomString(length: 32)
     }
-    func sixtyFourBitRandom() -> String {
+    public func sixtyFourBitRandom() -> String {
         return randomString(length: 64)
     }
 }
 
 extension UILabel {
     
-    func payMethodLabel(_ text: String, color: UIColor, fontSize: CGFloat, align: NSTextAlignment, addTo: UIView) {
+    public func payMethodLabel(_ text: String, color: UIColor, fontSize: CGFloat, align: NSTextAlignment, addTo: UIView) {
     
         self.text = text
         textColor = color
@@ -1746,7 +1671,7 @@ extension UILabel {
 extension UIImageView {
     
     
-    func changeColorTo(_ color: UIColor) {
+    public func changeColorTo(_ color: UIColor) {
         
         if let imageToChange = image?.withRenderingMode(.alwaysTemplate) {
             image = imageToChange
@@ -1760,7 +1685,7 @@ extension UIImageView {
 
 extension Dictionary {
     
-    func stringFromHttpParameters() -> String {
+    public func stringFromHttpParameters() -> String {
         let parameterArray = self.map { (key, value) -> String in
             let percentEscapedKey = (key as! String).addingPercentEncodingForURLQueryValue()!
             let percentEscapedValue = (value as! String).addingPercentEncodingForURLQueryValue()!
@@ -1785,14 +1710,14 @@ public class Interactor: UIPercentDrivenInteractiveTransition {
 
 extension UIViewController: UIViewControllerTransitioningDelegate {
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissAnimator()
     }
-    /*public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    /*public public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return (Interactor?.hasStarted)
     }*/
     
-    func base64UrlDecode(_ value: String) -> Data? {
+    public func base64UrlDecode(_ value: String) -> Data? {
         var base64 = value
             .replacingOccurrences(of: "-", with: "+")
             .replacingOccurrences(of: "_", with: "/")
@@ -1808,7 +1733,7 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
         return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
     }
     
-    func decodeJWTPart(_ value: String) throws -> [String: Any] {
+    public func decodeJWTPart(_ value: String) throws -> [String: Any] {
         guard let bodyData = base64UrlDecode(value) else {
             throw DecodeError.invalidBase64Url(value)
         }
@@ -1851,13 +1776,13 @@ public func arc4random<T: ExpressibleByIntegerLiteral>(_ type: T.Type) -> T {
 
 extension Double {
     
-    func roundTo(places:Int) -> Double {
+    public func roundTo(places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
     
     
-    func setCurrencyLabel() -> CGFloat {
+    public func setCurrencyLabel() -> CGFloat {
         
         let value = self * 100
         
