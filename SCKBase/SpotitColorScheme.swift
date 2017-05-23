@@ -13,10 +13,13 @@ public struct SpotitColorScheme {
     public var border : UIColor
     public var isSelected : UIColor?
     public var isHighlighted : UIColor?
-    public init(background : UIColor, border : UIColor, isSelected : UIColor?, isHighlighted : UIColor?) {
+    public var titleColor : UIColor?
+    
+    public init(background : UIColor, border : UIColor, titleColor: UIColor?, isSelected : UIColor?, isHighlighted : UIColor?) {
         self.background = background
         self.border = border
         self.isSelected = isSelected
         self.isHighlighted = isHighlighted
+        self.titleColor = titleColor
     }
 }
