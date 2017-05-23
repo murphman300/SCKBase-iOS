@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */; };
 		B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */; };
 		B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */; };
 		B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitColorScheme.swift; sourceTree = "<group>"; };
 		B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkClass.swift; sourceTree = "<group>"; };
 		B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedImageView.swift; sourceTree = "<group>"; };
 		B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRequest.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				B5B7488F1E9A021700A5308E /* GeoVar.swift */,
 				B58B58311ED2B3C1009A7992 /* ApplePay+Methods.swift */,
 				B5B748971E9A066600A5308E /* GlobalVariables.swift */,
+				B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */,
 				B5B748891E9A015700A5308E /* LocationAddress.swift */,
 				B58B582E1ED2B1E8009A7992 /* SpotitLinkers.swift */,
 				B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */,
@@ -366,6 +369,7 @@
 				B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */,
 				B58B57FF1ED2A562009A7992 /* Double+Helper.swift in Sources */,
 				B58B58151ED2A705009A7992 /* Date+Helpers.swift in Sources */,
+				B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */,
 				B58B58291ED2AD5F009A7992 /* SMSCodeVerifier.swift in Sources */,
 				B58B581B1ED2A845009A7992 /* CALayer+Helpers.swift in Sources */,
 				B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */,
