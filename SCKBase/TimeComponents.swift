@@ -40,7 +40,6 @@ open class LocationTimeComponents : NSObject {
                         if close < open {
                             openingVals?.gregorianDay = 0
                             closingVals?.gregorianDay = 1
-                            
                             if int <= 6 {
                                 closingVals?.gregorianValue = int + 1
                                 openingVals?.gregorianValue = int

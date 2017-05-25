@@ -57,6 +57,15 @@ public struct GregorianDictionary {
     public var six : LocationTimeComponents?
     
     public var seven : LocationTimeComponents?
+    
+    public var allHere : Bool {
+        get {
+            guard one == nil || two == nil ||  three == nil || four == nil || five == nil || six == nil || seven == nil else {
+                return true
+            }
+            return false
+        }
+    }
 
     public init(values: [LocationTimeComponents]) {
         for comp in values {
@@ -83,6 +92,30 @@ public struct GregorianDictionary {
         }
     }
     
+    func now() -> LocationTimeComponents? {
+        guard let su = one, let mo = two, let tu = three, let wed = four, let thu = five, let fri = six, let sat = seven else {
+            return nil
+        }
+        let now = AcuteTimeValues()
+        switch now.gregorian {
+        case 1:
+            return su
+        case 2:
+            return mo
+        case 3:
+            return tu
+        case 4:
+            return wed
+        case 5:
+            return thu
+        case 6:
+            return fri
+        case 7:
+            return sat
+        default :
+            return nil
+        }
+    }
 }
 
 public enum LocationHoursError : Error {
@@ -91,8 +124,17 @@ public enum LocationHoursError : Error {
 
 open class LocationHours {
     
-    var values = [LocationTimeComponents]()
-    var list : GregorianDictionary?
+    public var values = [LocationTimeComponents]()
+    public var list : GregorianDictionary?
+    
+    public var today : LocationTimeComponents? {
+        get {
+            guard let l = list else {
+                return nil
+            }
+            return l.now()
+        }
+    }
     
     public convenience init(data : [[String:Any]]) throws {
         self.init()
