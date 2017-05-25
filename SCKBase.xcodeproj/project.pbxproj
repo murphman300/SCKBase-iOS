@@ -14,6 +14,12 @@
 		B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8511ECF781700E52710 /* NimbleNetwork.swift */; };
 		B535D8541ECF781E00E52710 /* SpotitNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8531ECF781E00E52710 /* SpotitNetwork.swift */; };
 		B535D8561ECF78B700E52710 /* SelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8551ECF78B700E52710 /* SelectorButton.swift */; };
+		B551751A1ED635640063E356 /* TimeUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175191ED635640063E356 /* TimeUnits.swift */; };
+		B551751C1ED635950063E356 /* TimeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551751B1ED635950063E356 /* TimeComponents.swift */; };
+		B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551751D1ED636310063E356 /* AcuteTimeValues.swift */; };
+		B55175201ED637150063E356 /* LocationTimeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551751F1ED637150063E356 /* LocationTimeDate.swift */; };
+		B55175221ED689FF0063E356 /* DistanceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175211ED689FF0063E356 /* DistanceString.swift */; };
+		B55175241ED68AB50063E356 /* TimeVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175231ED68AB50063E356 /* TimeVariables.swift */; };
 		B58B57FD1ED2A53C009A7992 /* Integer_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B57FC1ED2A53C009A7992 /* Integer_Helpers.swift */; };
 		B58B57FF1ED2A562009A7992 /* Double+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B57FE1ED2A562009A7992 /* Double+Helper.swift */; };
 		B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58001ED2A58B009A7992 /* Randoms+Helpers.swift */; };
@@ -45,6 +51,7 @@
 		B58B583E1ED2B7EC009A7992 /* PostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583D1ED2B7EB009A7992 /* PostalCode.swift */; };
 		B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */; };
 		B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */; };
+		B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BA4091ED4DD34005F1544 /* DateLabeler.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748691E99FFF300A5308E /* MultiVar.swift */; };
 		B5B7486C1E9A000200A5308E /* DOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7486B1E9A000200A5308E /* DOB.swift */; };
@@ -78,6 +85,12 @@
 		B535D8511ECF781700E52710 /* NimbleNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleNetwork.swift; sourceTree = "<group>"; };
 		B535D8531ECF781E00E52710 /* SpotitNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitNetwork.swift; sourceTree = "<group>"; };
 		B535D8551ECF78B700E52710 /* SelectorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorButton.swift; sourceTree = "<group>"; };
+		B55175191ED635640063E356 /* TimeUnits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUnits.swift; sourceTree = "<group>"; };
+		B551751B1ED635950063E356 /* TimeComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeComponents.swift; sourceTree = "<group>"; };
+		B551751D1ED636310063E356 /* AcuteTimeValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuteTimeValues.swift; sourceTree = "<group>"; };
+		B551751F1ED637150063E356 /* LocationTimeDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTimeDate.swift; sourceTree = "<group>"; };
+		B55175211ED689FF0063E356 /* DistanceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceString.swift; sourceTree = "<group>"; };
+		B55175231ED68AB50063E356 /* TimeVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeVariables.swift; sourceTree = "<group>"; };
 		B58B57FC1ED2A53C009A7992 /* Integer_Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Integer_Helpers.swift; sourceTree = "<group>"; };
 		B58B57FE1ED2A562009A7992 /* Double+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helper.swift"; sourceTree = "<group>"; };
 		B58B58001ED2A58B009A7992 /* Randoms+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Randoms+Helpers.swift"; sourceTree = "<group>"; };
@@ -109,6 +122,7 @@
 		B58B583D1ED2B7EB009A7992 /* PostalCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostalCode.swift; sourceTree = "<group>"; };
 		B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewInfo.swift; sourceTree = "<group>"; };
 		B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
+		B58BA4091ED4DD34005F1544 /* DateLabeler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabeler.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B748611E99FFB300A5308E /* SCKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKBase.h; sourceTree = "<group>"; };
 		B5B748621E99FFB300A5308E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,6 +187,7 @@
 				B58B58241ED2ABAB009A7992 /* App-Class.swift */,
 				B58B58201ED2AB15009A7992 /* Financial+Variables.swift */,
 				B5B748871E9A014400A5308E /* MerchantLocation.swift */,
+				B55175191ED635640063E356 /* TimeUnits.swift */,
 				B5B748691E99FFF300A5308E /* MultiVar.swift */,
 				B5B7486D1E9A001A00A5308E /* DateClasses.swift */,
 				B5B7486B1E9A000200A5308E /* DOB.swift */,
@@ -185,6 +200,12 @@
 				B5B748891E9A015700A5308E /* LocationAddress.swift */,
 				B58B582E1ED2B1E8009A7992 /* SpotitLinkers.swift */,
 				B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */,
+				B58BA4091ED4DD34005F1544 /* DateLabeler.swift */,
+				B551751D1ED636310063E356 /* AcuteTimeValues.swift */,
+				B551751B1ED635950063E356 /* TimeComponents.swift */,
+				B55175231ED68AB50063E356 /* TimeVariables.swift */,
+				B551751F1ED637150063E356 /* LocationTimeDate.swift */,
+				B55175211ED689FF0063E356 /* DistanceString.swift */,
 			);
 			name = Specifics;
 			sourceTree = "<group>";
@@ -362,6 +383,8 @@
 			files = (
 				B58B58251ED2ABAB009A7992 /* App-Class.swift in Sources */,
 				B5B7488C1E9A01B400A5308E /* LoadingIndicator.swift in Sources */,
+				B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */,
+				B55175201ED637150063E356 /* LocationTimeDate.swift in Sources */,
 				B5B748721E9A003600A5308E /* Phone.swift in Sources */,
 				B5B7487C1E9A009A00A5308E /* UIBezierPath+Helpers.swift in Sources */,
 				B58B58091ED2A620009A7992 /* UILabel+Helpers.swift in Sources */,
@@ -383,6 +406,7 @@
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B58B58031ED2A5BE009A7992 /* UIViewController+Helpers.swift in Sources */,
 				B58B58051ED2A5DF009A7992 /* Dictionnary+Helpers.swift in Sources */,
+				B551751A1ED635640063E356 /* TimeUnits.swift in Sources */,
 				B58B58071ED2A5F8009A7992 /* UIImageView+Helpers.swift in Sources */,
 				B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */,
 				B58B580B1ED2A641009A7992 /* String+Helpers.swift in Sources */,
@@ -391,10 +415,12 @@
 				B58B583E1ED2B7EC009A7992 /* PostalCode.swift in Sources */,
 				B58B57FD1ED2A53C009A7992 /* Integer_Helpers.swift in Sources */,
 				B58B583A1ED2B77E009A7992 /* Country.swift in Sources */,
+				B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */,
 				B58B583C1ED2B7B1009A7992 /* State.swift in Sources */,
 				B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */,
 				B58B58171ED2A76D009A7992 /* UIButton+Helpers.swift in Sources */,
 				B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */,
+				B551751C1ED635950063E356 /* TimeComponents.swift in Sources */,
 				B5B7486C1E9A000200A5308E /* DOB.swift in Sources */,
 				B58B58191ED2A7A5009A7992 /* UIView+Helpers.swift in Sources */,
 				B5B7487A1E9A008B00A5308E /* UIImage+Decompression.swift in Sources */,
@@ -410,12 +436,14 @@
 				B5B748881E9A014400A5308E /* MerchantLocation.swift in Sources */,
 				B58B58211ED2AB15009A7992 /* Financial+Variables.swift in Sources */,
 				B5B748981E9A066600A5308E /* GlobalVariables.swift in Sources */,
+				B55175241ED68AB50063E356 /* TimeVariables.swift in Sources */,
 				B5B748701E9A002D00A5308E /* LocalData.swift in Sources */,
 				B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */,
 				B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */,
 				B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */,
 				B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */,
 				B58B58271ED2AC90009A7992 /* NSMutableURLRequest+Helpers.swift in Sources */,
+				B55175221ED689FF0063E356 /* DistanceString.swift in Sources */,
 				B58B58111ED2A6B6009A7992 /* NSObject+Helpers.swift in Sources */,
 				B58B58131ED2A6E4009A7992 /* NSLocale+Helpers.swift in Sources */,
 				B5B7488E1E9A020400A5308E /* SliderView.swift in Sources */,
