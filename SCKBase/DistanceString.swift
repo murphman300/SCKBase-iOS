@@ -17,12 +17,12 @@ public enum DistanceStringError: Error {
 
 public struct DistanceString {
     
-    var latitude : CLLocationDegrees
-    var longitude : CLLocationDegrees
-    var distance : CLLocationDistance
-    var distance_String : String?
+    public var latitude : CLLocationDegrees
+    public var longitude : CLLocationDegrees
+    public var distance : CLLocationDistance
+    public var distance_String : String?
     
-    var from : CLLocation? {
+    public var from : CLLocation? {
         didSet {
             if let f = from {
                 latitude = f.coordinate.latitude
@@ -40,7 +40,7 @@ public struct DistanceString {
         }
     }
     
-    init(lat : Double, long: Double, manager: CLLocationManager) throws {
+    public init(lat : Double, long: Double, manager: CLLocationManager) throws {
         guard let loc = manager.location else {
             distance_String = ""
             throw DistanceStringError.notInit("No location yet")
