@@ -42,6 +42,14 @@ public struct AcuteTimeValues {
         summed = (hours * 60) + minutes
     }
     
+    public init(asClosed gregorian: Int) {
+        self.gregorian = gregorian
+        hours = 0
+        minutes = 0
+        summed = 0
+        meridiemString = "Closed"
+    }
+    
     public init() {
         let now = Date()
         let cal = Calendar.current
