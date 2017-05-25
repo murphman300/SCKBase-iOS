@@ -104,6 +104,32 @@ open class LocationTimeComponents : NSObject {
         }
     }
     
+    open var placeTimeToClose: ReferenceToLocationTimeComponent {
+        if withinTimeFrame, let c = closingVals {
+            if AcuteTimeValues().asCurrentTo(closing: c) <= 60 {
+                return .withinHour
+            } else {
+                return .beyondHour
+            }
+        } else if afterTimeFrame {
+            return .passed
+        } else {
+            return .beyondHour
+        }
+    }
+    
+    open var placeTimeToOpening: ReferenceToLocationTimeComponent {
+        if beforeTimeFrame, let c = openingVals {
+            if AcuteTimeValues().differenceAsCurrentTo(opening: c) <= 60 {
+                return .withinHour
+            } else {
+                return .beyondHour
+            }
+        } else {
+            return .passed
+        }
+    }
+    
     open var currentLabel : String {
         if let op = openingVals, let cp = closingVals {
             if withinTimeFrame {
@@ -117,4 +143,16 @@ open class LocationTimeComponents : NSObject {
             return "Closed"
         }
     }
+}
+
+public enum SelectLocationTimeComponent {
+    case beforeTimes
+    case afterTimes
+    case withinTimes
+}
+
+public enum ReferenceToLocationTimeComponent {
+    case withinHour
+    case beyondHour
+    case passed
 }

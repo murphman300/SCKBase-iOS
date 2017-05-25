@@ -93,7 +93,6 @@ public struct GregorianDictionary {
     }
     
     public func now() -> LocationTimeComponents? {
-        
         let now = AcuteTimeValues()
         guard let su = one, let mo = two, let tu = three, let wed = four, let thu = five, let fri = six, let sat = seven, let val = now.gregorianValue else {
             return nil
@@ -174,10 +173,44 @@ public enum LocationHoursError : Error {
     case because(String)
 }
 
+public enum LocationHoursDisplay {
+    case opened
+    case opening
+    case closing
+    case closed
+}
+
 open class LocationHours {
     
     public var values = [LocationTimeComponents]()
     public var list : GregorianDictionary?
+    
+    public var displayedState : LocationHoursDisplay {
+        guard let to = today else {
+            return .closed
+        }
+        if to.withinTimeFrame {
+            switch to.placeTimeToClose {
+            case .beyondHour:
+                return .opened
+            case .passed:
+                return .closed
+            case .withinHour:
+                return .closing
+            }
+        } else if to.beforeTimeFrame {
+            switch to.placeTimeToOpening {
+            case .beyondHour:
+                return .closed
+            case .passed:
+                return .opened
+            case .withinHour:
+                return .opening
+            }
+        } else {
+            return .closed
+        }
+    }
     
     public var today : LocationTimeComponents? {
         get {
