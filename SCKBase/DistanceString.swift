@@ -30,8 +30,8 @@ public struct DistanceString {
                 let location2 =  CLLocation(latitude: latitude, longitude: longitude)
                 distance = f.distance(from: location2)
                 if distance > 750 {
-                    let d = distance.roundTo(places: 2)
-                    distance_String = "\(d)Km"
+                    let d = (distance / 1000).roundTo(places: 2)
+                    distance_String = "\(d)km"
                 } else {
                     let d = Int(distance)
                     distance_String = "\(d)m"
@@ -50,8 +50,8 @@ public struct DistanceString {
         let location2 =  CLLocation(latitude: latitude, longitude: longitude)
         distance = loc.distance(from: location2)
         if distance > 750 {
-            let d = distance.roundTo(places: 2)
-            distance_String = "\(d)Km"
+            let d = (distance / 1000).roundTo(places: 2)
+            distance_String = "\(d)km"
         } else {
             let d = Int(distance)
             distance_String = "\(d)m"
