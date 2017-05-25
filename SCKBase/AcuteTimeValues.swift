@@ -67,10 +67,16 @@ public struct AcuteTimeValues {
     }
     
     func asCurrentTo(closing: AcuteTimeValues) -> Int {
-        guard self.hours > closing.hours else {
-            return differenceToNextDayTime(dayB: closing)
+        guard let value = self.gregorianValue, let closev = closing.gregorianValue else {
+            return -1
         }
-        return differenceTo(b: closing)
+        if value == closev - 1 {
+            return differenceToNextDayTime(dayB: closing)
+        } else if value == closev {
+            return differenceTo(b: closing)
+        } else {
+            return 2500
+        }
     }
     
     func differenceAsCurrentTo(opening: AcuteTimeValues) -> Int {
@@ -92,6 +98,7 @@ public struct AcuteTimeValues {
     }
     
     func differenceTo(b: AcuteTimeValues) -> Int {
+        let t = b.summed - self.summed
         return b.summed - self.summed
     }
 }
