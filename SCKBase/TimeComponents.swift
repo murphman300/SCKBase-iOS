@@ -78,7 +78,9 @@ open class LocationTimeComponents : NSObject {
     open var withinTimeFrame : Bool {
         if let openings = openingVals, let closings = closingVals {
             let now = AcuteTimeValues()
-            return now > openings && now < closings
+            let op = now > openings
+            let ap = now < closings
+            return op && ap
         } else {
             return false
         }
@@ -103,10 +105,14 @@ open class LocationTimeComponents : NSObject {
     }
     
     open var currentLabel : String {
-        if let op = openingVals {
-            return op.meridiemString
-        } else if let op = closingVals{
-            return op.meridiemString
+        if let op = openingVals, let cp = closingVals {
+            if withinTimeFrame {
+                return "Open until \(cp.meridiemString)"
+            } else if beforeTimeFrame {
+                return "Opens at \(op.meridiemString)"
+            } else {
+                return "next day"
+            }
         } else {
             return "Closed"
         }

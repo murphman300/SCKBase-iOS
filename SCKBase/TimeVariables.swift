@@ -66,24 +66,24 @@ public struct GregorianDictionary {
             return false
         }
     }
-
+    
     public init(values: [LocationTimeComponents]) {
         for comp in values {
             if let week = comp.weekday {
                 switch week.lowercased() {
-                case "monday" :
-                    one = comp
-                case "tuesday" :
-                    two = comp
-                case "wednesday" :
-                    three = comp
-                case "thursday" :
-                    four = comp
-                case "friday" :
-                    five = comp
-                case "saturday" :
-                    six = comp
                 case "sunday" :
+                    one = comp
+                case "monday" :
+                    two = comp
+                case "tuesday" :
+                    three = comp
+                case "wednesday" :
+                    four = comp
+                case "thursday" :
+                    five = comp
+                case "friday" :
+                    six = comp
+                case "saturday" :
                     seven = comp
                 default :
                     break
@@ -193,16 +193,30 @@ open class LocationHours {
             return "Closed"
         }
         let current = l.currentLabel
-        if current == "Closed", let li = list {
+        if current == "Closed" || current == "next day", let li = list {
             if let next = li.nextOpenDay(), let ng = next.gregorian, let tg = l.gregorian {
                 if ng == tg {
-                    return "Opens \(l.currentLabel)"
-                } else {
+                    if l.beforeTimeFrame, let opv = l.openingVals {
+                        return "Opens at \(opv.meridiemString)"
+                    } else {
+                        guard let npv = next.openingVals else {
+                            return "Opens Tomorrow"
+                        }
+                        return "Opens tomorrow at \(npv.meridiemString)"
+                    }
+                } else if (ng > tg) {
                     return next.currentLabel
+                } else {
+                    guard let t = next.weekday else {
+                        return "Opens next week"
+                    }
+                    return "Opens next \(t.capitalized)"
                 }
             } else {
                 return "Temporarily closed"
             }
+        } else if current.contains("Open") || current.contains("at") || current.contains("PM") || current.contains("AM"){
+            return current
         } else {
             return current
         }
@@ -227,7 +241,7 @@ open class LocationHours {
             }
         })
         if values.count != 7 {
-           throw LocationHoursError.because("Invalid count")
+            throw LocationHoursError.because("Invalid count")
         }
         list = GregorianDictionary(values: values)
         if let lis = list, lis.one == nil || lis.two == nil ||  lis.three == nil || lis.four == nil || lis.five == nil || lis.six == nil || lis.seven == nil {
