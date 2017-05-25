@@ -93,11 +93,12 @@ public struct GregorianDictionary {
     }
     
     public func now() -> LocationTimeComponents? {
-        guard let su = one, let mo = two, let tu = three, let wed = four, let thu = five, let fri = six, let sat = seven else {
+        
+        let now = AcuteTimeValues()
+        guard let su = one, let mo = two, let tu = three, let wed = four, let thu = five, let fri = six, let sat = seven, let val = now.gregorianValue else {
             return nil
         }
-        let now = AcuteTimeValues()
-        switch now.gregorian {
+        switch val {
         case 1:
             return su
         case 2:
@@ -143,7 +144,10 @@ public struct GregorianDictionary {
     
     public func nextOpenDay() -> LocationTimeComponents? {
         let now = AcuteTimeValues()
-        var int = now.gregorian
+        guard let i = now.gregorianValue else {
+            return nil
+        }
+        var int = i
         var steps: Int = 0
         var found : LocationTimeComponents?
         while found == nil || steps < 6 {
