@@ -92,6 +92,7 @@ public enum LocationHoursError : Error {
 open class LocationHours {
     
     var values = [LocationTimeComponents]()
+    var list : GregorianDictionary?
     
     public convenience init(data : [[String:Any]]) throws {
         self.init()
@@ -113,6 +114,10 @@ open class LocationHours {
         })
         if values.count != 7 {
            throw LocationHoursError.because("Invalid count")
+        }
+        list = GregorianDictionary(values: values)
+        if let lis = list, lis.one == nil || lis.two == nil ||  lis.three == nil || lis.four == nil || lis.five == nil || lis.six == nil || lis.seven == nil {
+            throw LocationHoursError.because("Invalid list casting")
         }
     }
 }
