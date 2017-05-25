@@ -87,45 +87,4 @@ open class LocationTimeComponents : NSObject {
             return false
         }
     }
-    
-    private func dayFrom(gregorian: Int) -> String? {
-        switch gregorian {
-        case 1:
-            return "Sunday"
-        case 2:
-            return "Monday"
-        case 3:
-            return "Tuesday"
-        case 4:
-            return "Wednesday"
-        case 5:
-            return "Thursday"
-        case 6:
-            return "Friday"
-        case 7:
-            return "Saturday"
-        default:
-            return nil
-        }
-    }
-    private func gregorian(fromDay: String) -> Int? {
-        switch fromDay.lowercased() {
-        case "sunday":
-            return 1
-        case "monday":
-            return 2
-        case "tuesday":
-            return 3
-        case "wednesday":
-            return 4
-        case "thursday":
-            return 5
-        case "friday":
-            return 6
-        case "saturday":
-            return 7
-        default:
-            return nil
-        }
-    }
 }

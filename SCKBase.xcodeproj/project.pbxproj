@@ -18,6 +18,8 @@
 		B551751C1ED635950063E356 /* TimeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551751B1ED635950063E356 /* TimeComponents.swift */; };
 		B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551751D1ED636310063E356 /* AcuteTimeValues.swift */; };
 		B55175201ED637150063E356 /* LocationTimeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551751F1ED637150063E356 /* LocationTimeDate.swift */; };
+		B55175221ED689FF0063E356 /* DistanceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175211ED689FF0063E356 /* DistanceString.swift */; };
+		B55175241ED68AB50063E356 /* TimeVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175231ED68AB50063E356 /* TimeVariables.swift */; };
 		B58B57FD1ED2A53C009A7992 /* Integer_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B57FC1ED2A53C009A7992 /* Integer_Helpers.swift */; };
 		B58B57FF1ED2A562009A7992 /* Double+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B57FE1ED2A562009A7992 /* Double+Helper.swift */; };
 		B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58001ED2A58B009A7992 /* Randoms+Helpers.swift */; };
@@ -87,6 +89,8 @@
 		B551751B1ED635950063E356 /* TimeComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeComponents.swift; sourceTree = "<group>"; };
 		B551751D1ED636310063E356 /* AcuteTimeValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuteTimeValues.swift; sourceTree = "<group>"; };
 		B551751F1ED637150063E356 /* LocationTimeDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTimeDate.swift; sourceTree = "<group>"; };
+		B55175211ED689FF0063E356 /* DistanceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceString.swift; sourceTree = "<group>"; };
+		B55175231ED68AB50063E356 /* TimeVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeVariables.swift; sourceTree = "<group>"; };
 		B58B57FC1ED2A53C009A7992 /* Integer_Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Integer_Helpers.swift; sourceTree = "<group>"; };
 		B58B57FE1ED2A562009A7992 /* Double+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helper.swift"; sourceTree = "<group>"; };
 		B58B58001ED2A58B009A7992 /* Randoms+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Randoms+Helpers.swift"; sourceTree = "<group>"; };
@@ -199,7 +203,9 @@
 				B58BA4091ED4DD34005F1544 /* DateLabeler.swift */,
 				B551751D1ED636310063E356 /* AcuteTimeValues.swift */,
 				B551751B1ED635950063E356 /* TimeComponents.swift */,
+				B55175231ED68AB50063E356 /* TimeVariables.swift */,
 				B551751F1ED637150063E356 /* LocationTimeDate.swift */,
+				B55175211ED689FF0063E356 /* DistanceString.swift */,
 			);
 			name = Specifics;
 			sourceTree = "<group>";
@@ -430,12 +436,14 @@
 				B5B748881E9A014400A5308E /* MerchantLocation.swift in Sources */,
 				B58B58211ED2AB15009A7992 /* Financial+Variables.swift in Sources */,
 				B5B748981E9A066600A5308E /* GlobalVariables.swift in Sources */,
+				B55175241ED68AB50063E356 /* TimeVariables.swift in Sources */,
 				B5B748701E9A002D00A5308E /* LocalData.swift in Sources */,
 				B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */,
 				B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */,
 				B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */,
 				B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */,
 				B58B58271ED2AC90009A7992 /* NSMutableURLRequest+Helpers.swift in Sources */,
+				B55175221ED689FF0063E356 /* DistanceString.swift in Sources */,
 				B58B58111ED2A6B6009A7992 /* NSObject+Helpers.swift in Sources */,
 				B58B58131ED2A6E4009A7992 /* NSLocale+Helpers.swift in Sources */,
 				B5B7488E1E9A020400A5308E /* SliderView.swift in Sources */,
