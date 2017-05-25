@@ -33,6 +33,7 @@ open class LocationTimeComponents : NSObject {
                 if let weekd = info["weekday"] as? String{
                     self.weekday = weekd
                     if let close = info["closing"] as? Int, let open = info["opening"] as? Int, let int = weekd.gregorianValue() {
+                        self.gregorian = int
                         self.closing = close
                         self.opening = open
                         openingVals = AcuteTimeValues(from: open, meridiem: true)
