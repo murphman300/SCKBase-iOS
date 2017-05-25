@@ -100,4 +100,14 @@ open class LocationTimeComponents : NSObject {
             return false
         }
     }
+    
+    open var currentLabel : String {
+        if let op = openingVals {
+            return op.meridiemString
+        } else if let op = closingVals{
+            return op.meridiemString
+        } else {
+            return "Closed"
+        }
+    }
 }
