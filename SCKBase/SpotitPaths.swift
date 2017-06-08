@@ -27,11 +27,12 @@ public struct SpotitPaths {
         }
         public struct wallet {
             private static let croot : String = root + "/wallet"
-            public static let get : String = croot + "/get"
+            public static let get : String = croot + "/methods"
             public struct methods {
-                private static let cmroot : String = local + "/wallet"
-                private static let mroot : String = cmroot + "/methods"
+                private static let mroot : String = croot + "/method"
                 public static let update : String = mroot + "/update"
+                public static let delete : String = mroot + "/delete"
+                public static let add : String = mroot + "/add"
             }
         }
         public static let get : String = root
