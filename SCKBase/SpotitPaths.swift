@@ -133,7 +133,7 @@ public struct SpotitPaths {
         }
         public struct wallet {
             private static let croot : String = root + "/wallet"
-            public static let get : String = croot + "/methods"
+            public static let get : String = croot + "/get"
             public struct methods {
                 private static let mroot : String = croot + "/method"
                 public static let update : String = mroot + "/update"
