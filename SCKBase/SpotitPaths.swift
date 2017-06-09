@@ -8,9 +8,11 @@
 
 import UIKit
 
+
+
 public struct LocalPaths {
     
-    private static let local : String = "localhost:3000/api"
+    private static let local : String = "192.168.0.20:3000/api"
     public struct users {
         private static let root : String = local + "/users"
         public struct login {
