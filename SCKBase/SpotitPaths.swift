@@ -34,7 +34,7 @@ public struct LocalPaths {
                 public static let add : String = mroot + "/add"
             }
         }
-        public static let get : String = root
+        public static let get : String = root + "/profile"
     }
     public struct payment {
         private static let proot : String = Connections.node.paymentRoot
@@ -141,7 +141,7 @@ public struct SpotitPaths {
                 public static let add : String = mroot + "/add"
             }
         }
-        public static let get : String = root
+        public static let get : String = root + "/profile"
     }
     public struct payment {
         private static let proot : String = Connections.node.paymentRoot
