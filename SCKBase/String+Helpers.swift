@@ -8,7 +8,45 @@
 
 import UIKit
 
+extension String: ExpressibleByArrayLiteral {
+    public typealias Element = Int
+    public typealias OtherElement = Character
+    
+    public init(arrayLiteral elements: Element...) {
+        self.init()
+        self = "\(elements.reduce(0,+))"
+    }
+    
+    init(withSecureShowOnlyLast4 values : String) {
+        self.init()
+        let array = [Character](values.characters)
+        if array.count <= 4 {
+            self = values
+        } else {
+            var first = array.count - 4
+            var lastFour : [Character] = []
+            while first <= (array.count - 1) {
+                lastFour.append(array[first])
+                first += 1
+            }
+            self = String(Array(repeating: "•", count: array.count - 4) + lastFour)
+        }
+    }
+    
+}
+
+
+
 extension String {
+    
+    var charValues : [Character] {
+        get {
+            guard self.isEmpty else {
+                return [Character](self.characters)
+            }
+            return []
+        }
+    }
     
     public func toDate() -> Date? {
         

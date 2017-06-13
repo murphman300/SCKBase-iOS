@@ -76,6 +76,7 @@
 		B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */; };
 		B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A31E9A0AB100A5308E /* TaxHandler.swift */; };
 		B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */; };
+		B5F44EFA1EF06D9B00FD101D /* UILabel+Instantiables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		B5B748A31E9A0AB100A5308E /* TaxHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxHandler.swift; sourceTree = "<group>"; };
 		B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyles.swift; sourceTree = "<group>"; };
+		B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Instantiables.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				B58B58081ED2A620009A7992 /* UILabel+Helpers.swift */,
 				B58B580A1ED2A641009A7992 /* String+Helpers.swift */,
 				B58B580C1ED2A676009A7992 /* NSString+Helpers.swift */,
+				B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */,
 				B58B58141ED2A705009A7992 /* Date+Helpers.swift */,
 				B58B58161ED2A76D009A7992 /* UIButton+Helpers.swift */,
 				B58B58181ED2A7A5009A7992 /* UIView+Helpers.swift */,
@@ -433,6 +436,7 @@
 				B535D8561ECF78B700E52710 /* SelectorButton.swift in Sources */,
 				B58B58381ED2B762009A7992 /* Provinces.swift in Sources */,
 				B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */,
+				B5F44EFA1EF06D9B00FD101D /* UILabel+Instantiables.swift in Sources */,
 				B5B748901E9A021700A5308E /* GeoVar.swift in Sources */,
 				B5B7486E1E9A001A00A5308E /* DateClasses.swift in Sources */,
 				B5B748821E9A00E200A5308E /* ArrowButton.swift in Sources */,
