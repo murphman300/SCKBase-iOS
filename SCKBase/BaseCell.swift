@@ -9,31 +9,6 @@
 import UIKit
 
 
-public protocol LoadingInterfacer {
-    typealias loadingCallbackUIComponent = (() -> ())?
-    typealias loadedCallbackUIComponent = (() -> ())?
-    func fetching(completionHandler: () -> ())
-}
-
-enum BaseCellLoader : LoadingInterfacer {
-    
-    case loading(execute: loadingCallbackUIComponent?)
-    
-    case loaded(execute: loadedCallbackUIComponent?)
-    
-    func fetching(completionHandler: () -> ()) {
-        switch self {
-        case .loaded(execute: let callback):
-            callback()
-        case .loading(execute: let callback):
-            callback()
-            
-        }
-    }
-    
-}
-
-
 
 open class BaseCell: UICollectionViewCell {
     
