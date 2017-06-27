@@ -8,7 +8,28 @@
 
 import UIKit
 
+
+
 open class BaseCell: UICollectionViewCell {
+    
+    
+    public func asLoading() {
+        
+    }
+    
+    public func finishedLoading() {
+        loadingCallbackUIComponent?()
+    }
+    
+    private var loadingCallbackUIComponent: (() -> ())?
+    
+    public var loadingCallback : (() -> ())? {
+        get {
+            return loadingCallbackUIComponent
+        } set {
+            loadingCallbackUIComponent = newValue
+        }
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

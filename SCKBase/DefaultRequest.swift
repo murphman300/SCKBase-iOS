@@ -93,4 +93,38 @@ open class DefaultRequest : NSMutableURLRequest {
             }
         }
     }
+    
+    convenience public init(facebookToken: String, method: httpMet, payload: [String:Any]?) throws {
+        var ur : URL?
+        if let u = URL(string: SpotitPaths.users.login.facebook) {
+            ur = u
+        } else {
+            throw NSMutableRequestInitializationError.invalidURL
+        }
+        if let u = ur {
+            self.init(url: u)
+        } else {
+            throw NSMutableRequestInitializationError.invalidURL
+        }
+        switch method {
+        case .get:
+            httpMethod = "GET"
+        case.post :
+            httpMethod = "POST"
+        case .delete :
+            httpMethod = "DELETE"
+        }
+        addValue("@facebook", forHTTPHeaderField: "tokentype")
+        addValue("Facebook : \(facebookToken)", forHTTPHeaderField: "Authorization")
+        if let p = payload {
+            do {
+                let json = try JSONSerialization.data(withJSONObject: p, options: .prettyPrinted)
+                httpBody = json
+            } catch {
+                throw NSMutableRequestInitializationError.failedToConvertPackage
+            }
+        }
+    }
+    
+    
 }

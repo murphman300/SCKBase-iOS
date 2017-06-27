@@ -128,4 +128,24 @@ open class DefaultNetwork: NSObject {
             }
         }
     }
+    
+    public func facebookedRequest(token: String, method: httpMet, payload: [String: Any]?) {
+        
+        do {
+            let request = try DefaultRequest(facebookToken: token, method:  method, payload: payload)
+        } catch let err {
+        
+        }
+        
+        
+        
+    }
+    
+    public func facebookLogin(token: String, device: String) {
+        do {
+            let request = try DefaultRequest(facebookToken: token, method:  .post, payload: ["deviceID" : device])
+        } catch let err {
+            
+        }
+    }
 }
