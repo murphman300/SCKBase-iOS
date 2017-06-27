@@ -56,7 +56,6 @@
 		B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */; };
 		B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */; };
 		B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BA4091ED4DD34005F1544 /* DateLabeler.swift */; };
-		B5AA19891F02CCB400C03C10 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AA19881F02CCB400C03C10 /* SwiftyJSON.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748691E99FFF300A5308E /* MultiVar.swift */; };
 		B5B7486C1E9A000200A5308E /* DOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7486B1E9A000200A5308E /* DOB.swift */; };
@@ -80,6 +79,7 @@
 		B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */; };
 		B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A31E9A0AB100A5308E /* TaxHandler.swift */; };
 		B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */; };
+		B5E8BE381F02CF6300F14D1E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */; };
 		B5F44EFA1EF06D9B00FD101D /* UILabel+Instantiables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +133,6 @@
 		B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewInfo.swift; sourceTree = "<group>"; };
 		B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		B58BA4091ED4DD34005F1544 /* DateLabeler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabeler.swift; sourceTree = "<group>"; };
-		B5AA19881F02CCB400C03C10 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../SwiftyJSON.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B748611E99FFB300A5308E /* SCKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKBase.h; sourceTree = "<group>"; };
 		B5B748621E99FFB300A5308E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +158,7 @@
 		B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		B5B748A31E9A0AB100A5308E /* TaxHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxHandler.swift; sourceTree = "<group>"; };
 		B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyles.swift; sourceTree = "<group>"; };
+		B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Instantiables.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,8 +217,8 @@
 				B551751B1ED635950063E356 /* TimeComponents.swift */,
 				B55175231ED68AB50063E356 /* TimeVariables.swift */,
 				B551751F1ED637150063E356 /* LocationTimeDate.swift */,
-				B5AA19881F02CCB400C03C10 /* SwiftyJSON.swift */,
 				B55175211ED689FF0063E356 /* DistanceString.swift */,
+				B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */,
 				B52395E01F01D3CF00AF538B /* File.swift */,
 				B52395E21F01D3D900AF538B /* Object.swift */,
 				B52395E61F01DC3C00AF538B /* JSONObject.swift */,
@@ -425,7 +425,7 @@
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B58B58031ED2A5BE009A7992 /* UIViewController+Helpers.swift in Sources */,
 				B58B58051ED2A5DF009A7992 /* Dictionnary+Helpers.swift in Sources */,
-				B5AA19891F02CCB400C03C10 /* SwiftyJSON.swift in Sources */,
+				B5E8BE381F02CF6300F14D1E /* SwiftyJSON.swift in Sources */,
 				B551751A1ED635640063E356 /* TimeUnits.swift in Sources */,
 				B58B58071ED2A5F8009A7992 /* UIImageView+Helpers.swift in Sources */,
 				B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */,
