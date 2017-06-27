@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */; };
+		B52395E11F01D3CF00AF538B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E01F01D3CF00AF538B /* File.swift */; };
+		B52395E31F01D3D900AF538B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E21F01D3D900AF538B /* Object.swift */; };
+		B52395E51F01DB7000AF538B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E41F01DB7000AF538B /* SwiftyJSON.swift */; };
+		B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E61F01DC3C00AF538B /* JSONObject.swift */; };
 		B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */; };
 		B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */; };
 		B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */; };
@@ -81,6 +85,10 @@
 
 /* Begin PBXFileReference section */
 		B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitColorScheme.swift; sourceTree = "<group>"; };
+		B52395E01F01D3CF00AF538B /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B52395E21F01D3D900AF538B /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		B52395E41F01DB7000AF538B /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		B52395E61F01DC3C00AF538B /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkClass.swift; sourceTree = "<group>"; };
 		B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedImageView.swift; sourceTree = "<group>"; };
 		B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRequest.swift; sourceTree = "<group>"; };
@@ -210,6 +218,10 @@
 				B55175231ED68AB50063E356 /* TimeVariables.swift */,
 				B551751F1ED637150063E356 /* LocationTimeDate.swift */,
 				B55175211ED689FF0063E356 /* DistanceString.swift */,
+				B52395E01F01D3CF00AF538B /* File.swift */,
+				B52395E41F01DB7000AF538B /* SwiftyJSON.swift */,
+				B52395E21F01D3D900AF538B /* Object.swift */,
+				B52395E61F01DC3C00AF538B /* JSONObject.swift */,
 			);
 			name = Specifics;
 			sourceTree = "<group>";
@@ -408,9 +420,11 @@
 				B5B748861E9A00EC00A5308E /* CheckMarkButton.swift in Sources */,
 				B5B748841E9A00E700A5308E /* CheckMarkView.swift in Sources */,
 				B5B7488A1E9A015700A5308E /* LocationAddress.swift in Sources */,
+				B52395E31F01D3D900AF538B /* Object.swift in Sources */,
 				B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */,
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B58B58031ED2A5BE009A7992 /* UIViewController+Helpers.swift in Sources */,
+				B52395E51F01DB7000AF538B /* SwiftyJSON.swift in Sources */,
 				B58B58051ED2A5DF009A7992 /* Dictionnary+Helpers.swift in Sources */,
 				B551751A1ED635640063E356 /* TimeUnits.swift in Sources */,
 				B58B58071ED2A5F8009A7992 /* UIImageView+Helpers.swift in Sources */,
@@ -421,6 +435,7 @@
 				B58B583E1ED2B7EC009A7992 /* PostalCode.swift in Sources */,
 				B58B57FD1ED2A53C009A7992 /* Integer_Helpers.swift in Sources */,
 				B58B583A1ED2B77E009A7992 /* Country.swift in Sources */,
+				B52395E11F01D3CF00AF538B /* File.swift in Sources */,
 				B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */,
 				B58B583C1ED2B7B1009A7992 /* State.swift in Sources */,
 				B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */,
@@ -453,6 +468,7 @@
 				B58B58271ED2AC90009A7992 /* NSMutableURLRequest+Helpers.swift in Sources */,
 				B55175221ED689FF0063E356 /* DistanceString.swift in Sources */,
 				B58B58111ED2A6B6009A7992 /* NSObject+Helpers.swift in Sources */,
+				B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */,
 				B58B58131ED2A6E4009A7992 /* NSLocale+Helpers.swift in Sources */,
 				B5B7488E1E9A020400A5308E /* SliderView.swift in Sources */,
 				B58B582D1ED2AF60009A7992 /* SpotitPaths.swift in Sources */,

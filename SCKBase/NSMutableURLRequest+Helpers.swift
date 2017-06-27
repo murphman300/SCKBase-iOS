@@ -114,15 +114,12 @@ extension NSMutableURLRequest {
             httpMethod = "POST"
         case .delete :
             httpMethod = "DELETE"
-            
-            
         }
         
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         if payload != nil {
             httpBody = payload
         }
-        
     }
     
     public func deleteTransportMethod(_ token: String) {
@@ -145,9 +142,6 @@ extension NSMutableURLRequest {
         
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue(authToken, forHTTPHeaderField: "Authorization: Bearer ")
-        //addValue(upid, forHTTPHeaderField: "Content-Type")
-        //addValue(uuid, forHTTPHeaderField: "Accept")
-        //addValue(authToken, forHTTPHeaderField: "Authorization: Bearer ")
         
         if payload != nil {
             httpBody = payload

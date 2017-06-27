@@ -10,6 +10,7 @@ import UIKit
 
 extension String: ExpressibleByArrayLiteral {
     public typealias Element = Int
+    
     public typealias OtherElement = Character
     
     public init(arrayLiteral elements: Element...) {
