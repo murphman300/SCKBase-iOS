@@ -10,7 +10,6 @@
 		B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */; };
 		B52395E11F01D3CF00AF538B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E01F01D3CF00AF538B /* File.swift */; };
 		B52395E31F01D3D900AF538B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E21F01D3D900AF538B /* Object.swift */; };
-		B52395E51F01DB7000AF538B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E41F01DB7000AF538B /* SwiftyJSON.swift */; };
 		B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E61F01DC3C00AF538B /* JSONObject.swift */; };
 		B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */; };
 		B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */; };
@@ -57,6 +56,7 @@
 		B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */; };
 		B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */; };
 		B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BA4091ED4DD34005F1544 /* DateLabeler.swift */; };
+		B5AA19891F02CCB400C03C10 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AA19881F02CCB400C03C10 /* SwiftyJSON.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748691E99FFF300A5308E /* MultiVar.swift */; };
 		B5B7486C1E9A000200A5308E /* DOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7486B1E9A000200A5308E /* DOB.swift */; };
@@ -87,7 +87,6 @@
 		B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitColorScheme.swift; sourceTree = "<group>"; };
 		B52395E01F01D3CF00AF538B /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B52395E21F01D3D900AF538B /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
-		B52395E41F01DB7000AF538B /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B52395E61F01DC3C00AF538B /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkClass.swift; sourceTree = "<group>"; };
 		B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedImageView.swift; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewInfo.swift; sourceTree = "<group>"; };
 		B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		B58BA4091ED4DD34005F1544 /* DateLabeler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabeler.swift; sourceTree = "<group>"; };
+		B5AA19881F02CCB400C03C10 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../SwiftyJSON.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B748611E99FFB300A5308E /* SCKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKBase.h; sourceTree = "<group>"; };
 		B5B748621E99FFB300A5308E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -217,9 +217,9 @@
 				B551751B1ED635950063E356 /* TimeComponents.swift */,
 				B55175231ED68AB50063E356 /* TimeVariables.swift */,
 				B551751F1ED637150063E356 /* LocationTimeDate.swift */,
+				B5AA19881F02CCB400C03C10 /* SwiftyJSON.swift */,
 				B55175211ED689FF0063E356 /* DistanceString.swift */,
 				B52395E01F01D3CF00AF538B /* File.swift */,
-				B52395E41F01DB7000AF538B /* SwiftyJSON.swift */,
 				B52395E21F01D3D900AF538B /* Object.swift */,
 				B52395E61F01DC3C00AF538B /* JSONObject.swift */,
 			);
@@ -424,8 +424,8 @@
 				B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */,
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B58B58031ED2A5BE009A7992 /* UIViewController+Helpers.swift in Sources */,
-				B52395E51F01DB7000AF538B /* SwiftyJSON.swift in Sources */,
 				B58B58051ED2A5DF009A7992 /* Dictionnary+Helpers.swift in Sources */,
+				B5AA19891F02CCB400C03C10 /* SwiftyJSON.swift in Sources */,
 				B551751A1ED635640063E356 /* TimeUnits.swift in Sources */,
 				B58B58071ED2A5F8009A7992 /* UIImageView+Helpers.swift in Sources */,
 				B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */,
