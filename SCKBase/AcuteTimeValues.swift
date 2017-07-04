@@ -107,14 +107,12 @@ extension AcuteTimeValues: Equatable {
     
     public static func < (lhs: AcuteTimeValues, rhs: AcuteTimeValues) -> Bool {
         if let greg1 = lhs.gregorianDay, let greg2 = rhs.gregorianDay {
-            print("here then")
             if greg1 == 0 && greg2 == 1 {
                 return lhs.differenceToNextDayTime(dayB: rhs) > 0
             } else {
                 return rhs.differenceToNextDayTime(dayB: lhs) > 0
             }
         } else if let lv = lhs.gregorianValue, let rv = rhs.gregorianValue {
-            print("here first", lv, rv)
             guard !(lv == 1 && rv == 7) && !(lv == 7 && rv == 1) else {
                 guard (lv == 1 && rv == 7) else {
                     return true
