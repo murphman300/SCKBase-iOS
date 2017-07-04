@@ -667,8 +667,6 @@ extension UserDefaults {
             return [:]
         }
         
-        print("Valid is::::: ", valid)
-        
         synchronize()
         return ["do": initial, "date": valid]
     }
