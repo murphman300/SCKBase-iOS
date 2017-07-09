@@ -21,6 +21,7 @@ public class CheckoutModalInfo {
     open var recieved = Date()
     open var txid : String
     open var locid : String
+    open var logoUrl : String?
     
     public init(from: [String:Any]) throws {
         print(from)
@@ -45,6 +46,9 @@ public class CheckoutModalInfo {
             txid = tx
         } else {
             throw ModalViewInfoInitError.missing("txid")
+        }
+        if let url = from["logo_url"] as? String {
+            logoUrl = url
         }
         if let tx = from["locid"] as? String {
             locid = tx
