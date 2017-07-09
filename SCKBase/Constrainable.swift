@@ -139,6 +139,22 @@ open class ImageView : UIImageView, Constrainable {
         self.hasSecondaries = secondaries
     }
     
+    public required convenience init(secondaries: Bool, emptyImage: UIImage? = nil, tapCallback: @escaping (() ->())) {
+        self.init(cornerRadius: 0, emptyImage: emptyImage)
+        self.hasSecondaries = secondaries
+        self.tapCallback = tapCallback
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
+    public required convenience init(secondaries: Bool, cornerRadius: CGFloat, emptyImage: UIImage? = nil, tapCallback: @escaping (() ->())) {
+        self.init(cornerRadius: cornerRadius, emptyImage: emptyImage)
+        self.hasSecondaries = secondaries
+        self.tapCallback = tapCallback
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
     public init(cornerRadius: CGFloat = 0, emptyImage: UIImage? = nil) {
         super.init(frame: .zero)
         contentMode = .scaleAspectFill
