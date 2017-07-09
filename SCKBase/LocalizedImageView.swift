@@ -15,7 +15,7 @@ open class ImageCache {
     open let profilePics = NSCache<NSString, AnyObject>()
 }
 
-open class LocalizedImageView: UIImageView {
+open class LocalizedImageView: ImageView {
     
     public var currentURLString : String?
     
@@ -24,23 +24,52 @@ open class LocalizedImageView: UIImageView {
     private var urlStringForChecking: String?
     private var emptyImage: UIImage?
     
+    public var hasSecondaries: Bool {
+        get {
+            guard block.secondaries != nil else {
+                return false
+            }
+            return true
+        } set {
+            if newValue {
+                block.secondaries = ConstraintBlock()
+            } else {
+                block.secondaries = nil
+            }
+        }
+    }
+    
+    public required convenience init(secondaries: Bool) {
+        self.init(cornerRadius: 0, emptyImage: nil)
+        self.hasSecondaries = secondaries
+    }
+    
     public convenience init(cornerRadius: CGFloat = 0) {
         self.init(cornerRadius: cornerRadius, emptyImage: nil)
         isUserInteractionEnabled = true
     }
     
+    public convenience init(secondaries: Bool, cornerRadius: CGFloat = 0) {
+        self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        self.hasSecondaries = secondaries
+        isUserInteractionEnabled = true
+    }
+    
     public convenience init(cornerRadius: CGFloat = 0, tapCallback: @escaping (() ->())) {
         self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        self.hasSecondaries = true
         self.tapCallback = tapCallback
         isUserInteractionEnabled = true
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
-    public func handleTap() {
-        tapCallback?()
+    public convenience init(secondaries: Bool, cornerRadius: CGFloat = 0, tapCallback: @escaping (() ->())) {
+        self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        self.hasSecondaries = secondaries
+        self.tapCallback = tapCallback
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
-    
-    private var tapCallback: (() -> ())?
     
     public init(cornerRadius: CGFloat = 0, emptyImage: UIImage? = nil) {
         super.init(frame: .zero)
@@ -49,6 +78,15 @@ open class LocalizedImageView: UIImageView {
         layer.cornerRadius = cornerRadius
         self.emptyImage = emptyImage
     }
+    
+    
+    
+    public func handleTap() {
+        tapCallback?()
+    }
+    
+    private var tapCallback: (() -> ())?
+    
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
