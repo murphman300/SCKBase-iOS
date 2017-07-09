@@ -14,28 +14,28 @@ protocol Constrainable {
 
 extension Constrainable where Self : UIView {
     
-    init(secondaries: Bool) {
+    internal init(secondaries: Bool) {
         self.init(frame: .zero)
         hasSecondaries = secondaries
     }
     
     
-    init(frame: CGRect, secondaries: Bool) {
+    internal init(frame: CGRect, secondaries: Bool) {
         self.init(frame: frame)
         hasSecondaries = secondaries
     }
     
-    init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool) {
+    internal init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool) {
         self.init(frame: frame, secondaries: secondaries)
         layer.cornerRadius = cornerRadius
     }
     
-    init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool, callBack: (()->())?) {
+    internal init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool, callBack: (()->())?) {
         self.init(frame: frame, secondaries: secondaries)
         layer.cornerRadius = cornerRadius
     }
     
-    var hasSecondaries : Bool {
+    internal var hasSecondaries : Bool {
         get {
             guard block.secondaries != nil else {
                 return false
