@@ -24,6 +24,9 @@
 		B55175221ED689FF0063E356 /* DistanceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175211ED689FF0063E356 /* DistanceString.swift */; };
 		B55175241ED68AB50063E356 /* TimeVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55175231ED68AB50063E356 /* TimeVariables.swift */; };
 		B55B931B1EE9C59400210D37 /* Testy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55B931A1EE9C59400210D37 /* Testy.swift */; };
+		B575B6F21F12971500E53CB6 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B6F11F12971500E53CB6 /* Constrainable.swift */; };
+		B575B6F41F12974900E53CB6 /* ConstraintBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B6F31F12974900E53CB6 /* ConstraintBlock.swift */; };
+		B575B6F61F12976B00E53CB6 /* ConstraintSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B6F51F12976B00E53CB6 /* ConstraintSide.swift */; };
 		B58B57FD1ED2A53C009A7992 /* Integer_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B57FC1ED2A53C009A7992 /* Integer_Helpers.swift */; };
 		B58B57FF1ED2A562009A7992 /* Double+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B57FE1ED2A562009A7992 /* Double+Helper.swift */; };
 		B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58001ED2A58B009A7992 /* Randoms+Helpers.swift */; };
@@ -101,6 +104,9 @@
 		B55175211ED689FF0063E356 /* DistanceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceString.swift; sourceTree = "<group>"; };
 		B55175231ED68AB50063E356 /* TimeVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeVariables.swift; sourceTree = "<group>"; };
 		B55B931A1EE9C59400210D37 /* Testy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testy.swift; sourceTree = "<group>"; };
+		B575B6F11F12971500E53CB6 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
+		B575B6F31F12974900E53CB6 /* ConstraintBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintBlock.swift; sourceTree = "<group>"; };
+		B575B6F51F12976B00E53CB6 /* ConstraintSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSide.swift; sourceTree = "<group>"; };
 		B58B57FC1ED2A53C009A7992 /* Integer_Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Integer_Helpers.swift; sourceTree = "<group>"; };
 		B58B57FE1ED2A562009A7992 /* Double+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helper.swift"; sourceTree = "<group>"; };
 		B58B58001ED2A58B009A7992 /* Randoms+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Randoms+Helpers.swift"; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 				B52395E01F01D3CF00AF538B /* File.swift */,
 				B52395E21F01D3D900AF538B /* Object.swift */,
 				B52395E61F01DC3C00AF538B /* JSONObject.swift */,
+				B575B6F11F12971500E53CB6 /* Constrainable.swift */,
+				B575B6F31F12974900E53CB6 /* ConstraintBlock.swift */,
+				B575B6F51F12976B00E53CB6 /* ConstraintSide.swift */,
 			);
 			name = Specifics;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58B58251ED2ABAB009A7992 /* App-Class.swift in Sources */,
+				B575B6F61F12976B00E53CB6 /* ConstraintSide.swift in Sources */,
 				B5B7488C1E9A01B400A5308E /* LoadingIndicator.swift in Sources */,
 				B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */,
 				B55175201ED637150063E356 /* LocationTimeDate.swift in Sources */,
@@ -414,6 +424,7 @@
 				B58B58291ED2AD5F009A7992 /* SMSCodeVerifier.swift in Sources */,
 				B58B581B1ED2A845009A7992 /* CALayer+Helpers.swift in Sources */,
 				B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */,
+				B575B6F21F12971500E53CB6 /* Constrainable.swift in Sources */,
 				B535D8541ECF781E00E52710 /* SpotitNetwork.swift in Sources */,
 				B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */,
 				B58B580D1ED2A676009A7992 /* NSString+Helpers.swift in Sources */,
@@ -435,6 +446,7 @@
 				B58B583E1ED2B7EC009A7992 /* PostalCode.swift in Sources */,
 				B58B57FD1ED2A53C009A7992 /* Integer_Helpers.swift in Sources */,
 				B58B583A1ED2B77E009A7992 /* Country.swift in Sources */,
+				B575B6F41F12974900E53CB6 /* ConstraintBlock.swift in Sources */,
 				B52395E11F01D3CF00AF538B /* File.swift in Sources */,
 				B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */,
 				B58B583C1ED2B7B1009A7992 /* State.swift in Sources */,
