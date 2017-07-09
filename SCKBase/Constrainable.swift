@@ -42,6 +42,7 @@ extension Constrainable where Self : UIView {
     
     
     public func activateConstraints() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         block.activate()
     }
     
