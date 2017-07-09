@@ -8,34 +8,44 @@
 
 import UIKit
 
-protocol Constrainable {
+public protocol Constrainable {
     var block : ConstraintBlock { get set }
+    init(secondaries: Bool)
+    init(frame: CGRect, secondaries: Bool)
+    init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool)
+    init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool, callBack: (()->())?)
+    func activateConstraints()
 }
 
 extension Constrainable where Self : UIView {
     
-    internal init(secondaries: Bool) {
+    public init(secondaries: Bool) {
         self.init(frame: .zero)
         hasSecondaries = secondaries
     }
     
     
-    internal init(frame: CGRect, secondaries: Bool) {
+    public init(frame: CGRect, secondaries: Bool) {
         self.init(frame: frame)
         hasSecondaries = secondaries
     }
     
-    internal init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool) {
+    public init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool) {
         self.init(frame: frame, secondaries: secondaries)
         layer.cornerRadius = cornerRadius
     }
     
-    internal init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool, callBack: (()->())?) {
+    public init(frame: CGRect, cornerRadius: CGFloat, secondaries: Bool, callBack: (()->())?) {
         self.init(frame: frame, secondaries: secondaries)
         layer.cornerRadius = cornerRadius
     }
     
-    internal var hasSecondaries : Bool {
+    
+    public func activateConstraints() {
+        block.activate()
+    }
+    
+    public var hasSecondaries : Bool {
         get {
             guard block.secondaries != nil else {
                 return false
@@ -56,18 +66,11 @@ open class Label : UILabel, Constrainable {
     
     open var block = ConstraintBlock()
     
-    public func activateConstraints() {
-        block.activate()
-    }
 }
 
 open class View : UIView, Constrainable {
     
     open var block = ConstraintBlock()
-    
-    public func activateConstraints() {
-        block.activate()
-    }
     
 }
 
@@ -75,20 +78,11 @@ open class Button : UIButton, Constrainable {
     
     open var block =  ConstraintBlock()
     
-    public func activateConstraints() {
-        block.activate()
-    }
-    
 }
 
 open class ImageView : UIImageView, Constrainable {
     
     open var block =  ConstraintBlock()
-    
-    public func activateConstraints() {
-        block.activate()
-    }
-    
     
 }
 
@@ -99,10 +93,6 @@ open class CollectionView : UICollectionView, Constrainable {
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         block.secondaries = ConstraintBlock()
-    }
-    
-    public func activateConstraints() {
-        block.activate()
     }
     
     required public init?(coder aDecoder: NSCoder) {
