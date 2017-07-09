@@ -85,6 +85,79 @@ open class ImageView : UIImageView, Constrainable {
     
     open var block =  ConstraintBlock()
     
+    private var emptyImage: UIImage?
+    
+    public var hasSecondaries: Bool {
+        get {
+            guard block.secondaries != nil else {
+                return false
+            }
+            return true
+        } set {
+            if newValue {
+                block.secondaries = ConstraintBlock()
+            } else {
+                block.secondaries = nil
+            }
+        }
+    }
+    
+    public required convenience init(secondaries: Bool) {
+        self.init(cornerRadius: 0, emptyImage: nil)
+        self.hasSecondaries = secondaries
+    }
+    
+    public convenience init(cornerRadius: CGFloat = 0) {
+        self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        isUserInteractionEnabled = true
+    }
+    
+    public convenience init(secondaries: Bool, cornerRadius: CGFloat = 0) {
+        self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        self.hasSecondaries = secondaries
+        isUserInteractionEnabled = true
+    }
+    
+    public convenience init(cornerRadius: CGFloat = 0, tapCallback: @escaping (() ->())) {
+        self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        self.hasSecondaries = true
+        self.tapCallback = tapCallback
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
+    public convenience init(secondaries: Bool, cornerRadius: CGFloat = 0, tapCallback: @escaping (() ->())) {
+        self.init(cornerRadius: cornerRadius, emptyImage: nil)
+        self.hasSecondaries = secondaries
+        self.tapCallback = tapCallback
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
+    public convenience init(secondaries: Bool, emptyImage: UIImage? = nil) {
+        self.init(cornerRadius: 0, emptyImage: emptyImage)
+        self.hasSecondaries = secondaries
+    }
+    
+    public init(cornerRadius: CGFloat = 0, emptyImage: UIImage? = nil) {
+        super.init(frame: .zero)
+        contentMode = .scaleAspectFill
+        clipsToBounds = true
+        layer.cornerRadius = cornerRadius
+        self.emptyImage = emptyImage
+    }
+    
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func handleTap() {
+        tapCallback?()
+    }
+    
+    private var tapCallback: (() -> ())?
+    
 }
 
 open class CollectionView : UICollectionView, Constrainable {
