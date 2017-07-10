@@ -144,6 +144,7 @@ public struct SpotitPaths {
             }
         }
         public static let get : String = root + "/profile"
+        public static let updateBulk : String = root + "/update/bulk"
     }
     public struct payment {
         private static let proot : String = Connections.node.paymentRoot

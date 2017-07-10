@@ -25,7 +25,7 @@ enum ConstraintToggleState : Int {
     mutating public func mutate() {
         if self.rawValue == 0, let new = ConstraintToggleState(rawValue: 1) {
             self = new
-        } else if self.rawValue == 1 && self.rawValue == 2, let new = ConstraintToggleState(rawValue: 0) {
+        } else if self.rawValue == 1 || self.rawValue == 2, let new = ConstraintToggleState(rawValue: 0) {
             self = new
         }
     }
@@ -33,7 +33,7 @@ enum ConstraintToggleState : Int {
     mutating public func mutate(_ completion : @escaping (_ this: ConstraintToggleState) -> Void) {
         if self.rawValue == 0, let new = ConstraintToggleState(rawValue: 1) {
             self = new
-        } else if self.rawValue == 1 && self.rawValue == 2, let new = ConstraintToggleState(rawValue: 0) {
+        } else if self.rawValue == 1 || self.rawValue == 2, let new = ConstraintToggleState(rawValue: 0) {
             self = new
         }
         completion(self)
@@ -44,7 +44,7 @@ public class ConstraintBlock : NSObject {
     
     /*
      The constraint sides here
-    */
+     */
     open var topConstraint: NSLayoutConstraint?
     open var bottomConstraint: NSLayoutConstraint?
     open var leftConstraint: NSLayoutConstraint?
@@ -180,13 +180,12 @@ public class ConstraintBlock : NSObject {
     
     public func switchStates(_ first: ConstraintSide,_ second: ConstraintSide?) {
         if let sec = second {
-            if let v1 = returnConstraint(first) {
+            guard let v1 = returnConstraint(first) else { return }
+            if let others = secondaries, let v2a = others.returnConstraint(sec) {
                 v1.isActive = !v1.isActive
-            }
-            if let v2 = returnConstraint(sec) {
-                v2.isActive = !v2.isActive
-            } else if let others = secondaries, let v2a = others.returnConstraint(sec) {
                 v2a.isActive = !v2a.isActive
+            } else {
+                v1.isActive = !v1.isActive
             }
         } else {
             switchState(first)
