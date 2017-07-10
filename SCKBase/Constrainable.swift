@@ -102,11 +102,6 @@ open class ImageView : UIImageView, Constrainable {
         }
     }
     
-    public required convenience init(secondaries: Bool) {
-        self.init(cornerRadius: 0, emptyImage: nil)
-        self.hasSecondaries = secondaries
-    }
-    
     public convenience init(cornerRadius: CGFloat = 0) {
         self.init(cornerRadius: cornerRadius, emptyImage: nil)
         isUserInteractionEnabled = true
