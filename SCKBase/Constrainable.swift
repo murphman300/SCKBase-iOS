@@ -134,7 +134,7 @@ open class ImageView : UIImageView, Constrainable {
         self.hasSecondaries = secondaries
     }
     
-    public required convenience init(secondaries: Bool, emptyImage: UIImage? = nil, tapCallback: @escaping (() ->())) {
+    public convenience init(secondaries: Bool, emptyImage: UIImage? = nil, tapCallback: @escaping (() ->())) {
         self.init(cornerRadius: 0, emptyImage: emptyImage)
         self.hasSecondaries = secondaries
         self.tapCallback = tapCallback
@@ -142,7 +142,7 @@ open class ImageView : UIImageView, Constrainable {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
-    public required convenience init(secondaries: Bool, cornerRadius: CGFloat, emptyImage: UIImage? = nil, tapCallback: @escaping (() ->())) {
+    public convenience init(secondaries: Bool, cornerRadius: CGFloat, emptyImage: UIImage? = nil, tapCallback: @escaping (() ->())) {
         self.init(cornerRadius: cornerRadius, emptyImage: emptyImage)
         self.hasSecondaries = secondaries
         self.tapCallback = tapCallback
@@ -183,5 +183,5 @@ open class CollectionView : UICollectionView, Constrainable {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
