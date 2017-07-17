@@ -9,7 +9,7 @@
 import UIKit
 
 public enum ConstraintSide : Int {
-    case top = 0, bottom = 1, left = 2, right = 3, height = 4, width = 5
+    case top = 0, bottom = 1, left = 2, right = 3, height = 4, width = 5, x = 6, y = 7
 }
 
 extension ConstraintSide {

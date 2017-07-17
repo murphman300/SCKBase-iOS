@@ -51,6 +51,8 @@ public class ConstraintBlock : NSObject {
     open var rightConstraint: NSLayoutConstraint?
     open var heightConstraint: NSLayoutConstraint?
     open var widthConstraint: NSLayoutConstraint?
+    open var horizontal: NSLayoutConstraint?
+    open var vertical: NSLayoutConstraint?
     
     //Allows for a better integration of transitions between two states of constraints
     open var secondaries : ConstraintBlock?
@@ -122,6 +124,14 @@ public class ConstraintBlock : NSObject {
             if let height = heightConstraint {
                 height.isActive = !height.isActive
             }
+        case .x :
+            if let x = horizontal {
+                x.isActive = !x.isActive
+            }
+        case .y :
+            if let y = vertical {
+                y.isActive = !y.isActive
+            }
         }
     }
     
@@ -174,6 +184,18 @@ public class ConstraintBlock : NSObject {
                 return
             }
             toggleHandler(constraint, heightConstraint, secondary.heightConstraint)
+        case .x :
+            guard let secondary = secondaries else {
+                toggleHandler(constraint, horizontal, nil)
+                return
+            }
+            toggleHandler(constraint, horizontal, secondary.horizontal)
+        case .y :
+            guard let secondary = secondaries else {
+                toggleHandler(constraint, vertical, nil)
+                return
+            }
+            toggleHandler(constraint, vertical, secondary.vertical)
         }
         block = !block
     }
@@ -214,6 +236,10 @@ public class ConstraintBlock : NSObject {
             return widthConstraint
         case .height :
             return heightConstraint
+        case .x :
+            return horizontal
+        case .y :
+            return vertical
         }
     }
     
