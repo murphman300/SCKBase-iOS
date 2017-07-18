@@ -7,6 +7,7 @@
 //
 
 
+
 import Foundation
 
 enum NSMutableRequestInitializationError : Error {
@@ -142,9 +143,9 @@ open class DefaultRequest : NSMutableURLRequest {
         httpMethod = "POST"
         addValue("@facebookrefresh", forHTTPHeaderField: "tokentype")
         addValue("Facebook : \(facebookRefresh)", forHTTPHeaderField: "Authorization")
-        
+        let bod = ["parameter" : email] as [String:Any]
         do {
-            let json = try JSONSerialization.data(withJSONObject: ["verifier":device, "parameter": email], options: .prettyPrinted)
+            let json = try JSONSerialization.data(withJSONObject: bod, options: .prettyPrinted)
             httpBody = json
         } catch {
             throw NSMutableRequestInitializationError.failedToConvertPackage
