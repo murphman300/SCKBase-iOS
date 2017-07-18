@@ -5,7 +5,6 @@
 //  Created by Jean-Louis Murphy on 2017-05-19.
 //  Copyright © 2017 Jean-Louis Murphy. All rights reserved.
 //
-
 import Foundation
 
 public enum NetworkOperationError: Error {
@@ -47,7 +46,7 @@ open class DefaultNetwork: NSObject {
             } catch let err {
                 failure(err.localizedDescription)
             }
-        }.resume()
+            }.resume()
     }
     
     public func performRequestOn(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any],_ other: Any?,_ array: [AnyObject]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
@@ -73,7 +72,7 @@ open class DefaultNetwork: NSObject {
             } catch let err {
                 failure(err.localizedDescription)
             }
-        }.resume()
+            }.resume()
     }
     
     public func performRequestForData(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ data: Data) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
@@ -83,7 +82,7 @@ open class DefaultNetwork: NSObject {
             }, { (a) in
                 failure(a)
             })
-        }.resume()
+            }.resume()
     }
     
     public func urlDataTaskResponseHandlerFor(data: Data?, _ present: @escaping(_ present: Data) -> Void,_ absent: @escaping(_ reason: String) -> Void) {
@@ -133,19 +132,62 @@ open class DefaultNetwork: NSObject {
         
         do {
             let request = try DefaultRequest(facebookToken: token, method:  method, payload: payload)
+            
+            
+            
+            
         } catch let err {
-        
+            
         }
         
         
         
     }
     
-    public func facebookLogin(token: String, device: String) {
+    public func facebookLogin(token: String, device: String,_ completion: @escaping (_ new: String?)->Void) {
         do {
-            let request = try DefaultRequest(facebookToken: token, method:  .post, payload: ["deviceID" : device])
-        } catch let err {
-            
+            let req = try DefaultRequest(facebookRefresh: token, email: "", device: device)
+            self.perform(request: req, { (code, message, body, other, arr) in
+                guard code == 200 else {
+                    print("Failed Facebook Login : " + message)
+                    completion(nil)
+                    return
+                }
+                guard let new = body["result"] as? String else {
+                    completion(nil)
+                    return
+                }
+                completion(new)
+            }, { (reason) in
+                print("Failed Facebook Login : " + reason)
+                completion(nil)
+            })
+        } catch {
+            completion(nil)
+        }
+    }
+    
+    public func loginFacebookForRefresh(token: String, email: String, device: String,_ completion: @escaping (_ new: String?)->Void) {
+        do {
+            let req = try DefaultRequest(facebookRefresh: token, email: email, device: device)
+            self.perform(request: req, { (code, message, body, other, arr) in
+                guard code == 200 else {
+                    print("Failed Facebook Login : " + message)
+                    completion(nil)
+                    return
+                }
+                guard let new = body["result"] as? String else {
+                    completion(nil)
+                    return
+                }
+                
+                completion(new)
+            }, { (reason) in
+                print("Failed Facebook Login : " + reason)
+                completion(nil)
+            })
+        } catch {
+            completion(nil)
         }
     }
 }

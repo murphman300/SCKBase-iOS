@@ -34,7 +34,7 @@ open class SpotitNetwork: DefaultNetwork {
             } catch let err {
                 failure(err.localizedDescription)
             }
-            }.resume()
+        }.resume()
     }
     
     func performJSONRequestOn(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON,_ other: Any?,_ array: [JSON]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
@@ -61,7 +61,7 @@ open class SpotitNetwork: DefaultNetwork {
             } catch let err {
                 failure(err.localizedDescription)
             }
-            }.resume()
+        }.resume()
     }
     /*
      func performRequestForData(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ data: Data) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
