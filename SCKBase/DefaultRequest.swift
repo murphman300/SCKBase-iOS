@@ -6,6 +6,7 @@
 //  Copyright © 2017 Jean-Louis Murphy. All rights reserved.
 //
 
+
 import Foundation
 
 enum NSMutableRequestInitializationError : Error {
@@ -13,7 +14,7 @@ enum NSMutableRequestInitializationError : Error {
 }
 
 open class DefaultRequest : NSMutableURLRequest {
-
+    
     convenience public init(url: String, method: httpMet, authToken: String, empToken: String?, payload: [String:Any]?) throws {
         var ur : URL?
         if let u = URL(string: url) {
@@ -123,6 +124,30 @@ open class DefaultRequest : NSMutableURLRequest {
             } catch {
                 throw NSMutableRequestInitializationError.failedToConvertPackage
             }
+        }
+    }
+    
+    convenience public init(facebookRefresh: String, email: String, device: String) throws {
+        var ur : URL?
+        if let u = URL(string: "path to refresh with facebook....") {
+            ur = u
+        } else {
+            throw NSMutableRequestInitializationError.invalidURL
+        }
+        if let u = ur {
+            self.init(url: u)
+        } else {
+            throw NSMutableRequestInitializationError.invalidURL
+        }
+        httpMethod = "POST"
+        addValue("@facebookrefresh", forHTTPHeaderField: "tokentype")
+        addValue("Facebook : \(facebookRefresh)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let json = try JSONSerialization.data(withJSONObject: ["verifier":device, "parameter": email], options: .prettyPrinted)
+            httpBody = json
+        } catch {
+            throw NSMutableRequestInitializationError.failedToConvertPackage
         }
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 open class SpotitNetwork: DefaultNetwork {
     
-    func performJSON(request: NSMutableURLRequest,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON,_ other: Any?,_ array: [JSON]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
+    open func performJSON(request: NSMutableURLRequest,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON,_ other: Any?,_ array: [JSON]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
         URLSession.shared.dataTask(with: request as URLRequest) { (d, resp, err) in
             do {
                 let ob = try JSONObject(object: [:])
@@ -34,10 +34,10 @@ open class SpotitNetwork: DefaultNetwork {
             } catch let err {
                 failure(err.localizedDescription)
             }
-            }.resume()
+        }.resume()
     }
     
-    func performJSONRequestOn(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON,_ other: Any?,_ array: [JSON]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
+    open func performJSONRequestOn(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON,_ other: Any?,_ array: [JSON]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
         URLSession.shared.dataTask(with: url) { (d, resp, err) in
             do {
                 let ob = try JSONObject(object: [:])
@@ -61,7 +61,7 @@ open class SpotitNetwork: DefaultNetwork {
             } catch let err {
                 failure(err.localizedDescription)
             }
-            }.resume()
+        }.resume()
     }
     /*
      func performRequestForData(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ data: Data) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
@@ -81,7 +81,7 @@ open class SpotitNetwork: DefaultNetwork {
      present(d)
      }*/
     
-    func urlSessionResponseJSONParser(data: Data?, response : URLResponse?, error : Error?,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON?,_ other: Any?,_ bodyArray: [JSON]?) -> Void) throws {
+    open func urlSessionResponseJSONParser(data: Data?, response : URLResponse?, error : Error?,_ completion: @escaping(_ code: Int,_ message: String,_ body: JSON?,_ other: Any?,_ bodyArray: [JSON]?) -> Void) throws {
         
         if response == nil {
             throw NetworkOperationError.noConnection
