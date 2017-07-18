@@ -125,6 +125,9 @@ public struct SpotitPaths {
         public struct login {
             public static let facebook : String = root + "/facebooklogin"
         }
+        public struct auth {
+            public static let refresh : String = root + "/login/refresh"
+        }
         public struct create {
             public static let facebookFinal : String = root + "/facebookfinal"
         }

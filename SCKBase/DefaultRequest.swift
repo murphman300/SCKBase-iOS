@@ -129,7 +129,7 @@ open class DefaultRequest : NSMutableURLRequest {
     
     convenience public init(facebookRefresh: String, email: String, device: String) throws {
         var ur : URL?
-        if let u = URL(string: "path to refresh with facebook....") {
+        if let u = URL(string: SpotitPaths.users.auth.refresh) {
             ur = u
         } else {
             throw NSMutableRequestInitializationError.invalidURL
