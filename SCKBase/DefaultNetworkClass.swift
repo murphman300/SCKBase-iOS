@@ -93,7 +93,7 @@ open class DefaultNetwork: NSObject {
     }
     
     public func urlSessionResponseParser(data: Data?, response : URLResponse?, error : Error?,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any]?,_ other: Any?,_ bodyArray: [AnyObject]?) -> Void) throws {
-        if response == nil {
+        if response == nil && data == nil {
             throw NetworkOperationError.noConnection
         }
         if error != nil {
@@ -130,17 +130,6 @@ open class DefaultNetwork: NSObject {
     
     public func facebookedRequest(token: String, method: httpMet, payload: [String: Any]?) {
         
-        do {
-            let request = try DefaultRequest(facebookToken: token, method:  method, payload: payload)
-            
-            
-            
-            
-        } catch let err {
-            
-        }
-        
-        
         
     }
     
@@ -167,27 +156,27 @@ open class DefaultNetwork: NSObject {
         }
     }
     
-    public func loginFacebookForRefresh(token: String, email: String, device: String,_ completion: @escaping (_ new: String?)->Void) {
+    public func loginFacebookForRefresh(token: String, email: String, device: String,_ completion: @escaping (_ new: String?,_ body: [String:Any]?)->Void) {
         do {
             let req = try DefaultRequest(facebookRefresh: token, email: email, device: device)
             self.perform(request: req, { (code, message, body, other, arr) in
                 guard code == 200 else {
                     print("Failed Facebook Login : " + message)
-                    completion(nil)
+                    completion(nil, nil)
                     return
                 }
-                guard let new = body["result"] as? String else {
-                    completion(nil)
+                guard let new = body["token"] as? String else {
+                    completion(nil, nil)
                     return
                 }
-                
-                completion(new)
+                completion(new, body)
             }, { (reason) in
                 print("Failed Facebook Login : " + reason)
-                completion(nil)
+                completion(nil, nil)
             })
         } catch {
-            completion(nil)
+            completion(nil, nil)
         }
     }
 }
+

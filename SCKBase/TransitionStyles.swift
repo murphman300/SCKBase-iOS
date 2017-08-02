@@ -35,6 +35,7 @@ extension DismissAnimator : UIViewControllerAnimatedTransitioning {
             withDuration: transitionDuration(using: transitionContext),
             animations: {
                 fromVC.view.frame = finalFrame
+                fromVC.view.alpha = 0
         },
             completion: { _ in
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -42,5 +43,6 @@ extension DismissAnimator : UIViewControllerAnimatedTransitioning {
         )
     }
 }
+
 
 

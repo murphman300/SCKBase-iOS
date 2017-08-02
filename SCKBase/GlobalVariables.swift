@@ -9,8 +9,6 @@
 import UIKit
 
 
-import UIKit
-
 public struct user {
     static let def : UserDefaults = UserDefaults.standard
 }
@@ -22,10 +20,47 @@ public struct control {
     
 }
 
-public enum httpMet {
+enum Devices: CGSize {
+    case iPhone3GS = "{320, 480}"
+    case iPhone5 = "{320, 568}"
+    case iPhone6 = "{375, 667}"
+    case iPhone6Plus = "{414, 736}"
+}
+
+extension CGSize: ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+        let size = CGSizeFromString(value)
+        self.init(width: size.width, height: size.height)
+    }
     
-    case post, get, delete
+    public init(extendedGraphemeClusterLiteral value: String) {
+        let size = CGSizeFromString(value)
+        self.init(width: size.width, height: size.height)
+    }
     
+    public init(unicodeScalarLiteral value: String) {
+        let size = CGSizeFromString(value)
+        self.init(width: size.width, height: size.height)
+    }
+}
+
+public enum httpMet : StringLiteralType {
+    
+    case post
+    case get
+    case delete
+    
+    init() {
+        self = httpMet(rawValue: "GET")!
+    }
+    
+    public var value : String {
+        switch self {
+        case .post : return "POST"
+        case .get : return "GET"
+        case .delete : return "DELETE"
+        }
+    }
 }
 
 public enum node {
@@ -607,3 +642,4 @@ public enum ViewCorner {
     
     case topRight, topLeft, bottomRight, bottomLeft
 }
+

@@ -631,7 +631,6 @@ public extension UIView {
             if let w = desiredWidth {
                 contWidth = w
             } else {
-                
                 contWidth = screen.width
             }
             contHeight = desiredHeight
@@ -651,15 +650,15 @@ public extension UIView {
                 
             case .top:
                 x = 0
-                y = -theWidth
+                y = 0
                 width = contWidth
-                height = 0.5
+                height = desiredHeight
                 
             case .bottom:
                 x = 0
-                y = contHeight - theWidth
+                y = frame.height - contHeight
                 width = contWidth
-                height = theWidth
+                height = contHeight
                 
             }
         } else {
@@ -787,4 +786,5 @@ public extension UIView {
     }
     
 }
+
 

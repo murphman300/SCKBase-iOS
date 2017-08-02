@@ -140,6 +140,8 @@ open class Connections {
             guard let re = URL(string: "") else {
                 return
             }
+            
+            
             do {
                 let request = try DefaultRequest(url: "", method: .get, authToken: "request_versionType_Spotit_App", empToken: nil, payload: nil)
                 request.addValue("spotit2016", forHTTPHeaderField: "Reciever_String")

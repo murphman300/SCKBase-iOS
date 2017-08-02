@@ -27,14 +27,7 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        switch method {
-        case .get:
-            httpMethod = "GET"
-        case.post :
-            httpMethod = "POST"
-        case .delete :
-            httpMethod = "DELETE"
-        }
+        httpMethod = method.value
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("Bearer : \(authToken)" , forHTTPHeaderField: "Authorization")
         if let emp = empToken {
@@ -67,14 +60,7 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        switch method {
-        case .get:
-            httpMethod = "GET"
-        case.post :
-            httpMethod = "POST"
-        case .delete :
-            httpMethod = "DELETE"
-        }
+        httpMethod = method.value
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("Bearer : \(authToken)" , forHTTPHeaderField: "Authorization")
         if let emp = locToken {
@@ -107,14 +93,8 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        switch method {
-        case .get:
-            httpMethod = "GET"
-        case.post :
-            httpMethod = "POST"
-        case .delete :
-            httpMethod = "DELETE"
-        }
+        httpMethod = method.value
+        addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("@facebook", forHTTPHeaderField: "tokentype")
         addValue("Facebook : \(facebookToken)", forHTTPHeaderField: "Authorization")
         if let p = payload {
@@ -139,17 +119,18 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        httpMethod = "POST"
+        httpMethod = httpMet.post.value
+        addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("@facebookrefresh", forHTTPHeaderField: "tokentype")
         addValue("Facebook : \(facebookRefresh)", forHTTPHeaderField: "Authorization")
-        
+        let bod = ["parameter" : email] as [String:Any]
         do {
-            let json = try JSONSerialization.data(withJSONObject: ["verifier":device, "parameter": email], options: .prettyPrinted)
+            let json = try JSONSerialization.data(withJSONObject: bod, options: .prettyPrinted)
             httpBody = json
         } catch {
             throw NSMutableRequestInitializationError.failedToConvertPackage
         }
     }
     
-    
 }
+
