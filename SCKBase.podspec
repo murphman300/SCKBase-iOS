@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SCKBase"
-  s.version      = "2.0.0"
+  s.version      = "2.2.0"
   s.summary      = "SCKBase is the base of apps Spotit, Checkout and Kapt."
   s.description  = "SCKBase is the base for apps Spotit, Checkout and Kapt."
   s.homepage     = "https://github.com/murphman300/SCKBase-iOS"
