@@ -130,17 +130,6 @@ open class DefaultNetwork: NSObject {
     
     public func facebookedRequest(token: String, method: httpMet, payload: [String: Any]?) {
         
-        do {
-            let request = try DefaultRequest(facebookToken: token, method:  method, payload: payload)
-            
-            
-            
-            
-        } catch let err {
-            
-        }
-        
-        
         
     }
     
