@@ -93,7 +93,7 @@ open class DefaultNetwork: NSObject {
     }
     
     public func urlSessionResponseParser(data: Data?, response : URLResponse?, error : Error?,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any]?,_ other: Any?,_ bodyArray: [AnyObject]?) -> Void) throws {
-        if response == nil {
+        if response == nil && data == nil {
             throw NetworkOperationError.noConnection
         }
         if error != nil {
@@ -190,3 +190,4 @@ open class DefaultNetwork: NSObject {
         }
     }
 }
+

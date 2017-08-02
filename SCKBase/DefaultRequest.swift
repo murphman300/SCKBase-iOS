@@ -7,7 +7,6 @@
 //
 
 
-
 import Foundation
 
 enum NSMutableRequestInitializationError : Error {
@@ -28,14 +27,7 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        switch method {
-        case .get:
-            httpMethod = "GET"
-        case.post :
-            httpMethod = "POST"
-        case .delete :
-            httpMethod = "DELETE"
-        }
+        httpMethod = method.value
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("Bearer : \(authToken)" , forHTTPHeaderField: "Authorization")
         if let emp = empToken {
@@ -68,14 +60,7 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        switch method {
-        case .get:
-            httpMethod = "GET"
-        case.post :
-            httpMethod = "POST"
-        case .delete :
-            httpMethod = "DELETE"
-        }
+        httpMethod = method.value
         addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("Bearer : \(authToken)" , forHTTPHeaderField: "Authorization")
         if let emp = locToken {
@@ -108,14 +93,8 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        switch method {
-        case .get:
-            httpMethod = "GET"
-        case.post :
-            httpMethod = "POST"
-        case .delete :
-            httpMethod = "DELETE"
-        }
+        httpMethod = method.value
+        addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("@facebook", forHTTPHeaderField: "tokentype")
         addValue("Facebook : \(facebookToken)", forHTTPHeaderField: "Authorization")
         if let p = payload {
@@ -140,7 +119,8 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             throw NSMutableRequestInitializationError.invalidURL
         }
-        httpMethod = "POST"
+        httpMethod = httpMet.post.value
+        addValue("application/json", forHTTPHeaderField: "Content-Type")
         addValue("@facebookrefresh", forHTTPHeaderField: "tokentype")
         addValue("Facebook : \(facebookRefresh)", forHTTPHeaderField: "Authorization")
         let bod = ["parameter" : email] as [String:Any]
@@ -152,5 +132,5 @@ open class DefaultRequest : NSMutableURLRequest {
         }
     }
     
-    
 }
+

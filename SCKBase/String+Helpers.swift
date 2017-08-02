@@ -9,16 +9,16 @@
 import UIKit
 
 extension String: ExpressibleByArrayLiteral {
-    public typealias Element = Int
+    public typealias Element = Swift.Int
     
-    public typealias OtherElement = Character
+    //public typealias OtherElement = Character
     
-    public init(arrayLiteral elements: Element...) {
+    public init(arrayLiteral elements: Swift.Int...) {
         self.init()
         self = "\(elements.reduce(0,+))"
     }
     
-    init(withSecureShowOnlyLast4 values : String) {
+    public init(withSecureShowOnlyLast4 values : String) {
         self.init()
         let array = [Character](values.characters)
         if array.count <= 4 {
@@ -735,3 +735,4 @@ extension String {
         return randomString(length: 64)
     }
 }
+

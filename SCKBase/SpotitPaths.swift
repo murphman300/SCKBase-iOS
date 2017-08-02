@@ -117,6 +117,50 @@ public struct LocalPaths {
     }
 }
 
+class EndPoint: Equatable {
+    
+    private var path = String() {
+        didSet {
+            if let u = URL(string: path) {
+                url = u
+            }
+        }
+    }
+    
+    private var url : URL?
+    
+    init(string: String) {
+        self.path = string
+    }
+    
+    static func !=(_ lhs: EndPoint,_ rhs: EndPoint) -> Bool {
+        return lhs.path != rhs.path
+    }
+    static func ==(_ lhs: EndPoint,_ rhs: EndPoint) -> Bool {
+        return lhs.path == rhs.path
+    }
+}
+
+enum SpotitP {
+    
+    enum users : String {
+        case auth
+        case login
+        case create
+        case cell
+        enum wallet {
+            enum methods {
+                
+            }
+        }
+    }
+    
+    enum location {
+        
+    }
+}
+
+
 public struct SpotitPaths {
     
     private static let local : String = Connections.node.root

@@ -9,9 +9,7 @@
 import UIKit
 
 public enum ModalViewInfoInitError : Error {
-    
     case missing(String)
-    
 }
 
 public class CheckoutModalInfo {
@@ -22,6 +20,16 @@ public class CheckoutModalInfo {
     open var txid : String
     open var locid : String
     open var logoUrl : String?
+    open var path : String? {
+        didSet {
+            if let p = self.path {
+                if !p.contains("http://") && !p.contains("https://") {
+                    path = "https://" + p
+                }
+            }
+        }
+    }
+    open var accessor : String?
     
     public init(from: [String:Any]) throws {
         print(from)
@@ -55,6 +63,13 @@ public class CheckoutModalInfo {
         } else {
             throw ModalViewInfoInitError.missing("locid")
         }
+        if let pa = from["path"] as? String {
+            self.path = pa
+        }
+        if let ac = from["accessor"] as? String {
+            self.accessor = ac
+        }
         recieved = Date()
     }
 }
+
