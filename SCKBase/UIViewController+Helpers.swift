@@ -48,7 +48,7 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
         
         return payload
     }
-        
+    
     public enum DecodeError: LocalizedError {
         case invalidBase64Url(String)
         case invalidJSON(String)
