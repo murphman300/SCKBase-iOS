@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */; };
+		B50B11F91F35A53800ED044B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B11F81F35A53800ED044B /* Regex.swift */; };
 		B52395E11F01D3CF00AF538B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E01F01D3CF00AF538B /* File.swift */; };
 		B52395E31F01D3D900AF538B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E21F01D3D900AF538B /* Object.swift */; };
 		B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E61F01DC3C00AF538B /* JSONObject.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitColorScheme.swift; sourceTree = "<group>"; };
+		B50B11F81F35A53800ED044B /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		B52395E01F01D3CF00AF538B /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B52395E21F01D3D900AF538B /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		B52395E61F01DC3C00AF538B /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				B5B7486B1E9A000200A5308E /* DOB.swift */,
 				B5B748711E9A003600A5308E /* Phone.swift */,
 				B5B748A31E9A0AB100A5308E /* TaxHandler.swift */,
+				B50B11F81F35A53800ED044B /* Regex.swift */,
 				B5B7488F1E9A021700A5308E /* GeoVar.swift */,
 				B58B58311ED2B3C1009A7992 /* ApplePay+Methods.swift */,
 				B5B748971E9A066600A5308E /* GlobalVariables.swift */,
@@ -418,6 +421,7 @@
 				B58B58091ED2A620009A7992 /* UILabel+Helpers.swift in Sources */,
 				B5B748741E9A006400A5308E /* PinCircles.swift in Sources */,
 				B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */,
+				B50B11F91F35A53800ED044B /* Regex.swift in Sources */,
 				B58B57FF1ED2A562009A7992 /* Double+Helper.swift in Sources */,
 				B58B58151ED2A705009A7992 /* Date+Helpers.swift in Sources */,
 				B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */,
