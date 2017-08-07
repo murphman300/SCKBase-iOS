@@ -83,6 +83,8 @@
 		B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */; };
 		B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A31E9A0AB100A5308E /* TaxHandler.swift */; };
 		B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */; };
+		B5E822F81F37E5E0002DD945 /* ConstrainableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E822F71F37E5E0002DD945 /* ConstrainableElement.swift */; };
+		B5E822FA1F37EC5C002DD945 /* ConstrainableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E822F91F37EC5C002DD945 /* ConstrainableValues.swift */; };
 		B5E8BE381F02CF6300F14D1E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */; };
 		B5F44EFA1EF06D9B00FD101D /* UILabel+Instantiables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */; };
 /* End PBXBuildFile section */
@@ -166,6 +168,8 @@
 		B5B7489F1E9A08FC00A5308E /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		B5B748A31E9A0AB100A5308E /* TaxHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxHandler.swift; sourceTree = "<group>"; };
 		B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyles.swift; sourceTree = "<group>"; };
+		B5E822F71F37E5E0002DD945 /* ConstrainableElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstrainableElement.swift; sourceTree = "<group>"; };
+		B5E822F91F37EC5C002DD945 /* ConstrainableValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstrainableValues.swift; sourceTree = "<group>"; };
 		B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Instantiables.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +237,8 @@
 				B52395E61F01DC3C00AF538B /* JSONObject.swift */,
 				B575B6F11F12971500E53CB6 /* Constrainable.swift */,
 				B575B6F31F12974900E53CB6 /* ConstraintBlock.swift */,
+				B5E822F91F37EC5C002DD945 /* ConstrainableValues.swift */,
+				B5E822F71F37E5E0002DD945 /* ConstrainableElement.swift */,
 				B575B6F51F12976B00E53CB6 /* ConstraintSide.swift */,
 			);
 			name = Specifics;
@@ -461,6 +467,7 @@
 				B5B7486C1E9A000200A5308E /* DOB.swift in Sources */,
 				B58B58191ED2A7A5009A7992 /* UIView+Helpers.swift in Sources */,
 				B5B7487A1E9A008B00A5308E /* UIImage+Decompression.swift in Sources */,
+				B5E822FA1F37EC5C002DD945 /* ConstrainableValues.swift in Sources */,
 				B58B581D1ED2A95F009A7992 /* UIColor+Helpers.swift in Sources */,
 				B58B580F1ED2A69F009A7992 /* UISearchBar+Helpers.swift in Sources */,
 				B58B582F1ED2B1E8009A7992 /* SpotitLinkers.swift in Sources */,
@@ -477,6 +484,7 @@
 				B55B931B1EE9C59400210D37 /* Testy.swift in Sources */,
 				B55175241ED68AB50063E356 /* TimeVariables.swift in Sources */,
 				B5B748701E9A002D00A5308E /* LocalData.swift in Sources */,
+				B5E822F81F37E5E0002DD945 /* ConstrainableElement.swift in Sources */,
 				B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */,
 				B5B748A01E9A08FC00A5308E /* DataExtensions.swift in Sources */,
 				B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */,
