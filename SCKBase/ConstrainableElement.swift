@@ -13,6 +13,10 @@ public extension ConstrainableElement where Self : UIView {
     
     public func top(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintYAxis(rawValue: related.rawValue) else { return }
+        if by.secondary && block.secondaries != nil {
+            block.secondaries?.topConstraint = self.topAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
+            return
+        }
         block.topConstraint = self.topAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
@@ -23,6 +27,10 @@ public extension ConstrainableElement where Self : UIView {
     
     public func bottom(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintYAxis(rawValue: related.rawValue) else { return }
+        if by.secondary && block.secondaries != nil {
+            block.secondaries?.bottomConstraint = self.bottomAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
+            return
+        }
         block.bottomConstraint = self.bottomAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
@@ -33,6 +41,10 @@ public extension ConstrainableElement where Self : UIView {
     
     public func right(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintXAxis(rawValue: related.rawValue) else { return }
+        if by.secondary && block.secondaries != nil {
+            block.secondaries?.rightConstraint = self.trailingAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
+            return
+        }
         block.rightConstraint = self.trailingAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
@@ -43,6 +55,10 @@ public extension ConstrainableElement where Self : UIView {
     
     public func left(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintXAxis(rawValue: related.rawValue) else { return }
+        if by.secondary && block.secondaries != nil {
+            block.secondaries?.leftConstraint = self.leadingAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
+            return
+        }
         block.leftConstraint = self.leadingAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
@@ -53,6 +69,10 @@ public extension ConstrainableElement where Self : UIView {
     
     public func vertical(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintYAxis(rawValue: related.rawValue) else { return }
+        if by.secondary && block.secondaries != nil {
+            block.secondaries?.vertical = self.centerYAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
+            return
+        }
         block.vertical = self.centerYAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
@@ -63,6 +83,10 @@ public extension ConstrainableElement where Self : UIView {
     
     public func horizontal(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintXAxis(rawValue: related.rawValue) else { return }
+        if by.secondary && block.secondaries != nil {
+            block.secondaries?.horizontal = self.centerXAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
+            return
+        }
         block.horizontal = self.centerXAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
@@ -74,6 +98,14 @@ public extension ConstrainableElement where Self : UIView {
     public func height(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintDimension(rawValue: related.rawValue) else { return }
         guard let m = by.multiplier else {
+            if by.secondary && block.secondaries != nil {
+                if by.fixed {
+                    block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalToConstant: by.constant)
+                } else {
+                    block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalTo: to.dimensionBy(el), constant: by.constant)
+                }
+                return
+            }
             if by.fixed {
                 block.heightConstraint = self.heightAnchor.constraint(equalToConstant: by.constant)
             } else {
@@ -87,6 +119,14 @@ public extension ConstrainableElement where Self : UIView {
                 } else {
                     block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalTo: to.dimensionBy(el2), constant: secs.vars.constant)
                 }
+            }
+            return
+        }
+        if by.secondary && block.secondaries != nil {
+            if by.fixed {
+                block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalToConstant: by.constant)
+            } else {
+                block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalTo: to.dimensionBy(el), multiplier: m, constant: by.constant)
             }
             return
         }
@@ -109,6 +149,14 @@ public extension ConstrainableElement where Self : UIView {
     public func width(_ to: UIView,_ related: ConstraintElement,_ by: ConstraintVariables,_ secondary: (()->SecondaryContraintParameters)?) {
         guard let el = ConstraintDimension(rawValue: related.rawValue) else { return }
         guard let m = by.multiplier else {
+            if by.secondary && block.secondaries != nil {
+                if by.fixed {
+                    block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalToConstant: by.constant)
+                } else {
+                    block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalTo: to.dimensionBy(el), constant: by.constant)
+                }
+                return
+            }
             if by.fixed {
                 block.widthConstraint = self.widthAnchor.constraint(equalToConstant: by.constant)
             } else {
@@ -122,6 +170,14 @@ public extension ConstrainableElement where Self : UIView {
                 } else {
                     block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalTo: to.dimensionBy(el2), constant: secs.vars.constant)
                 }
+            }
+            return
+        }
+        if by.secondary && block.secondaries != nil {
+            if by.fixed {
+                block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalToConstant: by.constant)
+            } else {
+                block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalTo: to.dimensionBy(el), multiplier: m, constant: by.constant)
             }
             return
         }
@@ -178,6 +234,7 @@ open class ConstraintVariables {
     public var constant : CGFloat = 0
     public var related : Int = 0
     public var fixed : Bool = false
+    public var secondary : Bool = false
     public init(_ related: ConstraintElement,_ c: CGFloat) {
         constant = c
         self.related = related.rawValue
@@ -188,6 +245,10 @@ open class ConstraintVariables {
     }
     public func fixConstant() -> ConstraintVariables {
         fixed = true
+        return self
+    }
+    public func makeSecondary() -> ConstraintVariables {
+        secondary = true
         return self
     }
 }
