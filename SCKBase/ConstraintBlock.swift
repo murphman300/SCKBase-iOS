@@ -265,6 +265,7 @@ public class ConstraintBlock : NSObject {
         } else {
             print("top Constraint is not active")
         }
+        block = !block
     }
 }
 

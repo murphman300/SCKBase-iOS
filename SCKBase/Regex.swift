@@ -43,7 +43,7 @@ public enum RegexTemplate: String {
     case creditCardPANCompact = "$1$2$3$4"
     case creditCardPANSpaced = "$1 $2 $3 $4"
     
-    init() {
+    public init() {
         self = .twilioReplacementCompact
     }
 }
@@ -81,7 +81,7 @@ open class PhoneNumber : RegularExpression {
 
 open class SMSCode : RegularExpression {
     
-    convenience init(entry: String) throws {
+    convenience public init(entry: String) throws {
         try self.init(value: entry, pattern: RegexPatterns.twilioCode.rawValue, maxlength: nil)
     }
     
@@ -97,14 +97,12 @@ open class SMSCode : RegularExpression {
 
 open class Email : RegularExpression {
     
-    convenience init(entry: String) throws {
+    convenience public init(entry: String) throws {
         try self.init(value: entry, pattern: RegexPatterns.email.rawValue, maxlength: nil)
-        print(self.value)
     }
     
     open var confirm : Bool {
         let match = self.matches(in: value, options: .reportProgress, range: range)
-        print(match)
         return match.isEmpty
     }
     
@@ -112,11 +110,11 @@ open class Email : RegularExpression {
 
 open class CreditCardNumber : RegularExpression {
     
-    convenience init(pan: String) throws {
+    convenience public init(pan: String) throws {
         try self.init(value: pan, pattern: RegexPatterns.creditCard.rawValue, maxlength: nil)
     }
     
-    convenience init(pan: String, maxLength: Int?) throws {
+    convenience public init(pan: String, maxLength: Int?) throws {
         try self.init(value: pan, pattern: RegexPatterns.creditCard.rawValue, maxlength: maxLength)
     }
     
@@ -178,7 +176,7 @@ open class RegularExpression: NSRegularExpression {
     
     open var maxlength : Int?
     
-    init(value: String, pattern: String, maxlength: Int?) throws {
+    public init(value: String, pattern: String, maxlength: Int?) throws {
         if let max = maxlength, value.characters.count > max {
             throw RegexInitError.invalidLength("value provided exceeds imposed lenght of \(max)")
         }
