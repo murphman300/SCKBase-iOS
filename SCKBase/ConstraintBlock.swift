@@ -58,7 +58,13 @@ public class ConstraintBlock : NSObject {
     open var secondaries : ConstraintBlock?
     
     open var primary : (()->())?
-    open var secondary : (()->())?
+    open var secondary : (()->())? {
+        didSet {
+            if primary != nil && secondary != nil {
+                primaryAndSecondaryCanToggle = true
+            }
+        }
+    }
     
     private var toggleBoth = Bool()
     private var toggledState = ConstraintToggleState()
