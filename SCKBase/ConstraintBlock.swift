@@ -9,10 +9,46 @@
 import UIKit
 
 
+class ConstraintThread {
+    
+    static let manager = ConstraintThread()
+    
+    fileprivate let contactsThread = DispatchQueue(
+        label: "com.SCKBASE.ConstraintsThread", // 1
+        attributes: .concurrent)
+    
+    var task : [(()->())] = [] {
+        didSet {
+            counter += 1
+            perform()
+        }
+    }
+    
+    private var counter : Int = 0
+    
+    func perform() {
+        if !task.isEmpty {
+            let this = self.task.remove(at: 0)
+            ConstraintThread.manager.contactsThread.sync {
+                this()
+            }
+            counter -= 1
+            counter = (counter < 0) ? 0 : counter
+        }
+    }
+    
+    func addToQueue(_ this: @escaping (()->())) {
+        task.insert(this, at: task.count)
+    }
+    
+}
+
+
 enum ConstraintToggleState : Int {
     case primary = 0
     case secondary = 1
     case none = 2
+    
     
     init() {
         guard let this = ConstraintToggleState(rawValue: 2) else {
@@ -66,6 +102,9 @@ public class ConstraintBlock : NSObject {
         }
     }
     
+    open var layoutModifierPrimary : [(()->())]?
+    open var layoutModifierSecondary : [(()->())]?
+    
     private var toggleBoth = Bool()
     private var toggledState = ConstraintToggleState()
     
@@ -97,56 +136,91 @@ public class ConstraintBlock : NSObject {
     public func performMain() {
         guard let it = primary else { return }
         it()
+        if let t = layoutModifierPrimary {
+            for item in t {
+                item()
+            }
+        }
     }
     
     public func performSecondary() {
         guard let it = secondary else { return }
         it()
+        if let t = layoutModifierSecondary {
+            for item in t {
+                item()
+            }
+        }
     }
     
     public func toggle(_ constraint: ConstraintSide) {
         switch constraint {
         case .top :
             if let top = topConstraint {
-                top.isActive = !top.isActive
+                ConstraintThread.manager.addToQueue({
+                    top.isActive = !top.isActive
+                })
             }
         case .bottom :
             if let bottom = bottomConstraint {
-                bottom.isActive = !bottom.isActive
+                ConstraintThread.manager.addToQueue({
+                    bottom.isActive = !bottom.isActive
+                })
+                //bottom.isActive = !bottom.isActive
             }
         case .left :
             if let left = leftConstraint {
-                left.isActive = !left.isActive
+                ConstraintThread.manager.addToQueue({
+                    left.isActive = !left.isActive
+                })
+                //left.isActive = !left.isActive
             }
         case .right :
             if let right = rightConstraint {
-                right.isActive = !right.isActive
+                ConstraintThread.manager.addToQueue({
+                    right.isActive = !right.isActive
+                })
+                //right.isActive = !right.isActive
             }
         case .width :
             if let width = widthConstraint {
-                width.isActive = !width.isActive
+                ConstraintThread.manager.addToQueue({
+                    width.isActive = !width.isActive
+                })
+                //width.isActive = !width.isActive
             }
         case .height :
             if let height = heightConstraint {
-                height.isActive = !height.isActive
+                ConstraintThread.manager.addToQueue({
+                    height.isActive = !height.isActive
+                })
+                //height.isActive = !height.isActive
             }
         case .x :
             if let x = horizontal {
-                x.isActive = !x.isActive
+                ConstraintThread.manager.addToQueue({
+                    x.isActive = !x.isActive
+                })
+                //x.isActive = !x.isActive
             }
         case .y :
             if let y = vertical {
-                y.isActive = !y.isActive
+                ConstraintThread.manager.addToQueue({
+                    y.isActive = !y.isActive
+                })
+                //y.isActive = !y.isActive
             }
         }
     }
     
     public func activate() {
-        
-        for item in ConstraintSide.all() {
-            toggle(item)
+        ConstraintThread.manager.contactsThread.sync {
+            var all : [ConstraintSide] = []
+            
+            for item in ConstraintSide.all() {
+                all.append(item)
+            }
         }
-        
     }
     
     open var block : Bool = true
@@ -271,7 +345,7 @@ public class ConstraintBlock : NSObject {
         } else {
             print("top Constraint is not active")
         }
-        block = !block
+        //block = !block
     }
 }
 
