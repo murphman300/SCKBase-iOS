@@ -186,6 +186,20 @@ open class RegularExpression: NSRegularExpression {
         self.range = NSMakeRange(0, value.characters.count)
     }
     
+    public convenience init(value: String, pattern: String, minimum: Int) throws {
+        if value.characters.count < minimum {
+            throw RegexInitError.invalidLength("Invalid Regex Length : \(minimum)")
+        }
+        try self.init(value: value, pattern: pattern, maxlength: nil)
+    }
+    
+    public convenience init(value: String, pattern: String, maximum: Int, minimum: Int) throws {
+        if value.characters.count < minimum {
+            throw RegexInitError.invalidLength("Invalid Regex Length : \(minimum)")
+        }
+        try self.init(value: value, pattern: pattern, maxlength: maximum)
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

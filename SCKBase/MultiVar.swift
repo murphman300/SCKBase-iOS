@@ -88,13 +88,13 @@ open class MultiVar: NSObject  {
         if Mirror(reflecting: i).subjectType == Mirror(reflecting: String()).subjectType {
             
             s = String(describing: i)
-            if isNonAlpha() {
-                int = Int(s!)
-                c = CGFloat(Int(s!)!)
-                if int! < 10 && int! > 0 {
-                    s = "0\(s!)"
+            if isNonAlpha(), let se = s, let into = Int(se) {
+                int = into
+                c = CGFloat(into)
+                if into < 10 && into > 0 {
+                    s = "0\(se)"
                 }
-                if s?.characters.first! == "0" && s?.characters.count == 3 && int! > 0 || s?.characters.count == 1 {
+                if se.characters.first! == "0" && se.characters.count == 3 && into > 0 || se.characters.count == 1 {
                     s = String(describing: i)
                 }
             }

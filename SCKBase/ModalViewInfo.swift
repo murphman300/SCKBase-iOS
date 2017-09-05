@@ -7,6 +7,41 @@
 //
 
 import UIKit
+import PassKit
+
+fileprivate let ReviewerSuccessTypes : [String] = ["yes", "success", "succeed"]
+fileprivate let ReviewerFailureTypes : [String] = ["no", "failure", "fail"]
+
+public enum ReviewerSuccessType : StringLiteralType {
+    case success = "yes"
+    case fail = "no"
+    public init(value: String) throws {
+        if ReviewerSuccessTypes.contains(value) {
+            self = .success
+        } else if ReviewerFailureTypes.contains(value) {
+            self = .fail
+        } else{
+            throw ModalViewInfoInitError.missing("Value")
+        }
+    }
+}
+
+public class ModalInfoReviewerStatus {
+    var type : ReviewerSuccessType
+    var is_actual : Bool
+    init(type: ReviewerSuccessType, actual: Bool) {
+        self.type = type
+        self.is_actual = actual
+    }
+    open var pkPaymentOutCome : PKPaymentAuthorizationStatus {
+        switch type {
+        case .fail:
+            return .failure
+        case .success:
+            return .success
+        }
+    }
+}
 
 public enum ModalViewInfoInitError : Error {
     case missing(String)
@@ -30,9 +65,9 @@ public class CheckoutModalInfo {
         }
     }
     open var accessor : String?
+    open var reviewer : ModalInfoReviewerStatus?
     
     public init(from: [String:Any]) throws {
-        print(from)
         if let name = from["locname"] as? String {
             storeName = name
         } else {
@@ -68,6 +103,9 @@ public class CheckoutModalInfo {
         }
         if let ac = from["accessor"] as? String {
             self.accessor = ac
+        }
+        if let rev = from["reviewer"] as? [String:Any], let statu = rev["success"] as? String {
+            self.reviewer = ModalInfoReviewerStatus(type: ReviewerSuccessType(rawValue: statu)!, actual: true)
         }
         recieved = Date()
     }
