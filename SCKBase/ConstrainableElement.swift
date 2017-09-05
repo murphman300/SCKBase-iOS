@@ -20,11 +20,6 @@ public extension ConstrainableElement where Self : UIView {
         block.topConstraint = self.topAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el = ConstraintYAxis(rawValue: secs.element.rawValue) else { return }
             block.secondaries?.topConstraint = self.topAnchor.constraint(equalTo: to.yAxisBy(el), constant: secs.vars.constant)
         }
@@ -39,11 +34,6 @@ public extension ConstrainableElement where Self : UIView {
         block.bottomConstraint = self.bottomAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintYAxis(rawValue: secs.element.rawValue) else { return }
             block.secondaries?.bottomConstraint = self.bottomAnchor.constraint(equalTo: to.yAxisBy(el2), constant: secs.vars.constant)
         }
@@ -58,11 +48,6 @@ public extension ConstrainableElement where Self : UIView {
         block.rightConstraint = self.trailingAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintXAxis(rawValue: secs.element.rawValue) else { return }
             block.secondaries?.rightConstraint = self.trailingAnchor.constraint(equalTo: to.xAxisBy(el2), constant: secs.vars.constant)
         }
@@ -77,11 +62,6 @@ public extension ConstrainableElement where Self : UIView {
         block.leftConstraint = self.leadingAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintXAxis(rawValue: secs.element.rawValue) else { return }
             block.secondaries?.leftConstraint = self.leadingAnchor.constraint(equalTo: to.xAxisBy(el2), constant: secs.vars.constant)
         }
@@ -96,11 +76,6 @@ public extension ConstrainableElement where Self : UIView {
         block.vertical = self.centerYAnchor.constraint(equalTo: to.yAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintYAxis(rawValue: secs.element.rawValue) else { return }
             block.secondaries?.vertical = self.centerYAnchor.constraint(equalTo: to.yAxisBy(el2), constant: secs.vars.constant)
         }
@@ -115,11 +90,6 @@ public extension ConstrainableElement where Self : UIView {
         block.horizontal = self.centerXAnchor.constraint(equalTo: to.xAxisBy(el), constant: by.constant)
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintXAxis(rawValue: secs.element.rawValue) else { return }
             block.secondaries?.horizontal = self.centerXAnchor.constraint(equalTo: to.xAxisBy(el2), constant: secs.vars.constant)
         }
@@ -143,11 +113,6 @@ public extension ConstrainableElement where Self : UIView {
             }
             if let sec = secondary, block.secondaries != nil {
                 let secs = sec()
-                if let rad = secs.radius {
-                    block.layoutModifierPrimary?.append({
-                        self.layer.cornerRadius = rad
-                    })
-                }
                 guard let el2 = ConstraintDimension(rawValue: secs.element.rawValue) else { return }
                 if secs.vars.fixed {
                     block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalToConstant: secs.vars.constant)
@@ -172,11 +137,6 @@ public extension ConstrainableElement where Self : UIView {
         }
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintDimension(rawValue: secs.element.rawValue) else { return }
             if by.fixed {
                 block.secondaries?.heightConstraint = self.heightAnchor.constraint(equalToConstant: secs.vars.constant)
@@ -204,11 +164,6 @@ public extension ConstrainableElement where Self : UIView {
             }
             if let sec = secondary, block.secondaries != nil {
                 let secs = sec()
-                if let rad = secs.radius {
-                    block.layoutModifierPrimary?.append({
-                        self.layer.cornerRadius = rad
-                    })
-                }
                 guard let el2 = ConstraintDimension(rawValue: secs.element.rawValue) else { return }
                 if secs.vars.fixed {
                     block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalToConstant: secs.vars.constant)
@@ -233,11 +188,6 @@ public extension ConstrainableElement where Self : UIView {
         }
         if let sec = secondary, block.secondaries != nil {
             let secs = sec()
-            if let rad = secs.radius {
-                block.layoutModifierPrimary?.append({
-                    self.layer.cornerRadius = rad
-                })
-            }
             guard let el2 = ConstraintDimension(rawValue: secs.element.rawValue) else { return }
             if by.fixed {
                 block.secondaries?.widthConstraint = self.widthAnchor.constraint(equalToConstant: secs.vars.constant)
@@ -250,9 +200,7 @@ public extension ConstrainableElement where Self : UIView {
     public func apply(_ action: @escaping(()->()),_ action2: (()->())?){
         block.primary = action
         block.secondary = action2
-        if action2 != nil {
-            block.primaryAndSecondaryCanToggle = true
-        }
+        block.primaryAndSecondaryCanToggle = true
     }
     
     public var constrainableType : ConstrainableElementType {

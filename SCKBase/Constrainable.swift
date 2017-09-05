@@ -61,22 +61,6 @@ extension Constrainable where Self : UIView {
         }
     }
     
-    public func toggle() {
-        block.toggle()
-    }
-    
-    public func toggleConstraint(constraint: ConstraintSide) {
-        block.toggle(constraint)
-    }
-    
-    public func switchState(constraint: ConstraintSide) {
-        block.switchState(constraint)
-    }
-    
-    public func switchState(_ first: ConstraintSide,_ second: ConstraintSide) {
-        block.switchStates(first, second)
-    }
-    
 }
 
 
@@ -87,21 +71,11 @@ open class SecondaryContraintParameters {
     
     public var vars : ConstraintVariables
     
-    public var radius : CGFloat?
-    
     public init(element: ConstraintElement, variables: ConstraintVariables) {
         self.element = element
         self.vars = variables
-        
     }
-    
-    public func cornerRadius(_ radius: CGFloat) -> SecondaryContraintParameters {
-        self.radius = radius
-        return self
-    }
-    
 }
-
 
 public extension UIView {
     
@@ -296,11 +270,17 @@ open class TextField : UITextField, ConstrainableElement {
         }
     }
     
+    open override func drawPlaceholder(in rect: CGRect) {
+        if let lay = textLayout {
+            super.drawPlaceholder(in: CGRect(x: 0 + lay.left, y: 0 + lay.top, width: rect.width - (lay.left + lay.right), height: rect.height - (lay.top + lay.bottom)))
+        } else {
+            super.drawPlaceholder(in: rect)
+        }
+    }
+    
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = bounds
-        print("new bounds")
         if let lay = textLayout {
-            print(newBounds, lay)
             return CGRect(x: 0 + lay.right, y: 0 + lay.top, width: newBounds.width - (lay.left + lay.right), height: newBounds.height - (lay.top + lay.bottom))
         }
         return newBounds

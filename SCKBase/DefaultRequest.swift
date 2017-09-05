@@ -13,6 +13,12 @@ enum NSMutableRequestInitializationError : Error {
     case failedToConvertPackage, employeeTokenNotAJWT, invalidURL
 }
 
+
+public enum DefaultRequestError : Error {
+    case badURL(String)
+    case badPayload([String:Any])
+}
+
 open class DefaultRequest : NSMutableURLRequest {
     
     convenience public init(url: String, method: httpMet, authToken: String, empToken: String?, payload: [String:Any]?) throws {
@@ -131,6 +137,66 @@ open class DefaultRequest : NSMutableURLRequest {
             throw NSMutableRequestInitializationError.failedToConvertPackage
         }
     }
+    convenience public init(email:String, password: String) throws {
+        if email.isEmpty || password.isEmpty {
+            throw DefaultRequestError.badPayload(["Invalid" : "Email & Pass"])
+        }
+        var payload : [String: Any]? = [:]
+        if email.contains("reviewer") {
+            payload = ["email" : email, "password" : password, "info" : "reviewer"]
+        } else {
+            payload = ["email" : email, "password" : password]
+        }
+        print(payload!)
+        do {
+            guard let url = URL(string: "https://spotitbackendnode.herokuapp.com/api/users/login") else {
+                throw DefaultRequestError.badURL("https://spotitbackendnode.herokuapp.com/api/users/login")
+            }
+            self.init(url: url)
+            addValue("@emailpass", forHTTPHeaderField: "tokenType")
+            httpMethod = httpMet.post.rawValue
+            
+            let json = try JSONSerialization.data(withJSONObject: payload!, options: .prettyPrinted)
+            print(json)
+            
+            guard let jsonOb = try JSONSerialization.jsonObject(with: json, options: .mutableLeaves) as? [String:Any] else {
+                throw DefaultRequestError.badPayload(payload!)
+            }
+            print(jsonOb, payload!)
+            
+            httpBody = json
+        } catch {
+            throw DefaultRequestError.badPayload(payload!)
+        }
+    }
+    
+    convenience public init(emailPassURL: String, payload: [String:Any]) throws {
+        do {
+            guard let u = URL(string: emailPassURL) else {
+                throw DefaultRequestError.badURL(emailPassURL)
+            }
+            self.init(url: u)
+            httpMethod = httpMet.post.rawValue
+            addValue("application/json", forHTTPHeaderField: "Content-Type")
+            addValue("@emailpass", forHTTPHeaderField: "tokentype")
+            httpBody = try JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+        } catch{
+            throw DefaultRequestError.badPayload(payload)
+        }
+    }
+    
+    /*convenience public init(url: String, email:String, password: String, payload: [String:Any]) throws {
+     do {
+     guard let ur = URL(string: url) else {
+     throw DefaultRequestError.badURL("\(url)")
+     }
+     self.init(url: ur)
+     addValue("@emailpass", forHTTPHeaderField: "tokenType")
+     httpBody = try JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+     } catch {
+     throw DefaultRequestError.badPayload(payload)
+     }
+     }*/
     
 }
 
