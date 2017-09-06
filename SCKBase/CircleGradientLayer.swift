@@ -36,6 +36,15 @@ open class LinearGradientCircleLoader: UIView, CAAnimationDelegate {
         layer.addSublayer(lay)
     }
     
+    public init(frame: CGRect, colors: ColorGradient) {
+        super.init(frame: frame)
+        let center = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        let this = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        lay = LinearGradientLayer(bounds: this, position: center, colors: colors)
+        lay.animationDelegate = self
+        layer.addSublayer(lay)
+    }
+    
      public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
             if let dur = duration {
