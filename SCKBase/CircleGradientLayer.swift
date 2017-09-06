@@ -8,51 +8,85 @@
 
 import UIKit
 
-
 public protocol GradientLoaderDelegate {
     func gradient(loader: LinearGradientCircleLoader, hasAppeared: Bool)
 }
 
 open class LinearGradientCircleLoader: UIView, CAAnimationDelegate {
     
-    open var lay = LinearGradientLayer()
+    var lay = LinearGradientLayer()
     
-    open var loadDelegate : GradientLoaderDelegate?
+    var loadDelegate : GradientLoaderDelegate?
     
     private var hasLoaded : Bool = false
     
-    open var switchAnimation = CABasicAnimation(keyPath: "rotate")
+    var switchAnimation = CABasicAnimation(keyPath: "rotate")
     
-    open var time = Timer()
+    var time = Timer()
     
-    required public init(frame: CGRect, colors: ColorGradient) {
+    var duration : Double?
+    
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         let center = CGPoint(x: frame.width / 2, y: frame.height / 2)
         let this = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        let colors = ColorGradient(colors: UIColor.blue.withAlphaComponent(0.0), UIColor.blue)
         lay = LinearGradientLayer(bounds: this, position: center, colors: colors)
         lay.animationDelegate = self
         layer.addSublayer(lay)
     }
     
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("rotated")
-        if let d = loadDelegate {
-            d.gradient(loader: self, hasAppeared: flag)
+     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            if let dur = duration {
+                applyAnimation(dur)
+            } else {
+                applyAnimation(1.0)
+            }
         }
     }
     
-    public func rotate() {
-        UIView.animate(withDuration: 1.0, animations: {
-            //var transform = CATransform3DMakeTranslation(0, 0, 0)
-            //transform = CATransform3DRotate(transform, (Double.pi * 2).cgFloat, 0.0, 0.0, 0.0)
-            self.transform = CGAffineTransform(rotationAngle: (Double.pi * 2).cgFloat)
+    let kRotationAnimationKey = "com.myapplication.rotationanimationkey"
+    
+    private func applyAnimation(_ duration: Double) {
+        if self.layer.animation(forKey: kRotationAnimationKey) == nil {
+            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+            rotationAnimation.fromValue = 0.0
+            rotationAnimation.toValue = Float(Double.pi * 2.0)
+            rotationAnimation.duration = duration
+            rotationAnimation.repeatCount = Float.infinity
+            self.layer.add(rotationAnimation, forKey: kRotationAnimationKey)
+        }
+    }
+    
+     public func stop(_ remove: Bool) {
+        remove ?- stopAndRemove >< justStop
+    }
+    
+    private func stopAndRemove() {
+        UIView.animate(withDuration: 0.35, animations: {
+            self.alpha = 0
         }) { (v) in
+            self.lay.removeAllAnimations()
+            self.lay.removeFromSuperlayer()
+            self.removeFromSuperview()
         }
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    private func justStop() {
+        UIView.animate(withDuration: 0.35) {
+            self.alpha = 0
+        }
+    }
+    
+     public func start() {
+        lay.animateCircle(duration: duration != nil ? duration! : 1.3, {
+            
+        })
+    }
+    
+    required  public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
 }
-
