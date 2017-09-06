@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressView: UIView, CAAnimationDelegate {
+open class ProgressView: UIView, CAAnimationDelegate {
     
     private let progressLayer: CAShapeLayer = CAShapeLayer()
     
@@ -16,13 +16,13 @@ class ProgressView: UIView, CAAnimationDelegate {
     
     private var gradient : CAGradientLayer?
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         progressLabel = UILabel()
         super.init(coder: aDecoder)
         createProgressLayer()
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         progressLabel = UILabel()
         super.init(frame: frame)
         createProgressLayer()
@@ -61,13 +61,13 @@ class ProgressView: UIView, CAAnimationDelegate {
         return gradientLayer
     }
     
-    func hideProgressView() {
+    public func hideProgressView() {
         progressLayer.strokeEnd = 0.0
         progressLayer.removeAllAnimations()
         progressLabel.text = "Load content"
     }
     
-    func animateProgressView() {
+    public func animateProgressView() {
         progressLabel.text = "Loading..."
         progressLayer.strokeEnd = 0.0
         
@@ -84,7 +84,7 @@ class ProgressView: UIView, CAAnimationDelegate {
         }
     }
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         print("Stoped")
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class GradientCircleLoader: UIView, CAAnimationDelegate {
+open class GradientCircleLoader: UIView, CAAnimationDelegate {
     
     private var colors = ColorGradient()
     
@@ -29,7 +29,7 @@ class GradientCircleLoader: UIView, CAAnimationDelegate {
     
     private var animationTime : Double = 1.0
     
-    var percent : CGFloat {
+    open var percent : CGFloat {
         get {
             return percentage.percent.cgFloat
         } set {
@@ -37,13 +37,13 @@ class GradientCircleLoader: UIView, CAAnimationDelegate {
         }
     }
     
-    init(frame: CGRect, gradient: ColorGradient) {
+    public init(frame: CGRect, gradient: ColorGradient) {
         super.init(frame: frame)
         self.colors = gradient
         set()
     }
     
-    func set() {
+    open func set() {
         let this = self.frame
         
         let startAngle = (Double.pi / 2).cgFloat
@@ -99,7 +99,7 @@ class GradientCircleLoader: UIView, CAAnimationDelegate {
         completion?()
     }
     
-    func setLoadTo(_ percent: CGFloat,_ animated: Bool) {
+    public func setLoadTo(_ percent: CGFloat,_ animated: Bool) {
         if animated {
             animateLoadTo(percent)
         } else {
@@ -107,7 +107,7 @@ class GradientCircleLoader: UIView, CAAnimationDelegate {
         }
     }
     
-    func setLoadTo(_ percent: CGFloat,_ animated: Bool,_ completion: (()->())?) {
+    public func setLoadTo(_ percent: CGFloat,_ animated: Bool,_ completion: (()->())?) {
         if animated {
             animateLoadTo(percent, completion)
         } else {
@@ -115,11 +115,11 @@ class GradientCircleLoader: UIView, CAAnimationDelegate {
         }
     }
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         print("Stoped")
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
