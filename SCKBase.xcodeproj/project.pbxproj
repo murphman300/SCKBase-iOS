@@ -34,7 +34,6 @@
 		B58986031F5E3BDE0073A194 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58986021F5E3BDE0073A194 /* TableView.swift */; };
 		B58986051F5E3C1E0073A194 /* BarToggler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58986041F5E3C1E0073A194 /* BarToggler.swift */; };
 		B58986071F5E3DB90073A194 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58986061F5E3DB90073A194 /* ProgressView.swift */; };
-		B58986091F5E3DE40073A194 /* GradientCircleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58986081F5E3DE40073A194 /* GradientCircleLoader.swift */; };
 		B589860B1F5E3E0D0073A194 /* LinearGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589860A1F5E3E0C0073A194 /* LinearGradientLayer.swift */; };
 		B589860D1F5E3E230073A194 /* CircleGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589860C1F5E3E230073A194 /* CircleGradientLayer.swift */; };
 		B589860F1F5E3E360073A194 /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589860E1F5E3E360073A194 /* ColorGradient.swift */; };
@@ -70,6 +69,7 @@
 		B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */; };
 		B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */; };
 		B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BA4091ED4DD34005F1544 /* DateLabeler.swift */; };
+		B5B244961F60B85900FFCDD9 /* SingleLineFunctionCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748691E99FFF300A5308E /* MultiVar.swift */; };
 		B5B7486C1E9A000200A5308E /* DOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7486B1E9A000200A5308E /* DOB.swift */; };
@@ -127,7 +127,6 @@
 		B58986021F5E3BDE0073A194 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		B58986041F5E3C1E0073A194 /* BarToggler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarToggler.swift; sourceTree = "<group>"; };
 		B58986061F5E3DB90073A194 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		B58986081F5E3DE40073A194 /* GradientCircleLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCircleLoader.swift; sourceTree = "<group>"; };
 		B589860A1F5E3E0C0073A194 /* LinearGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientLayer.swift; sourceTree = "<group>"; };
 		B589860C1F5E3E230073A194 /* CircleGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGradientLayer.swift; sourceTree = "<group>"; };
 		B589860E1F5E3E360073A194 /* ColorGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
@@ -163,6 +162,7 @@
 		B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewInfo.swift; sourceTree = "<group>"; };
 		B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		B58BA4091ED4DD34005F1544 /* DateLabeler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabeler.swift; sourceTree = "<group>"; };
+		B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLineFunctionCondition.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B748611E99FFB300A5308E /* SCKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKBase.h; sourceTree = "<group>"; };
 		B5B748621E99FFB300A5308E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,9 +227,9 @@
 				B5B748851E9A00EC00A5308E /* CheckMarkButton.swift */,
 				B5B7486F1E9A002D00A5308E /* LocalData.swift */,
 				B58986061F5E3DB90073A194 /* ProgressView.swift */,
-				B58986081F5E3DE40073A194 /* GradientCircleLoader.swift */,
 				B589860A1F5E3E0C0073A194 /* LinearGradientLayer.swift */,
 				B589860C1F5E3E230073A194 /* CircleGradientLayer.swift */,
+				B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */,
 				B589860E1F5E3E360073A194 /* ColorGradient.swift */,
 			);
 			name = Views;
@@ -463,7 +463,6 @@
 				B58B58151ED2A705009A7992 /* Date+Helpers.swift in Sources */,
 				B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */,
 				B58B58291ED2AD5F009A7992 /* SMSCodeVerifier.swift in Sources */,
-				B58986091F5E3DE40073A194 /* GradientCircleLoader.swift in Sources */,
 				B58B581B1ED2A845009A7992 /* CALayer+Helpers.swift in Sources */,
 				B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */,
 				B575B6F21F12971500E53CB6 /* Constrainable.swift in Sources */,
@@ -496,6 +495,7 @@
 				B58B583C1ED2B7B1009A7992 /* State.swift in Sources */,
 				B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */,
 				B58B58171ED2A76D009A7992 /* UIButton+Helpers.swift in Sources */,
+				B5B244961F60B85900FFCDD9 /* SingleLineFunctionCondition.swift in Sources */,
 				B589860F1F5E3E360073A194 /* ColorGradient.swift in Sources */,
 				B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */,
 				B551751C1ED635950063E356 /* TimeComponents.swift in Sources */,
