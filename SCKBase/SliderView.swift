@@ -370,7 +370,7 @@ open class SliderView : UIView, UIGestureRecognizerDelegate {
         delegateMethodParser(closedCent, closedCent - upCent, true)
     }
     
-    public func isOpenChecker() {
+    @objc public func isOpenChecker() {
         
         guard sliderIsOpen else {
             slideUp()

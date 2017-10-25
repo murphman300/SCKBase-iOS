@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B5007F401ED49F10009A4F6B /* SpotitColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */; };
 		B50B11F91F35A53800ED044B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B11F81F35A53800ED044B /* Regex.swift */; };
+		B51D059F1FA0E74A00FEE36D /* LoginResponseObject-User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D059E1FA0E74A00FEE36D /* LoginResponseObject-User.swift */; };
+		B51D05A11FA0FE8500FEE36D /* SecurityPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */; };
 		B52395E11F01D3CF00AF538B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E01F01D3CF00AF538B /* File.swift */; };
 		B52395E31F01D3D900AF538B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E21F01D3D900AF538B /* Object.swift */; };
 		B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E61F01DC3C00AF538B /* JSONObject.swift */; };
@@ -102,6 +104,8 @@
 /* Begin PBXFileReference section */
 		B5007F3F1ED49F10009A4F6B /* SpotitColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotitColorScheme.swift; sourceTree = "<group>"; };
 		B50B11F81F35A53800ED044B /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		B51D059E1FA0E74A00FEE36D /* LoginResponseObject-User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginResponseObject-User.swift"; sourceTree = "<group>"; };
+		B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityPacket.swift; sourceTree = "<group>"; };
 		B52395E01F01D3CF00AF538B /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B52395E21F01D3D900AF538B /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		B52395E61F01DC3C00AF538B /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
@@ -205,6 +209,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B51D05A21FA1026100FEE36D /* Decodables */ = {
+			isa = PBXGroup;
+			children = (
+				B51D05A41FA1028300FEE36D /* Logins+ProfileRelated */,
+				B51D05A31FA1027600FEE36D /* Security */,
+			);
+			name = Decodables;
+			sourceTree = "<group>";
+		};
+		B51D05A31FA1027600FEE36D /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		B51D05A41FA1028300FEE36D /* Logins+ProfileRelated */ = {
+			isa = PBXGroup;
+			children = (
+				B51D059E1FA0E74A00FEE36D /* LoginResponseObject-User.swift */,
+			);
+			name = "Logins+ProfileRelated";
+			sourceTree = "<group>";
+		};
 		B535D8421ECF702300E52710 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +392,7 @@
 				B5B748611E99FFB300A5308E /* SCKBase.h */,
 				B5B748621E99FFB300A5308E /* Info.plist */,
 				B58B58301ED2B34C009A7992 /* Variables */,
+				B51D05A21FA1026100FEE36D /* Decodables */,
 			);
 			path = SCKBase;
 			sourceTree = "<group>";
@@ -410,7 +440,7 @@
 				TargetAttributes = {
 					B5B7485D1E99FFB300A5308E = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -457,6 +487,7 @@
 				B58B58091ED2A620009A7992 /* UILabel+Helpers.swift in Sources */,
 				B5B748741E9A006400A5308E /* PinCircles.swift in Sources */,
 				B58985FD1F5E3A870073A194 /* TextView.swift in Sources */,
+				B51D059F1FA0E74A00FEE36D /* LoginResponseObject-User.swift in Sources */,
 				B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */,
 				B50B11F91F35A53800ED044B /* Regex.swift in Sources */,
 				B58B57FF1ED2A562009A7992 /* Double+Helper.swift in Sources */,
@@ -475,6 +506,7 @@
 				B5B7488A1E9A015700A5308E /* LocationAddress.swift in Sources */,
 				B52395E31F01D3D900AF538B /* Object.swift in Sources */,
 				B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */,
+				B51D05A11FA0FE8500FEE36D /* SecurityPacket.swift in Sources */,
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B58B58031ED2A5BE009A7992 /* UIViewController+Helpers.swift in Sources */,
 				B58B58051ED2A5DF009A7992 /* Dictionnary+Helpers.swift in Sources */,
@@ -662,7 +694,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -683,7 +716,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Spotio.SCKBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

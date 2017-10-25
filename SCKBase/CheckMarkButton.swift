@@ -77,7 +77,7 @@ open class CheckMarkButton : UIButton, CAAnimationDelegate {
         self.layer.borderColor = color.cgColor
     }
     
-    public func animateTo() {
+    @objc public func animateTo() {
         backgroundColor = UIColor.clear
         let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
         pathAnimation.duration = 0.4
@@ -96,7 +96,7 @@ open class CheckMarkButton : UIButton, CAAnimationDelegate {
         
     }
     
-    public func unAnimate() {
+    @objc public func unAnimate() {
         let reverseAnimation = CABasicAnimation(keyPath: "strokeEnd")
         reverseAnimation.duration = 0.4
         reverseAnimation.fromValue = NSNumber(floatLiteral: 1)

@@ -628,10 +628,6 @@ public enum LoginStatus {
     
 }
 
-public enum loginType {
-    
-    case uiweb, wkweb, safarivc
-}
 
 public enum SafariRoots {
     case viewController, customTabBar, viewControllerSignUp, viewControllerError, download, tabBarNotification
