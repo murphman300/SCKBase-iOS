@@ -23,7 +23,7 @@ open class DefaultNetwork: NSObject {
         super.init()
     }
     
-    public func perform(request: NSMutableURLRequest,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any],_ other: Any?,_ array: [AnyObject]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
+    public class func perform(request: NSMutableURLRequest,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any],_ other: Any?,_ array: [AnyObject]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
         URLSession.shared.dataTask(with: request as URLRequest) { (d, resp, err) in
             do {
                 try self.urlSessionResponseParser(data: d, response: resp, error: err, { (c, m, b, o, a) in
@@ -49,7 +49,7 @@ open class DefaultNetwork: NSObject {
             }.resume()
     }
     
-    public func performRequestOn(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any],_ other: Any?,_ array: [AnyObject]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
+    public class func performRequestOn(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any],_ other: Any?,_ array: [AnyObject]?) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
         URLSession.shared.dataTask(with: url) { (d, resp, err) in
             do {
                 try self.urlSessionResponseParser(data: d, response: resp, error: err, { (c, m, b, o, a) in
@@ -75,7 +75,7 @@ open class DefaultNetwork: NSObject {
             }.resume()
     }
     
-    public func performRequestForData(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ data: Data) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
+    public class func performRequestForData(url: URL,_ completion: @escaping(_ code: Int,_ message: String,_ data: Data) -> Void,_ failure: @escaping(_ reason: String) -> Void) {
         URLSession.shared.dataTask(with: url) { (d, resp, err) in
             self.urlDataTaskResponseHandlerFor(data: d, { (p) in
                 completion(200, "Ok", p)
@@ -85,14 +85,14 @@ open class DefaultNetwork: NSObject {
             }.resume()
     }
     
-    public func urlDataTaskResponseHandlerFor(data: Data?, _ present: @escaping(_ present: Data) -> Void,_ absent: @escaping(_ reason: String) -> Void) {
+    public class func urlDataTaskResponseHandlerFor(data: Data?, _ present: @escaping(_ present: Data) -> Void,_ absent: @escaping(_ reason: String) -> Void) {
         guard let d = data else {
             return absent("no data")
         }
         present(d)
     }
     
-    public func urlSessionResponseParser(data: Data?, response : URLResponse?, error : Error?,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any]?,_ other: Any?,_ bodyArray: [AnyObject]?) -> Void) throws {
+    public class func urlSessionResponseParser(data: Data?, response : URLResponse?, error : Error?,_ completion: @escaping(_ code: Int,_ message: String,_ body: [String:Any]?,_ other: Any?,_ bodyArray: [AnyObject]?) -> Void) throws {
         if response == nil && data == nil {
             throw NetworkOperationError.noConnection
         }
@@ -130,10 +130,9 @@ open class DefaultNetwork: NSObject {
     
     public func facebookedRequest(token: String, method: httpMet, payload: [String: Any]?) {
         
-        
     }
     
-    public func facebookLogin(token: String, device: String,_ completion: @escaping (_ new: String?)->Void) {
+    public class func facebookLogin(token: String, device: String,_ completion: @escaping (_ new: String?)->Void) {
         do {
             let req = try DefaultRequest(facebookRefresh: token, email: "", device: device)
             self.perform(request: req, { (code, message, body, other, arr) in
@@ -156,7 +155,7 @@ open class DefaultNetwork: NSObject {
         }
     }
     
-    public func loginFacebookForRefresh(token: String, email: String, device: String,_ completion: @escaping (_ new: String?,_ body: [String:Any]?)->Void) {
+    public class func loginFacebookForRefresh(token: String, email: String, device: String,_ completion: @escaping (_ new: String?,_ body: [String:Any]?)->Void) {
         do {
             let req = try DefaultRequest(facebookRefresh: token, email: email, device: device)
             self.perform(request: req, { (code, message, body, other, arr) in

@@ -235,7 +235,7 @@ open class SMSCodeVerifier : UIView, UITextFieldDelegate {
         
         do {
             let request = try DefaultRequest(url: SpotitPaths.users.cell.confirm, method: .post, authToken: tok, empToken: nil, payload: ["twCode" : it])
-            DefaultNetwork.operation.perform(request: request, { (code, message, body, other, arr) in
+            DefaultNetwork.perform(request: request, { (code, message, body, other, arr) in
                 guard code == 200 else {
                     if let d = self.delegate {
                         d.code(verifier: self, confirmation: false)

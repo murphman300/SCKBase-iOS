@@ -137,15 +137,11 @@ open class Connections {
         }
         
         private func versionGet(_ comp : @escaping(_ vers: String?) -> Void) {
-            guard let re = URL(string: "") else {
-                return
-            }
-            
-            
+            guard let re = URL(string: "") else { return }
             do {
                 let request = try DefaultRequest(url: "", method: .get, authToken: "request_versionType_Spotit_App", empToken: nil, payload: nil)
                 request.addValue("spotit2016", forHTTPHeaderField: "Reciever_String")
-                DefaultNetwork.operation.perform(request: request, { (code, message, body, other, array) in
+                DefaultNetwork.perform(request: request, { (code, message, body, other, array) in
                     guard code == 200 else {
                         comp(nil)
                         return

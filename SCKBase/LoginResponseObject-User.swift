@@ -8,10 +8,12 @@
 
 import Foundation
 
-open class UserLoginResponse : Decodable {
+open class UserLoginResponse : SNKURLResponse {
 
-    open var resultCode : Int
-    open var message : String
+    public var code: Int
+    
+    public var message: String
+    
     open var result : LoginResult
     
 }
@@ -28,7 +30,7 @@ open class LoginResult : Decodable {
     
     public var loggedInWith : LoggedInWith {
         guard let type = self.login_type else { return .NotLoggedIn }
-        if type.last_type == "facebook" {
+        if type.last_type == "social" {
             return .Facebook
         }
         return .EmailPassword
