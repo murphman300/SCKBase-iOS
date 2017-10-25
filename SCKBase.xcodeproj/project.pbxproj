@@ -11,6 +11,8 @@
 		B50B11F91F35A53800ED044B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B11F81F35A53800ED044B /* Regex.swift */; };
 		B51D059F1FA0E74A00FEE36D /* LoginResponseObject-User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D059E1FA0E74A00FEE36D /* LoginResponseObject-User.swift */; };
 		B51D05A11FA0FE8500FEE36D /* SecurityPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */; };
+		B51D05A61FA1080200FEE36D /* SNKURLReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A51FA1080200FEE36D /* SNKURLReponse.swift */; };
+		B51D05A81FA110B600FEE36D /* SpotitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A71FA110B600FEE36D /* SpotitRequest.swift */; };
 		B52395E11F01D3CF00AF538B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E01F01D3CF00AF538B /* File.swift */; };
 		B52395E31F01D3D900AF538B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E21F01D3D900AF538B /* Object.swift */; };
 		B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E61F01DC3C00AF538B /* JSONObject.swift */; };
@@ -106,6 +108,8 @@
 		B50B11F81F35A53800ED044B /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		B51D059E1FA0E74A00FEE36D /* LoginResponseObject-User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginResponseObject-User.swift"; sourceTree = "<group>"; };
 		B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityPacket.swift; sourceTree = "<group>"; };
+		B51D05A51FA1080200FEE36D /* SNKURLReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKURLReponse.swift; sourceTree = "<group>"; };
+		B51D05A71FA110B600FEE36D /* SpotitRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotitRequest.swift; sourceTree = "<group>"; };
 		B52395E01F01D3CF00AF538B /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B52395E21F01D3D900AF538B /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		B52395E61F01DC3C00AF538B /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 			children = (
 				B51D05A41FA1028300FEE36D /* Logins+ProfileRelated */,
 				B51D05A31FA1027600FEE36D /* Security */,
+				B51D05A51FA1080200FEE36D /* SNKURLReponse.swift */,
 			);
 			name = Decodables;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */,
 				B58B58261ED2AC90009A7992 /* NSMutableURLRequest+Helpers.swift */,
 				B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */,
+				B51D05A71FA110B600FEE36D /* SpotitRequest.swift */,
 				B535D8511ECF781700E52710 /* NimbleNetwork.swift */,
 				B535D8531ECF781E00E52710 /* SpotitNetwork.swift */,
 			);
@@ -478,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58B58251ED2ABAB009A7992 /* App-Class.swift in Sources */,
+				B51D05A61FA1080200FEE36D /* SNKURLReponse.swift in Sources */,
 				B575B6F61F12976B00E53CB6 /* ConstraintSide.swift in Sources */,
 				B5B7488C1E9A01B400A5308E /* LoadingIndicator.swift in Sources */,
 				B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */,
@@ -530,6 +537,7 @@
 				B5B244961F60B85900FFCDD9 /* SingleLineFunctionCondition.swift in Sources */,
 				B589860F1F5E3E360073A194 /* ColorGradient.swift in Sources */,
 				B5B748A41E9A0AB100A5308E /* TaxHandler.swift in Sources */,
+				B51D05A81FA110B600FEE36D /* SpotitRequest.swift in Sources */,
 				B551751C1ED635950063E356 /* TimeComponents.swift in Sources */,
 				B5B7486C1E9A000200A5308E /* DOB.swift in Sources */,
 				B58B58191ED2A7A5009A7992 /* UIView+Helpers.swift in Sources */,

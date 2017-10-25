@@ -137,7 +137,8 @@ open class DefaultRequest : NSMutableURLRequest {
             throw NSMutableRequestInitializationError.failedToConvertPackage
         }
     }
-    convenience public init(email:String, password: String) throws {
+    
+    convenience public init(email:String, password: String, path: String?) throws {
         if email.isEmpty || password.isEmpty {
             throw DefaultRequestError.badPayload(["Invalid" : "Email & Pass"])
         }
@@ -147,23 +148,46 @@ open class DefaultRequest : NSMutableURLRequest {
         } else {
             payload = ["email" : email, "password" : password]
         }
-        print(payload!)
         do {
-            guard let url = URL(string: "https://spotitbackendnode.herokuapp.com/api/users/login") else {
-                throw DefaultRequestError.badURL("https://spotitbackendnode.herokuapp.com/api/users/login")
+            guard let url = URL(string: path != nil ? path! : "https://spotitbackendnode.herokuapp.com/api/users/signup") else {
+                throw DefaultRequestError.badURL(path != nil ? path! : "https://spotitbackendnode.herokuapp.com/api/users/signup")
             }
             self.init(url: url)
             addValue("@emailpass", forHTTPHeaderField: "tokenType")
             httpMethod = httpMet.post.rawValue
-            
             let json = try JSONSerialization.data(withJSONObject: payload!, options: .prettyPrinted)
-            print(json)
-            
             guard let jsonOb = try JSONSerialization.jsonObject(with: json, options: .mutableLeaves) as? [String:Any] else {
                 throw DefaultRequestError.badPayload(payload!)
             }
             print(jsonOb, payload!)
             
+            httpBody = json
+        } catch {
+            throw DefaultRequestError.badPayload(payload!)
+        }
+    }
+    
+    convenience public init(signupEmail:String, password: String, path: String?) throws {
+        if signupEmail.isEmpty || password.isEmpty {
+            throw DefaultRequestError.badPayload(["Invalid" : "Email & Pass"])
+        }
+        var payload : [String: Any]? = [:]
+        if signupEmail.contains("reviewer") {
+            payload = ["email" : signupEmail, "password" : password, "info" : "reviewer"]
+        } else {
+            payload = ["email" : signupEmail, "password" : password]
+        }
+        do {
+            guard let url = URL(string: path != nil ? path! : "https://spotitbackendnode.herokuapp.com/api/users/signup") else {
+                throw DefaultRequestError.badURL(path != nil ? path! : "https://spotitbackendnode.herokuapp.com/api/users/signup")
+            }
+            self.init(url: url)
+            addValue("@emailpasssignup", forHTTPHeaderField: "tokenType")
+            httpMethod = httpMet.post.rawValue
+            let json = try JSONSerialization.data(withJSONObject: payload!, options: .prettyPrinted)
+            guard let jsonOb = try JSONSerialization.jsonObject(with: json, options: .mutableLeaves) as? [String:Any] else {
+                throw DefaultRequestError.badPayload(payload!)
+            }
             httpBody = json
         } catch {
             throw DefaultRequestError.badPayload(payload!)
@@ -184,19 +208,6 @@ open class DefaultRequest : NSMutableURLRequest {
             throw DefaultRequestError.badPayload(payload)
         }
     }
-    
-    /*convenience public init(url: String, email:String, password: String, payload: [String:Any]) throws {
-     do {
-     guard let ur = URL(string: url) else {
-     throw DefaultRequestError.badURL("\(url)")
-     }
-     self.init(url: ur)
-     addValue("@emailpass", forHTTPHeaderField: "tokenType")
-     httpBody = try JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
-     } catch {
-     throw DefaultRequestError.badPayload(payload)
-     }
-     }*/
     
 }
 

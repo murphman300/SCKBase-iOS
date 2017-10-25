@@ -33,7 +33,7 @@ open class LocalizedImageView: ImageView {
             self.image = imgFromCache
             return
         }
-        DefaultNetwork.operation.performRequestForData(url: url, { (code, message, d) in
+        DefaultNetwork.performRequestForData(url: url, { (code, message, d) in
             DispatchQueue.main.async(execute: {
                 guard let imageToCache = UIImage(data: d) else {
                     print("CDN IMG FAIL ERROR: failed to generate uiimage from \(urlString)")
@@ -59,7 +59,7 @@ open class LocalizedImageView: ImageView {
             self.image = imgFromCache
             return
         }
-        DefaultNetwork.operation.performRequestForData(url: url, { (code, message, d) in
+        DefaultNetwork.performRequestForData(url: url, { (code, message, d) in
             DispatchQueue.main.async(execute: {
                 guard let imageToCache = UIImage(data: d) else {
                     print("CDN IMG FAIL ERROR: failed to generate uiimage from \(string)")
