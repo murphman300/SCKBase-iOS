@@ -233,7 +233,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view1)
     }
     
-    public func oneAddAnim() {
+    @objc public func oneAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = 0
         animationFull.toValue       = 2*Double.pi
@@ -259,7 +259,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view2)
     }
     
-    public func twoAddAnim() {
+    @objc public func twoAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue = 2*Double.pi
         animationFull.toValue = 0
@@ -285,7 +285,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view3)
     }
     
-    public func threeAddAnim() {
+    @objc public func threeAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue     = 2*Double.pi
         animationFull.toValue       = 0
@@ -311,7 +311,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         addSubview(view4)
     }
     
-    public func fourAddAnim() {
+    @objc public func fourAddAnim() {
         let animationFull : CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         animationFull.fromValue = 0
         animationFull.toValue = 2 * Double.pi
@@ -344,7 +344,7 @@ open class LoadingIndicator : UIView, CAAnimationDelegate{
         
     }
     
-    public func continuousRipples() {
+    @objc public func continuousRipples() {
         let pathFrame: CGRect = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
         let path = UIBezierPath(roundedRect: pathFrame, cornerRadius: self.frame.size.height)
         let shapePosition = self.convert(self.center, from: nil)

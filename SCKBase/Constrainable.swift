@@ -238,7 +238,7 @@ open class ImageView : UIImageView, ConstrainableElement {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func handleTap() {
+    @objc public func handleTap() {
         tapCallback?()
     }
     

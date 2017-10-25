@@ -114,7 +114,7 @@ public class SelectorButton: UIButton {
         }
     }
     
-    public func handleTap() {
+    @objc public func handleTap() {
         tapCallback?()
     }
     

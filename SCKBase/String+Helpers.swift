@@ -286,7 +286,7 @@ extension String {
     
     public func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         
         return boundingBox.height
     }
@@ -305,7 +305,7 @@ extension String {
         var final = String()
         if let mark = c.index(of: asOf) {
             
-            final = self[c.index(after: mark)..<self.endIndex]
+            final = String(self[c.index(after: mark)..<self.endIndex])
             
         }
         return final

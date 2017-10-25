@@ -40,7 +40,7 @@ open class SMSCodeVerifier : UIView, UITextFieldDelegate {
         tf.backgroundColor = UIColor.clear
         tf.textColor = colors.lineColor.withAlphaComponent(0.8)
         tf.font = fonts.checkoutMerchBold
-        tf.attributedPlaceholder = NSAttributedString(string: "Code", attributes: [NSForegroundColorAttributeName: colors.lineColor.withAlphaComponent(0.5)])
+        tf.attributedPlaceholder = NSAttributedString(string: "Code", attributes: [NSAttributedStringKey.foregroundColor: colors.lineColor.withAlphaComponent(0.5)])
         tf.textAlignment = .center
         return tf
     }()
@@ -219,7 +219,7 @@ open class SMSCodeVerifier : UIView, UITextFieldDelegate {
         }
     }
     
-    public func send() {
+    @objc public func send() {
         guard let tok = token else {
             return
         }
