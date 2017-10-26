@@ -11,20 +11,21 @@ import Foundation
 
 public protocol SNKURLResponse : Decodable {
     
-    var code : Int { get set }
+    var resultCode : Double { get set }
     var message : String { get set }
     
 }
 
 open class BadURLResponse : SNKURLResponse {
     
-    public var code: Int
+    public var resultCode: Double
     
     public var message: String
     
-    init(code : Int, message: String) {
-        self.code = code
+    init(code : Double, message: String) {
+        self.resultCode = code
         self.message = message
     }
     
 }
+

@@ -8,14 +8,39 @@
 
 import Foundation
 
-open class UserLoginResponse : SNKURLResponse {
+public enum LoginFollowUpAction {
+    case login
+    case newAccount
+}
 
-    public var code: Int
-    
+open class UserLoginResponse : SNKURLResponse {
+    enum Keys : String, CodingKey {
+        case resultCode = "resultCode"
+        case message = "message"
+        case result = "result"
+    }
+    enum UserLoginError : Error{
+        case failed(String)
+    }
+    public var resultCode: Double
     public var message: String
-    
-    open var result : LoginResult
-    
+    public let result : LoginResult
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        self.resultCode = try container.decode(Double.self, forKey: .resultCode)
+        self.message = try container.decode(String.self, forKey: .message)
+        if container.contains(.result) {
+            self.result = try container.decode(LoginResult.self, forKey: .result)
+        } else {
+            throw UserLoginError.failed("\(self.resultCode) : \(self.message)")
+        }
+    }
+    public func isReviewer() -> Bool{
+        return result.info.isReviewer
+    }
+    public func loginOrNewAccount() -> LoginFollowUpAction {
+        return message == "User Created" ? LoginFollowUpAction.newAccount : LoginFollowUpAction.login
+    }
 }
 
 public enum LoggedInWith {
@@ -24,117 +49,233 @@ public enum LoggedInWith {
     case NotLoggedIn
 }
 
-open class LoginResult : Decodable {
-    
-    open var token : String?
-    
-    public var loggedInWith : LoggedInWith {
-        guard let type = self.login_type else { return .NotLoggedIn }
-        if type.last_type == "social" {
-            return .Facebook
-        }
-        return .EmailPassword
-    }
-    
-    open var login_type : LoginType?
-    open class LoginType : Decodable {
-        open var last_type : String
-        private var _date : Date?
-        open var date : String {
-            get {
-                return _date != nil ? "Applied" : "Not Applied"
-            } set {
-                let new = Date()
-                _date = new.dateFrom(utcString: newValue)
-            }
-        }
-        open var _logged_in = Bool()
-        open var logged_in : String {
-            get {
-                return _logged_in ? "yes" : "no"
-            } set {
-                _logged_in = newValue.toBool()
-            }
-        }
-    }
-    
-    private var _created : Date?
-    open var created : String {
-        get {
-            return _created != nil ? "Applied" : "Not Applied"
-        } set {
-            let new = Date()
-            _created = new.dateFrom(utcString: newValue)
-        }
-    }
-    
-    open var profile : ProfileInfo
-    open class ProfileInfo : Decodable {
-        open var message : String?
-        open var _needsUpdate = Bool()
-        open var email : String
-        open var gender : String?
-        open var needsUpdate : String {
-            get {
-                return _needsUpdate ? "yes" : "no"
-            } set {
-                _needsUpdate = newValue.toBool()
-            }
-        }
-        open var info : Info
-        open class Info : Decodable {
-            open var firstname : String?
-            open var gender : String?
-            open var age : Double?
-            private var _dob : Date?
-            open var dob : String? {
-                get {
-                    return _dob != nil ? "Applied" : "Not Applied"
-                } set {
-                    if let newv = newValue {
-                        let new = Date()
-                        _dob = new.dateFrom(utcString: newv)
-                    }
-                }
-            }
-        }
-        open var tos : Terms
-        open class Terms : Decodable {
-            open var spotit : Object
-            open var stripe : Object
-            open class Object : Decodable {
-                open var _value = Bool()
-                open var value : String {
-                    get {
-                        return _value ? "yes" : "no"
-                    } set {
-                        _value = newValue.toBool()
-                    }
-                }
-                open var version : String
-            }
-        }
-        open var devices : Devices?
-        open class Devices : Decodable {
-            open var id : String
-            open var info : DevInfo
-            open class DevInfo : Decodable {
-                open var os : String
-                open var version : String
-                open var model : String
-            }
-        }
-        open var contact : ContactInfo
-        open class ContactInfo : Decodable {
-            open var cell : String
-            open var language : String
-        }
-    }
-    
-    public var packet : BasicSecPacket?
-
+public enum LoginResultError : Error {
+    case failedToCastCreate
+    case loginTypeTypeNotValid
 }
 
+open class LoginResult : Decodable {
+    
+    open var created : Date
+    open var info : ProfileInfo
+    open var token : String
+    public let packet : BasicSecPacket
+    open var needsUpdate : Bool
+    public let auth : AuthenticationMethod
+    
+    public enum AuthenticationMethod : String {
+        case SMS = "Expect SMS token"
+        case Email = "Expect Email"
+        case None = ""
+    }
+    
+    
+    enum Keys : String, CodingKey {
+        case token = "token"
+        case created = "created"
+        case info = "info"
+        case packet = "packet"
+        case auth = "auth"
+        case needsUpdate = "needsUpdate"
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        let createdString = try container.decode(String.self, forKey: .created)
+        if let date = Date().dateFrom(utcString: createdString) {
+            self.created = date
+        } else {
+            throw LoginResultError.failedToCastCreate
+        }
+        self.info = try container.decode(ProfileInfo.self, forKey: .info)
+        self.token = try container.decode(String.self, forKey: .token)
+        let updateString = try container.decode(String.self, forKey: .needsUpdate)
+        self.needsUpdate = updateString.toBool()
+        self.packet = try container.decode(BasicSecPacket.self, forKey: .packet)
+        if container.contains(.auth), let type = AuthenticationMethod(rawValue : try container.decode(String.self, forKey: .auth)) {
+            self.auth = type
+        } else {
+            self.auth = AuthenticationMethod.None
+        }
+    }
+    
+    public var loggedInWith : LoggedInWith {
+        return self.info.login_type .last_type.toWith()
+    }
+    
+    open class ProfileInfo : Decodable {
+        
+        public let email : String
+        public let login_type : LoginType
+        public let isReviewer : Bool
+        public let tos : Terms
+        public let gender : String?
+        public let firstname : String?
+        public let lastname : String?
+        public let dob : Date?
+        public let age : Double?
+        public let devices : DevicesObject?
+        public let contact : ContactInfo?
+        public let count : Int?
+        
+        public enum Keys : String, CodingKey {
+            case firstname = "firstname"
+            case lastname = "lastname"
+            case gender = "gender"
+            case age = "age"
+            case dob = "dob"
+            case email = "email"
+            case isReviewer = "isReviewer"
+            case tos = "tos"
+            case contact = "contact"
+            case devices = "devices"
+            case count = "count"
+            case login_type = "login_type"
+        }
+        
+        public required init(from decoder : Decoder) throws {
+            let container = try decoder.container(keyedBy: Keys.self)
+            self.email = try container.decode(String.self, forKey: .email)
+            self.login_type = try container.decode(LoginType.self, forKey: .login_type)
+            self.tos = try container.decode(Terms.self, forKey: .tos)
+            if container.contains(.isReviewer) {
+                let updateString = try container.decode(String.self, forKey: .isReviewer)
+                self.isReviewer = updateString.toBool()
+            } else {
+                self.isReviewer = false
+            }
+            
+            if container.contains(.count) {
+                self.count = try container.decode(Int.self, forKey: .count)
+            } else {
+                self.count = nil
+            }
+            if container.contains(.firstname) {
+                self.firstname = try container.decode(String.self, forKey: .firstname)
+            } else {
+                self.firstname = nil
+            }
+            if container.contains(.lastname) {
+                self.lastname = try container.decode(String.self, forKey: .lastname)
+            } else {
+                self.lastname = nil
+            }
+            if container.contains(.gender) {
+                self.gender = try container.decode(String.self, forKey: .gender)
+            } else {
+                self.gender = nil
+            }
+            if container.contains(.dob) {
+                let thisdob = try container.decode(String.self, forKey: .dob)
+                if let date = Date().dateFrom(utcString: thisdob) {
+                    self.dob = date
+                } else {
+                    throw LoginResultError.failedToCastCreate
+                }
+            } else {
+                self.dob = nil
+            }
+            if container.contains(.age) {
+                self.age = try container.decode(Double.self, forKey: .age)
+            } else {
+                self.age = nil
+            }
+            if container.contains(.contact) {
+                self.contact = try container.decode(ContactInfo.self, forKey: .contact)
+            } else {
+                self.contact = nil
+            }
+            if container.contains(.devices) {
+                self.devices = try container.decode(DevicesObject.self, forKey: .devices)
+            } else {
+                self.devices = nil
+            }
+        }
+        
+        open class LoginType : Decodable {
+            public enum LastTypes : String {
+                case social
+                case password
+                public func toWith() -> LoggedInWith {
+                    switch self {
+                    case .password:
+                        return LoggedInWith.EmailPassword
+                    case .social:
+                        return LoggedInWith.Facebook
+                    }
+                }
+            }
+            enum Keys : String, CodingKey {
+                case last_type = "last_type"
+                case date = "date"
+                case logged_in = "logged_in"
+            }
+            open var last_type : LastTypes
+            open var date : Date
+            open var logged_in : Bool
+            public required init(from decoder : Decoder) throws {
+                let container = try decoder.container(keyedBy: Keys.self)
+                self.logged_in = try container.decode(String.self, forKey: .logged_in).toBool()
+                let last = try container.decode(String.self, forKey: .last_type)
+                if let type = LastTypes(rawValue: last) {
+                    self.last_type = type
+                } else {
+                    throw LoginResultError.loginTypeTypeNotValid
+                }
+                let createdString = try container.decode(String.self, forKey: .date)
+                if let date = Date().dateFrom(utcString: createdString) {
+                    self.date = date
+                } else {
+                    throw LoginResultError.failedToCastCreate
+                }
+            }
+        }
+        
+    }
+    
+}
+
+open class Terms : Decodable {
+    open var spotit : Object
+    open var stripe : Object
+    enum Keys : String, CodingKey {
+        case spotit = "spotit"
+        case stripe = "stripe"
+    }
+    public required init(from decoder : Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        self.spotit = try container.decode(Object.self, forKey: .spotit)
+        self.stripe = try container.decode(Object.self, forKey: .stripe)
+    }
+    open class Object : Decodable {
+        open var value : Bool
+        open var version : String
+        enum Keys : String, CodingKey {
+            case value = "value"
+            case version = "version"
+        }
+        public required init(from decoder : Decoder) throws {
+            let container = try decoder.container(keyedBy: Keys.self)
+            self.value = try container.decode(String.self, forKey: .value).toBool()
+            self.version = try container.decode(String.self, forKey: .version)
+        }
+    }
+}
+
+open class DevicesObject : Decodable {
+    open var id : String
+    open var info : DevInfo
+    open class DevInfo : Decodable {
+        open var os : String
+        open var version : String
+        open var model : String
+    }
+}
+
+open class ContactInfo : Decodable {
+    open var cell : String
+    open var language : String
+}
 
 extension String {
     
@@ -144,3 +285,4 @@ extension String {
     }
     
 }
+
