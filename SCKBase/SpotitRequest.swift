@@ -29,11 +29,9 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
             payload = ["email" : email, "password" : password]
         }
         do {
-            self.init()
-            let json = try JSONSerialization.data(withJSONObject: payload!, options: .prettyPrinted)
-            guard let jsonOb = try JSONSerialization.jsonObject(with: json, options: .mutableLeaves) as? [String:Any] else {
-                throw DefaultRequestError.badPayload(payload!)
-            }
+            self.init(url: URL(string: "http://localhost:3000")!)
+            addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let json = try JSONSerialization.data(withJSONObject: payload!, options: [])
             httpBody = json
         } catch {
             throw DefaultRequestError.badPayload(payload!)
@@ -85,7 +83,7 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
             return
         }
         self.url = url
-        addValue("@emailpasssignup", forHTTPHeaderField: "tokenType")
+        addValue("@emailpasssignup", forHTTPHeaderField: "tokentype")
         httpMethod = httpMet.post.rawValue
         URLSession.shared.dataTask(with: self as URLRequest, completionHandler: { (d, response, err) in
             if let e = err {
@@ -96,9 +94,20 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
                 return
             }
             do {
-                completion(try JSONDecoder().decode(UserLoginResponse.self, from: data))
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String:Any] {
+                    print(json)
+                }
+                let response = try JSONDecoder().decode(UserLoginResponse.self, from: data)
+                completion(response)
             } catch let err {
-                reason(BadURLResponse(code: 5000, message: err.localizedDescription))
+                do {
+                    print("failed to throw")
+                    let it = try JSONDecoder().decode(BadURLResponse.self, from: data)
+                    print(it)
+                    reason(it)
+                } catch {
+                    reason(BadURLResponse(code: 5000, message: err.localizedDescription))
+                }
             }
         }).resume()
     }
@@ -131,13 +140,13 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         return URL(string: r + suffix)
     }
     
-    public var root: String? {
+    open var root: String? {
         get {
             return nil
         }
     }
     
-    public var userLogin: String? {
+    open var userLogin: String? {
         get {
             return nil
         }
