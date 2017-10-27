@@ -8,12 +8,38 @@
 
 import Foundation
 
+public enum TokenTypes {
+    case fb, spotit, device
+    public func authTag() -> String {
+        switch self {
+        case .fb:
+            return "Facebook : "
+        case .spotit:
+            return "Bearer : "
+        case .device:
+            return "Device : "
+        }
+    }
+}
+
+public struct PathPair {
+    public let path : String
+    public let type : httpMet
+    public let auth : TokenTypes
+    public init(path: String, type: httpMet, auth: TokenTypes) {
+        self.path = path
+        self.type = type
+        self.auth = auth
+    }
+}
+
 @objc public protocol AssignableNetwork {
     @objc optional var root : String? { get }
 }
 
 @objc public protocol UserEndPoint : AssignableNetwork {
     @objc optional var userLogin : String? { get }
+    @objc optional var userBatchUpdate : String? { get }
 }
 
 open class SpotitRequest : DefaultRequest, UserEndPoint {
@@ -40,9 +66,19 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
     
     //TODO : Make sure the facebook init sets the right headers
     convenience public init(facebookToken: String) throws {
-        self.init()
+        self.init(url: URL(string: "http://localhost:3000")!)
         addValue("@socialnet", forHTTPHeaderField: "tokentype")
         addValue("Facebook : \(facebookToken)", forHTTPHeaderField: "Authorization")
+    }
+    
+    convenience public init(post: Decodable.Type) throws {
+        self.init(url: URL(string: "http://localhost:3000")!)
+        addValue("application/json", forHTTPHeaderField: "Content-Type")
+    }
+    
+    convenience public init() {
+        self.init(url: URL(string: "http://localhost:3000")!)
+        addValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     
     open func login(_ completion: @escaping (UserLoginResponse)->(),_ reason: @escaping (_ response: SNKURLResponse) -> ()) {
@@ -58,18 +94,7 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         addValue("@emailpass", forHTTPHeaderField: "tokenType")
         httpMethod = httpMet.post.rawValue
         URLSession.shared.dataTask(with: self as URLRequest, completionHandler: { (d, response, err) in
-            if let e = err {
-                reason(BadURLResponse(code: 3000, message: e.localizedDescription))
-            }
-            guard let data = d else {
-                reason(BadURLResponse(code: 2000, message: "No Data"))
-                return
-            }
-            do {
-                completion(try JSONDecoder().decode(UserLoginResponse.self, from: data))
-            } catch let err {
-                reason(BadURLResponse(code: 5000, message: err.localizedDescription))
-            }
+            self.handleResponse(d, response, err, completion, reason)
         }).resume()
     }
     
@@ -86,29 +111,7 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         addValue("@emailpasssignup", forHTTPHeaderField: "tokentype")
         httpMethod = httpMet.post.rawValue
         URLSession.shared.dataTask(with: self as URLRequest, completionHandler: { (d, response, err) in
-            if let e = err {
-                reason(BadURLResponse(code: 3000, message: e.localizedDescription))
-            }
-            guard let data = d else {
-                reason(BadURLResponse(code: 2000, message: "No Data"))
-                return
-            }
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String:Any] {
-                    print(json)
-                }
-                let response = try JSONDecoder().decode(UserLoginResponse.self, from: data)
-                completion(response)
-            } catch let err {
-                do {
-                    print("failed to throw")
-                    let it = try JSONDecoder().decode(BadURLResponse.self, from: data)
-                    print(it)
-                    reason(it)
-                } catch {
-                    reason(BadURLResponse(code: 5000, message: err.localizedDescription))
-                }
-            }
+            self.handleResponse(d, response, err, completion, reason)
         }).resume()
     }
     
@@ -120,19 +123,64 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         self.url = realURL(forPath: userLogin)
         httpMethod = httpMet.get.rawValue
         URLSession.shared.dataTask(with: self as URLRequest, completionHandler: { (d, response, err) in
-            if let e = err {
-                reason(BadURLResponse(code: 3000, message: e.localizedDescription))
-            }
-            guard let data = d else {
-                reason(BadURLResponse(code: 2000, message: "No Data"))
-                return
-            }
+            self.handleResponse(d, response, err, completion, reason)
+        }).resume()
+    }
+    
+    public func perform<T>(_ from : T.Type,_ addedPath: PathPair,_ completion: @escaping (T)->(),_ reason: @escaping (_ response: SNKURLResponse) -> ()) where T : Decodable {
+        do {
+            URLSession.shared.dataTask(with: self as URLRequest, completionHandler: { (d, response, err) in
+                print("again")
+                print(d, response, err, "reply")
+                print("then")
+                self.handleResponse(d, response, err, completion, reason)
+            }).resume()
+        } catch let err as TokenCheckError {
+            print(err)
+            reason(BadURLResponse(code: 0000, message: err.localizedDescription))
+        } catch let err {
+            print(err)
+            reason(BadURLResponse(code: 0000, message: err.localizedDescription))
+        }
+    }
+    
+    enum TokenCheckError : Error {
+        case notImplemented
+    }
+    
+    private func checkToken(_ source: TokenTypes) throws -> String {
+        guard let token = userTokenSource(source) else {
+            throw TokenCheckError.notImplemented
+        }
+        return token
+    }
+    
+    
+    
+    public func handleResponse<T>(_ data: Data?,_ response: URLResponse?,_ err: Error?,_ completion: @escaping (T)->(),_ reason: @escaping (_ response: SNKURLResponse) -> ()) where T : Decodable {
+        if let e = err {
+            reason(BadURLResponse(code: 3000, message: e.localizedDescription))
+        }
+        guard let dat = data else {
+            reason(BadURLResponse(code: 2000, message: "No Data"))
+            return
+        }
+        do {
+            completion(try JSONDecoder().decode(T.self, from: dat))
+        } catch let err {
             do {
-                completion(try JSONDecoder().decode(UserLoginResponse.self, from: data))
-            } catch let err {
+                reason(try JSONDecoder().decode(BadURLResponse.self, from: dat))
+            } catch {
                 reason(BadURLResponse(code: 5000, message: err.localizedDescription))
             }
-        }).resume()
+        }
+    }
+    
+    public func setUpCall(_ from: PathPair) throws {
+        let token = try checkToken(from.auth)
+        addValue(from.auth.authTag() + token, forHTTPHeaderField: "Authorization")
+        self.url = realURL(forPath: from.path)
+        httpMethod = from.type.rawValue
     }
     
     private func realURL(forPath: String?) -> URL? {
@@ -150,6 +198,16 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         get {
             return nil
         }
+    }
+    
+    open var userBatchUpdate : String? {
+        get {
+            return nil
+        }
+    }
+    
+    open func userTokenSource(_ tokenType: TokenTypes) -> String? {
+        return nil
     }
     
 }

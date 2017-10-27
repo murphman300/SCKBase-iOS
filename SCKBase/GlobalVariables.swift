@@ -599,10 +599,6 @@ public enum ContrastSide: String {
     }
 }
 
-public enum tokenTypes {
-    
-    case fb, omni, spotit, device
-}
 
 public enum userInfos {
     
