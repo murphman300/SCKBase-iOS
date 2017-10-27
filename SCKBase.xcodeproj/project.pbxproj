@@ -73,6 +73,7 @@
 		B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */; };
 		B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */; };
 		B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BA4091ED4DD34005F1544 /* DateLabeler.swift */; };
+		B5A86AD21FA3C44200757A2C /* SNKReplyBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A86AD11FA3C44200757A2C /* SNKReplyBody.swift */; };
 		B5B244961F60B85900FFCDD9 /* SingleLineFunctionCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B7486A1E99FFF300A5308E /* MultiVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748691E99FFF300A5308E /* MultiVar.swift */; };
@@ -170,6 +171,7 @@
 		B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewInfo.swift; sourceTree = "<group>"; };
 		B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		B58BA4091ED4DD34005F1544 /* DateLabeler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabeler.swift; sourceTree = "<group>"; };
+		B5A86AD11FA3C44200757A2C /* SNKReplyBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKReplyBody.swift; sourceTree = "<group>"; };
 		B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLineFunctionCondition.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B748611E99FFB300A5308E /* SCKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKBase.h; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				B51D05A41FA1028300FEE36D /* Logins+ProfileRelated */,
 				B51D05A31FA1027600FEE36D /* Security */,
 				B51D05A51FA1080200FEE36D /* SNKURLReponse.swift */,
+				B5A86AD11FA3C44200757A2C /* SNKReplyBody.swift */,
 			);
 			name = Decodables;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				B575B6F41F12974900E53CB6 /* ConstraintBlock.swift in Sources */,
 				B58986031F5E3BDE0073A194 /* TableView.swift in Sources */,
 				B52395E11F01D3CF00AF538B /* File.swift in Sources */,
+				B5A86AD21FA3C44200757A2C /* SNKReplyBody.swift in Sources */,
 				B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */,
 				B58B583C1ED2B7B1009A7992 /* State.swift in Sources */,
 				B58B58011ED2A58B009A7992 /* Randoms+Helpers.swift in Sources */,
