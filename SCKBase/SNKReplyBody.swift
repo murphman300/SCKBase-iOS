@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SNKReplyBody<T : Decodable> : SNKURLResponse {
+open class SNKReplyBody<T : Decodable> : SNKURLResponse {
     public var resultCode: Double
     public var message: String
     public let result : T
