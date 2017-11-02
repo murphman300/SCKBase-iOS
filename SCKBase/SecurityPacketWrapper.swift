@@ -14,7 +14,7 @@ public protocol SecurityPipelineWrapper {
     func pipeForPad() -> PadPacketHandler?
 }
 
-public class SecurityPacketWrapper : SecurityPacketDelegate {
+open class SecurityPacketWrapper : SecurityPacketDelegate {
     
     public var pipeLine : SecurityPipelineWrapper?
     
