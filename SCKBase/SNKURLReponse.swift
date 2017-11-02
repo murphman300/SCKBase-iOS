@@ -22,7 +22,7 @@ open class BadURLResponse : SNKURLResponse {
     
     public var message: String
     
-    init(code : Double, message: String) {
+    public init(code : Double, message: String) {
         self.resultCode = code
         self.message = message
     }
