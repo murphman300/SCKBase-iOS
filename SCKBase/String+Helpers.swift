@@ -36,8 +36,6 @@ extension String: ExpressibleByArrayLiteral {
     
 }
 
-
-
 extension String {
     
     var charValues : [Character] {
@@ -50,10 +48,8 @@ extension String {
     }
     
     public func toDate() -> Date? {
-        
         let date = NSDate(dateString: self)
         return date as Date
-        
     }
     
     public func dateIsValid() -> Bool {
@@ -234,7 +230,6 @@ extension String {
                 break
             }
         }
-        
         comp(yes)
     }
     
@@ -337,113 +332,72 @@ extension String {
     
     public func addingPercentEncodingForURLQueryValue() -> String? {
         let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
-        
         return self.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
     }
     
     
     public func dateFromString() -> Date {
         var timeStamp = String()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
         var localTimeZoneName: String { return (NSTimeZone.local as NSTimeZone).name }
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
-        return dateFormatter.date(from: self)!// create date from string
+        return dateFormatter.date(from: self)!
     }
     
     public func toLocalTimeLabelForCell() -> String {
-        
         var timeStamp = String()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
         var localTimeZoneName: String { return (NSTimeZone.local as NSTimeZone).name }
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
         let date = dateFormatter.date(from: self) // create date from string
-        
         let interdate = date?.timeIntervalSinceNow
-        
         let intSecs = Int(interdate!)
         let intermins = intSecs / 60
         _ = intermins / 60
         let intdays = ((interdate! / 60) / 60) / 24
         _ = intdays / 7
         _ = intdays / 30
-        
         let minute = Calendar.current.component(.minute, from: date!)
         let hour = Calendar.current.component(.hour, from: date!)
         let day = Calendar.current.component(.day, from: date!)
         let month = Calendar.current.component(.month, from: date!)
         let year = Calendar.current.component(.year, from: date!)
-        
         let nMinute = Calendar.current.component(.minute, from: NSDate() as Date)
         let nHour = Calendar.current.component(.hour, from: NSDate() as Date)
         let nDay = Calendar.current.component(.day, from: NSDate() as Date)
         let nMonth = Calendar.current.component(.month, from: NSDate() as Date)
         let nYear = Calendar.current.component(.year, from: NSDate() as Date)
-        
         let dif = (nDay - day)
-        
-        
-        
-        //make it general
         guard year != nYear || month != nMonth && dif > 7 else {
-            
             guard (nDay - day) == 7 else {
-                
                 guard dif > 1 else {
-                    
                     guard dif == 1 else {
-                        
                         guard (nHour - hour) != 0 else {
-                            guard (nMinute - minute) != 0 else {
-                                return "Just Now"
-                            }
+                            guard (nMinute - minute) != 0 else { return "Just Now" }
                             return "\(minute) Minutes Ago"
                         }
-                        
                         if nHour > 0 && nHour <= 12 {
-                            guard hour > 12 else {
-                                return "\(hour):\(minute) AM"
-                            }
+                            guard hour > 12 else { return "\(hour):\(minute) AM" }
                             return "Yesterday"
                             
                         } else if nHour > 12 && nHour <= 17{
-                            guard hour < 12 else {
-                                
-                                return "\(hour):\(minute) PM"
-                            }
+                            guard hour < 12 else { return "\(hour):\(minute) PM" }
                             return "This Morning"
                         } else if nHour >= 18 {
-                            
-                            guard (nHour - hour) > 3 else {
-                                
-                                return "\(hour):\(minute) PM"
-                            }
-                            
-                            guard hour > 12 else {
-                                
-                                return "This Morning"
-                            }
-                            
-                            guard hour > 18 else {
-                                
-                                return "This Afternoon"
-                            }
+                            guard (nHour - hour) > 3 else { return "\(hour):\(minute) PM" }
+                            guard hour > 12 else { return "This Morning" }
+                            guard hour > 18 else { return "This Afternoon" }
                         }
                         return "Yesterday"
                     }
-                    
                     return "Yesterday"
                 }
-                
                 return "\(dif) days ago"
             }
-            
             return "A Week Ago"
         }
-        // change to a readable time format and change to local time zone
         dateFormatter.dateFormat = "EEE, MMM d, yyyy"
         dateFormatter.timeZone = NSTimeZone.local
         timeStamp = dateFormatter.string(from: date!)
@@ -457,69 +411,6 @@ extension String {
         return self.substring(to: self.characters.index(self.startIndex, offsetBy: count))
     }
     
-    public func checkIfValidWaid() -> Bool {
-        
-        let count = self.characters.count - 1
-        var new = self.chopSuffix(count - 4)
-        guard new.characters.count == 5 else {
-            print("Fatal Error: checking validWaid returned a string different then 5")
-            return false
-        }
-        guard new.characters.popFirst() == "w" else {
-            print("Fatal Error: the submitted waid string is invalid or not a waid - W was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "a" else {
-            print("Fatal Error: the submitted waid string is invalid or not a waid - A was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "i" else {
-            print("Fatal Error: the submitted waid string is invalid or not a waid - I was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "d" else {
-            print("Fatal Error: the submitted waid string is invalid or not a waid - D was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "_" else {
-            print("Fatal Error: the submitted waid string is invalid or not a waid - _ was not present in the string")
-            return false
-        }
-        
-        return true
-    }
-    
-    public func checkIfValidPrid() -> Bool {
-        
-        let count = self.characters.count - 1
-        var new = self.chopSuffix(count - 4)
-        guard new.characters.count == 5 else {
-            print("Fatal Error: checking validPrid for /prid_/ returned a string different then 5")
-            return false
-        }
-        guard new.characters.popFirst() == "p" else {
-            print("Fatal Error: the submitted prid string is invalid or not a waid - P was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "r" else {
-            print("Fatal Error: the submitted prid string is invalid or not a waid - R was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "i" else {
-            print("Fatal Error: the submitted prid string is invalid or not a waid - I was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "d" else {
-            print("Fatal Error: the submitted prid string is invalid or not a waid - D was not present in the string")
-            return false
-        }
-        guard new.characters.popFirst() == "_" else {
-            print("Fatal Error: the submitted prid string is invalid or not a waid - _ was not present in the string")
-            return false
-        }
-        
-        return true
-    }
     
     public func zipped(_ with: String) -> String {
         var zipped = String()
@@ -581,14 +472,12 @@ extension String {
                 up = true
             }
         }
-        
         return result
     }
     
     
     public func zip(_ with: String) -> String {
         var zipped = String()
-        
         var char = characters
         var char2 = with.characters
         var up : Bool = true
@@ -604,13 +493,11 @@ extension String {
             }
         }
         zipped.append("@4OJKO")
-        
         return zipped
     }
     
     public func apiZip(_ with: String) -> String {
         var zipped = String()
-        
         var char = characters
         var char2 = with.characters
         var up : Bool = true
@@ -625,20 +512,15 @@ extension String {
                 up = true
             }
         }
-        
         return zipped
     }
     
     public func skipZip(_ with: String) -> String {
         var zipped = String()
-        
         _ = UInt32(arc4random_uniform(3))
-        
         var char = characters
         var char2 = with.characters
-        
         var up : Bool = true
-        
         while char2.count != 0 {
             if up {
                 if char.count > 0 {
@@ -651,16 +533,13 @@ extension String {
             }
         }
         zipped.append("@NU89Q")
-        
         return zipped
     }
     
     public func unZippedPair() -> ZippedPair {
         var stri = self
         let res = ZippedPair()
-        
         var up : Bool = true
-        
         while stri.characters.count >= 1 {
             if up {
                 res.other.append(stri.characters.popFirst()!)
@@ -675,22 +554,16 @@ extension String {
     }
     
     open class ZippedPair {
-        
         var main = String()
         var other = String()
     }
     
     public func skipZipAlt(_ with: String) -> String {
-        
         var zipped = String()
-        
         _ = UInt32(arc4random_uniform(2))
-        
         var char = characters
         var char2 = with.characters
-        
         var up : Bool = true
-        
         while char2.count != 0 {
             if up {
                 if char.count > 0 {
@@ -703,7 +576,6 @@ extension String {
             }
         }
         zipped.append("@k?*q#")
-        
         return zipped
     }
     
