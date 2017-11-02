@@ -14,28 +14,34 @@ public protocol SecurePacketHandler {
     func handleValue() -> ((String)->())?
 }
 
+public protocol SecurityPacketDelegate {
+    func handlePad() -> SecurePacketHandler?
+    func handleKey() -> SecurePacketHandler?
+    func handleID() -> SecurePacketHandler?
+}
+
 open class BasicSecPacket : Decodable {
     
-    fileprivate var _pad : String? {
+    public var delegate : SecurityPacketDelegate? {
         didSet {
-            guard let handler = self.manipulatePadOnSet(), let exec = handler.handleValue(), let value = self._pad else { return }
-            exec(value)
+            guard let del = self.delegate else { return }
+            if let padExec = del.handlePad(), let handle = padExec.handleValue(), let value = self._pad {
+                handle(value)
+            }
+            if let padExec = del.handleID(), let handle = padExec.handleValue(), let value = self._id {
+                handle(value)
+            }
+            if let padExec = del.handleKey(), let handle = padExec.handleValue(), let value = self._key {
+                handle(value)
+            }
         }
     }
     
-    fileprivate var _key : String? {
-        didSet {
-            guard let handler = self.manipulateIDOnSet(), let exec = handler.handleValue(), let value = self._key else { return }
-            exec(value)
-        }
-    }
+    fileprivate var _pad : String?
     
-    fileprivate var _id : String? {
-        didSet {
-            guard let handler = self.manipulatePadOnSet(), let exec = handler.handleValue(), let value = self._id else { return }
-            exec(value)
-        }
-    }
+    fileprivate var _key : String?
+    
+    fileprivate var _id : String?
     
     public var pad : String {
         get {
@@ -59,6 +65,23 @@ open class BasicSecPacket : Decodable {
         } set {
             _id = newValue
         }
+    }
+    
+    enum Keys : String, CodingKey {
+        case pad = "pad"
+        case key = "key"
+        case id = "id"
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        self.pad = try container.decode(String.self, forKey: .pad)
+        self.key = try container.decode(String.self, forKey: .key)
+        self.id = try container.decode(String.self, forKey: .id)
+    }
+    
+    private func applyDelegate() {
+        
     }
     
     open func manipulatePadOnSet() -> SecurePacketHandler? {

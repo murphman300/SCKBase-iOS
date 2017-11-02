@@ -27,11 +27,9 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
         let length = Double(base64.lengthOfBytes(using: String.Encoding.utf8))
         let requiredLength = 4 * ceil(length / 4.0)
         let paddingLength = requiredLength - length
-        
         if paddingLength > 0 {
             let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
             base64 = base64 + padding
-            
         }
         return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
     }
@@ -40,12 +38,9 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
         guard let bodyData = base64UrlDecode(value) else {
             throw DecodeError.invalidBase64Url(value)
         }
-        print(bodyData)
         guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: .mutableContainers), let payload = json as? [String: Any] else {
             throw DecodeError.invalidJSON(value)
         }
-        print(json)
-        
         return payload
     }
     
@@ -53,7 +48,6 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
         case invalidBase64Url(String)
         case invalidJSON(String)
         case invalidPartCount(String, Int)
-        
         public var localizedDescription: String {
             switch self {
             case .invalidJSON(let value):

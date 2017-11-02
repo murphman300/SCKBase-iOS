@@ -9,7 +9,7 @@
 import Foundation
 
 public enum TokenTypes {
-    case fb, spotit, device
+    case fb, spotit, device, generic
     public func authTag() -> String {
         switch self {
         case .fb:
@@ -18,6 +18,8 @@ public enum TokenTypes {
             return "Bearer : "
         case .device:
             return "Device : "
+        case .generic:
+            return Bundle.main.bundleIdentifier != nil ? Bundle.main.bundleIdentifier! : ""
         }
     }
 }
@@ -43,6 +45,10 @@ public struct PathPair {
 }
 
 open class SpotitRequest : DefaultRequest, UserEndPoint {
+    
+    enum TokenCheckError : Error {
+        case notImplemented
+    }
     
     convenience public init(email:String, password: String) throws {
         if email.isEmpty || password.isEmpty {
@@ -127,12 +133,10 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         }).resume()
     }
     
-    public func perform<T>(_ from : T.Type,_ addedPath: PathPair,_ completion: @escaping (T)->(),_ reason: @escaping (_ response: SNKURLResponse) -> ()) where T : Decodable {
+    open func perform<T>(_ from : T.Type,_ addedPath: PathPair,_ completion: @escaping (T)->(),_ reason: @escaping (_ response: SNKURLResponse) -> ()) where T : Decodable {
         do {
+            try setUpCall(addedPath)
             URLSession.shared.dataTask(with: self as URLRequest, completionHandler: { (d, response, err) in
-                print("again")
-                print(d, response, err, "reply")
-                print("then")
                 self.handleResponse(d, response, err, completion, reason)
             }).resume()
         } catch let err as TokenCheckError {
@@ -144,18 +148,12 @@ open class SpotitRequest : DefaultRequest, UserEndPoint {
         }
     }
     
-    enum TokenCheckError : Error {
-        case notImplemented
-    }
-    
     private func checkToken(_ source: TokenTypes) throws -> String {
         guard let token = userTokenSource(source) else {
             throw TokenCheckError.notImplemented
         }
         return token
     }
-    
-    
     
     public func handleResponse<T>(_ data: Data?,_ response: URLResponse?,_ err: Error?,_ completion: @escaping (T)->(),_ reason: @escaping (_ response: SNKURLResponse) -> ()) where T : Decodable {
         if let e = err {

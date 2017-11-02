@@ -13,9 +13,6 @@
 		B51D05A11FA0FE8500FEE36D /* SecurityPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */; };
 		B51D05A61FA1080200FEE36D /* SNKURLReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A51FA1080200FEE36D /* SNKURLReponse.swift */; };
 		B51D05A81FA110B600FEE36D /* SpotitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D05A71FA110B600FEE36D /* SpotitRequest.swift */; };
-		B52395E11F01D3CF00AF538B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E01F01D3CF00AF538B /* File.swift */; };
-		B52395E31F01D3D900AF538B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E21F01D3D900AF538B /* Object.swift */; };
-		B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52395E61F01DC3C00AF538B /* JSONObject.swift */; };
 		B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */; };
 		B535D84C1ECF76A500E52710 /* LocalizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */; };
 		B535D8501ECF77CE00E52710 /* DefaultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */; };
@@ -73,6 +70,7 @@
 		B58B58401ED2B892009A7992 /* ModalViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */; };
 		B58B58421ED2B9B9009A7992 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */; };
 		B58BA40A1ED4DD34005F1544 /* DateLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BA4091ED4DD34005F1544 /* DateLabeler.swift */; };
+		B5970F821FAB600600FFDE0E /* SecurityPacketWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F811FAB600600FFDE0E /* SecurityPacketWrapper.swift */; };
 		B5A86AD21FA3C44200757A2C /* SNKReplyBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A86AD11FA3C44200757A2C /* SNKReplyBody.swift */; };
 		B5B244961F60B85900FFCDD9 /* SingleLineFunctionCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */; };
 		B5B748631E99FFB300A5308E /* SCKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B748611E99FFB300A5308E /* SCKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,7 +98,6 @@
 		B5B748A81E9A0AE100A5308E /* TransitionStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */; };
 		B5E822F81F37E5E0002DD945 /* ConstrainableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E822F71F37E5E0002DD945 /* ConstrainableElement.swift */; };
 		B5E822FA1F37EC5C002DD945 /* ConstrainableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E822F91F37EC5C002DD945 /* ConstrainableValues.swift */; };
-		B5E8BE381F02CF6300F14D1E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */; };
 		B5F44EFA1EF06D9B00FD101D /* UILabel+Instantiables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,9 +108,6 @@
 		B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityPacket.swift; sourceTree = "<group>"; };
 		B51D05A51FA1080200FEE36D /* SNKURLReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKURLReponse.swift; sourceTree = "<group>"; };
 		B51D05A71FA110B600FEE36D /* SpotitRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotitRequest.swift; sourceTree = "<group>"; };
-		B52395E01F01D3CF00AF538B /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		B52395E21F01D3D900AF538B /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
-		B52395E61F01DC3C00AF538B /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		B535D8491ECF733000E52710 /* DefaultNetworkClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkClass.swift; sourceTree = "<group>"; };
 		B535D84B1ECF76A500E52710 /* LocalizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedImageView.swift; sourceTree = "<group>"; };
 		B535D84F1ECF77CE00E52710 /* DefaultRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRequest.swift; sourceTree = "<group>"; };
@@ -171,6 +165,7 @@
 		B58B583F1ED2B892009A7992 /* ModalViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewInfo.swift; sourceTree = "<group>"; };
 		B58B58411ED2B9B9009A7992 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		B58BA4091ED4DD34005F1544 /* DateLabeler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabeler.swift; sourceTree = "<group>"; };
+		B5970F811FAB600600FFDE0E /* SecurityPacketWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityPacketWrapper.swift; sourceTree = "<group>"; };
 		B5A86AD11FA3C44200757A2C /* SNKReplyBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKReplyBody.swift; sourceTree = "<group>"; };
 		B5B244951F60B85900FFCDD9 /* SingleLineFunctionCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLineFunctionCondition.swift; sourceTree = "<group>"; };
 		B5B7485E1E99FFB300A5308E /* SCKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,7 +195,6 @@
 		B5B748A71E9A0AE100A5308E /* TransitionStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyles.swift; sourceTree = "<group>"; };
 		B5E822F71F37E5E0002DD945 /* ConstrainableElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstrainableElement.swift; sourceTree = "<group>"; };
 		B5E822F91F37EC5C002DD945 /* ConstrainableValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstrainableValues.swift; sourceTree = "<group>"; };
-		B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B5F44EF91EF06D9B00FD101D /* UILabel+Instantiables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Instantiables.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				B51D05A01FA0FE8500FEE36D /* SecurityPacket.swift */,
+				B5970F811FAB600600FFDE0E /* SecurityPacketWrapper.swift */,
 			);
 			name = Security;
 			sourceTree = "<group>";
@@ -298,10 +293,6 @@
 				B55175231ED68AB50063E356 /* TimeVariables.swift */,
 				B551751F1ED637150063E356 /* LocationTimeDate.swift */,
 				B55175211ED689FF0063E356 /* DistanceString.swift */,
-				B5E8BE371F02CF6300F14D1E /* SwiftyJSON.swift */,
-				B52395E01F01D3CF00AF538B /* File.swift */,
-				B52395E21F01D3D900AF538B /* Object.swift */,
-				B52395E61F01DC3C00AF538B /* JSONObject.swift */,
 				B575B6F11F12971500E53CB6 /* Constrainable.swift */,
 				B575B6F31F12974900E53CB6 /* ConstraintBlock.swift */,
 				B5E822F91F37EC5C002DD945 /* ConstrainableValues.swift */,
@@ -509,18 +500,17 @@
 				B575B6F21F12971500E53CB6 /* Constrainable.swift in Sources */,
 				B535D8541ECF781E00E52710 /* SpotitNetwork.swift in Sources */,
 				B535D84A1ECF733000E52710 /* DefaultNetworkClass.swift in Sources */,
+				B5970F821FAB600600FFDE0E /* SecurityPacketWrapper.swift in Sources */,
 				B58B580D1ED2A676009A7992 /* NSString+Helpers.swift in Sources */,
 				B5B748861E9A00EC00A5308E /* CheckMarkButton.swift in Sources */,
 				B5B748841E9A00E700A5308E /* CheckMarkView.swift in Sources */,
 				B58986051F5E3C1E0073A194 /* BarToggler.swift in Sources */,
 				B5B7488A1E9A015700A5308E /* LocationAddress.swift in Sources */,
-				B52395E31F01D3D900AF538B /* Object.swift in Sources */,
 				B5B7489A1E9A07E800A5308E /* ContrastBackground.swift in Sources */,
 				B51D05A11FA0FE8500FEE36D /* SecurityPacket.swift in Sources */,
 				B5B748801E9A00CE00A5308E /* BaseCell.swift in Sources */,
 				B58B58031ED2A5BE009A7992 /* UIViewController+Helpers.swift in Sources */,
 				B58B58051ED2A5DF009A7992 /* Dictionnary+Helpers.swift in Sources */,
-				B5E8BE381F02CF6300F14D1E /* SwiftyJSON.swift in Sources */,
 				B551751A1ED635640063E356 /* TimeUnits.swift in Sources */,
 				B58B58071ED2A5F8009A7992 /* UIImageView+Helpers.swift in Sources */,
 				B535D8521ECF781700E52710 /* NimbleNetwork.swift in Sources */,
@@ -532,7 +522,6 @@
 				B58B583A1ED2B77E009A7992 /* Country.swift in Sources */,
 				B575B6F41F12974900E53CB6 /* ConstraintBlock.swift in Sources */,
 				B58986031F5E3BDE0073A194 /* TableView.swift in Sources */,
-				B52395E11F01D3CF00AF538B /* File.swift in Sources */,
 				B5A86AD21FA3C44200757A2C /* SNKReplyBody.swift in Sources */,
 				B551751E1ED636310063E356 /* AcuteTimeValues.swift in Sources */,
 				B58B583C1ED2B7B1009A7992 /* State.swift in Sources */,
@@ -576,7 +565,6 @@
 				B58B58271ED2AC90009A7992 /* NSMutableURLRequest+Helpers.swift in Sources */,
 				B55175221ED689FF0063E356 /* DistanceString.swift in Sources */,
 				B58B58111ED2A6B6009A7992 /* NSObject+Helpers.swift in Sources */,
-				B52395E71F01DC3C00AF538B /* JSONObject.swift in Sources */,
 				B58B58131ED2A6E4009A7992 /* NSLocale+Helpers.swift in Sources */,
 				B5B7488E1E9A020400A5308E /* SliderView.swift in Sources */,
 				B58B582D1ED2AF60009A7992 /* SpotitPaths.swift in Sources */,

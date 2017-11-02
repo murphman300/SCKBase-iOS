@@ -10,7 +10,6 @@ import UIKit
 
 extension Date {
     
-    
     public func dateFrom(string: String) -> Date? {
         guard string.characters.count == 10 else { return nil }
         let comps = string.components(separatedBy: "-")
